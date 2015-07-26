@@ -1,0 +1,22 @@
+---
+# TODO download solarized for terminal
+#      or flat : https://github.com/ahmetsulek/flat-terminal
+
+- name: check if homebrew is installed
+  command: brew doctor
+  ignore_errors: True
+  changed_when: no
+  register: brew_check
+
+# FIXME use better condition : when warnings above are ignored, it tries and fails to run this task
+- name: install homebrew
+  shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  when: brew_check.rc != 0
+
+- name: brew tap
+  homebrew_tap: tap="{{ item }}" state=present
+  with_items: "{{ homebrew_taps }}"
+
+- name: Ensure homebrew packages are installed.
+  homebrew: name={{ item }} state=latest
+  with_items: "{{ homebrew_pkgs }} "

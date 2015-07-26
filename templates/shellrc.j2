@@ -1,0 +1,11 @@
+# --
+# -- {{ ansible_managed }}
+# --
+
+export PATH=$PATH:{{ dna_bin_path }}:{{ consul_home }}/bin
+
+# NOTE Make it a function/alias ?
+function dstart() {
+  local MACHINE_NAME="${1:-{{ docker_vm_name }}}"
+  docker-machine start ${MACHINE_NAME} && eval "$(docker-machine env ${MACHINE_NAME})"
+}

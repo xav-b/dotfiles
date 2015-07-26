@@ -1,0 +1,29 @@
+---
+# NOTE use ansible `before` hook in site.yml ?
+- name: create dotfiles head quarters
+  file: path={{ dna_home }} state=directory
+- file: path={{ dna_home }}/bin state=directory
+
+- name: Set zsh as default shell
+  #user: name={{ ansible_ssh_user }} shell=/bin/zsh
+  command: chsh -s /bin/zsh
+  sudo: yes
+
+# NOTE lightweight alternative : https://github.com/tarjoilija/zgen
+- name: install antigen framework
+  get_url:
+    url=https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh
+    dest={{ dna_home }}/antigen.zsh
+
+- name: enable Fish-like autosuggestions for zsh
+  git: repo=https://github.com/tarruda/zsh-autosuggestions dest="{{ dna_home }}/lib/zsh-autosuggestions"
+
+# TODO copy zshrc in dna_home and symlink it in $HOME
+- name: copy shell configurations
+  template: src=./templates/zshrc.j2 dest={{ ansible_env.HOME }}/.zshrc
+- template: src=./templates/plugins.j2 dest={{ dna_home }}/plugins.zsh
+- template: src=./templates/shellrc.j2 dest={{ dna_home }}/shellrc
+
+# TODO check if gem is installed
+- name: install tmuxinator
+  gem: name=tmuxinator state=latest

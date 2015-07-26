@@ -1,0 +1,23 @@
+atom_pkgs:
+- vim-mode
+- ex-mode
+- minimap
+- file-icons
+- markdown-preview
+- color-picker
+- react
+
+homebrew_taps:
+- caskroom/cask
+- caskroom/versions
+- homebrew/versions
+- homebrew/binary
+
+# TODO install and use brew-cask http://caskroom.io/
+homebrew_pkgs:
+- zsh
+- zsh-completions
+- tmux
+- htop
+- git-flow
+- brew-cask

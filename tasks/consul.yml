@@ -1,0 +1,22 @@
+---
+- name: download consul
+  get_url: >
+    url={{ consul_download }}
+    dest={{ tmp_path }}
+  register: consul_was_downloaded
+
+- name: create consul directory
+  file: state=directory path={{ item }}
+  with_items:
+    - "{{ consul_home }}"
+    - "{{ consul_home }}/bin"
+    - "{{ consul_home }}/cert"
+    - "{{ consul_home }}/data"
+    - "{{ consul_config_dir }}"
+
+- name: copy and unpack
+  unarchive: >
+    src={{ tmp_path }}/{{ consul_archive }}
+    dest={{ consul_home }}/bin
+    copy=no
+  when: consul_was_downloaded|changed

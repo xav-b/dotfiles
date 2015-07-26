@@ -1,0 +1,19 @@
+---
+- hosts: mac
+  vars_files:
+    - ./vars/properties.yml
+    - ./vars/packages.yml
+
+  tasks:
+    - include: ./tasks/osx.yml
+      when: ansible_os_family == "Darwin"
+    - include: ./tasks/shell.yml
+    - include: ./tasks/docker.yml
+    - include: ./tasks/consul.yml
+      when: consul_enabled
+
+  # TODO check or install atom https://atom.io/docs/latest/getting-started-installing-atom
+  # TODO check ~/.atom/packages/{{ item }}
+  #- name: install atom packages
+    #command: apm install {{ item }}
+    #with_items: "{{ atom_pkgs }}"

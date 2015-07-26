@@ -1,0 +1,32 @@
+# TODO use ansible facts (ansible mac -m setup -i hosts)
+platform: Darwin
+arch: x86_64
+
+docker_vm_name: dev
+
+# zsh configuration
+# https://github.com/unixorn/awesome-zsh-plugins
+# TODO https://github.com/zsh-users/antigen/wiki/In-the-wild
+# TODO https://github.com/unixorn/awesome-zsh-plugins
+prompt_theme: robbyrussell
+zsh_plugins:
+  # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
+  - common-aliases
+  - command-not-found
+  - zsh-users/zsh-completions src
+  - zsh-users/zsh-syntax-highlighting
+  - zsh-users/zsh-history-substring-search
+  - kennethreitz/autoenv
+
+dna_home: "{{ ansible_env.HOME }}/.dna"
+dna_lib_path: "{{ dna_home }}/lib"
+dna_bin_path: "{{ dna_home }}/bin"
+tmp_path: /tmp
+
+consul_enabled: false
+consul_version: 0.5.2
+consul_archive: "{{ consul_version }}_darwin_amd64.zip"
+consul_download: "https://dl.bintray.com/mitchellh/consul/{{ consul_archive }}"
+consul_home: "{{ dna_lib_path }}/consul"
+# NOTE is /etc/consul.d mandatory ? local user space possible ?
+consul_config_dir: "{{ consul_home }}/consul.d"

@@ -1,0 +1,32 @@
+# --
+# -- {{ ansible_managed }}
+# --
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# -- zsh plugins
+antigen bundles <<EOBUNDLES
+{% for plugin in zsh_plugins %}
+  {{ plugin }}
+{% endfor %}
+EOBUNDLES
+# --
+
+# Load the theme.
+antigen theme {{ prompt_theme }}
+
+# Tell antigen that we're done.
+antigen apply
+
+# -- Load zsh-autosuggestions.
+if [[ -d ~/.dna/lib/zsh-autosuggestions ]]; then
+  source ~/.dna/lib/zsh-autosuggestions/autosuggestions.zsh
+
+  # Enable autosuggestions automatically.
+  zle-line-init() {
+      zle autosuggest-start
+  }
+  zle -N zle-line-init
+fi
+# --
