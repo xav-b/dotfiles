@@ -12,8 +12,8 @@
     - include: ./tasks/consul.yml
       when: consul_enabled
 
-  # TODO check or install atom https://atom.io/docs/latest/getting-started-installing-atom
-  # TODO check ~/.atom/packages/{{ item }}
-  #- name: install atom packages
-    #command: apm install {{ item }}
-    #with_items: "{{ atom_pkgs }}"
+    # TODO check or install atom https://atom.io/docs/latest/getting-started-installing-atom
+    # TODO check ~/.atom/packages/{{ item }}
+    #- name: install atom packages
+    #  command: apm install {{ item }}
+    #  with_items: "{{ atom_pkgs }}"

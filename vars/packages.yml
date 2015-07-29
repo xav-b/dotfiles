@@ -21,3 +21,6 @@ homebrew_pkgs:
 - htop
 - git-flow
 - brew-cask
+- stormssh
+- sshrc
+- cheat

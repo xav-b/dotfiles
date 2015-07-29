@@ -24,6 +24,14 @@
 - template: src=./templates/plugins.j2 dest={{ dna_home }}/plugins.zsh
 - template: src=./templates/shellrc.j2 dest={{ dna_home }}/shellrc
 
+- name: copy tmux configuration
+  file: src=./files/tmux.mac.conf dest={{ ansible_env.HOME }}/.tmux.conf
+# NOTE alternative : https://github.com/tldr-pages/tldr
+- name: copy cheatsheets
+  copy: src={{ item }} dest={{ ansible_env.HOME }}/.cheat/
+  with_fileglob:
+    - ./files/cheatsheets/*
+
 # TODO check if gem is installed
 - name: install tmuxinator
   gem: name=tmuxinator state=latest

@@ -2,6 +2,8 @@
 platform: Darwin
 arch: x86_64
 
+editor: vim
+
 docker_vm_name: dev
 
 # zsh configuration
