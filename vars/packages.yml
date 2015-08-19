@@ -6,6 +6,10 @@ atom_pkgs:
 - markdown-preview
 - color-picker
 - react
+- todo-show
+- atom-beautify
+- rest-client
+- open-recent
 
 homebrew_taps:
 - caskroom/cask
@@ -24,3 +28,4 @@ homebrew_pkgs:
 - stormssh
 - sshrc
 - cheat
+- fzf

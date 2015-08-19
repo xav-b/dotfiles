@@ -3,12 +3,10 @@
 #      or flat : https://github.com/ahmetsulek/flat-terminal
 
 - name: check if homebrew is installed
-  command: brew doctor
-  ignore_errors: True
+  command: which brew
   changed_when: no
   register: brew_check
 
-# FIXME use better condition : when warnings above are ignored, it tries and fails to run this task
 - name: install homebrew
   shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   when: brew_check.rc != 0

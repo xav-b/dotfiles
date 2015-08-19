@@ -1,0 +1,32 @@
+---
+# TODO export N_PREFIX also
+- name: download tj/n
+  git: repo=https://github.com/tj/n dest={{ tmp_path }}/n
+- name: install Node version management
+  shell: PREFIX={{ dna_home }} make install
+  args:
+    chdir: "{{ tmp_path }}/n"
+
+# https://github.com/qw3rtman/gg
+- name: install Git Goodies
+  shell: curl -fsSL git.io/gg.sh | sh
+
+# https://github.com/rimraf/k
+- name: install k, the new l, yo
+  get_url: >
+    url=https://raw.githubusercontent.com/rimraf/k/master/k.sh
+    dest={{ dna_lib_path }}/k.sh
+
+# https://github.com/rupa/z
+- name: install z, the new j, yo
+  get_url: >
+    url=https://raw.githubusercontent.com/rupa/z/master/z.sh
+    dest={{ dna_lib_path }}/z.sh
+
+# https://github.com/peco/peco
+- name: download peco, Simplistic interactive filtering tool
+  get_url: >
+    url=https://github.com/peco/peco/releases/download/v0.3.3/peco_darwin_amd64.zip
+    dest={{ tmp_path }}/peco.zip
+- unarchive: src={{ tmp_path }}/peco.zip dest={{ tmp_path }} copy=no
+- command: mv {{ tmp_path }}/peco_darwin_amd64/peco {{ dna_bin_path }}/peco

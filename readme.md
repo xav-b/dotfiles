@@ -11,7 +11,7 @@ __Resources__
 ```sh
 # install pip and ansible
 curl https://bootstrap.pypa.io/get-pip.py | sudo python
-sudo pip install ansible
+sudo pip install -U ansible
 ```
 
 ## Usage

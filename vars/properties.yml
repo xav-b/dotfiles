@@ -25,6 +25,9 @@ dna_lib_path: "{{ dna_home }}/lib"
 dna_bin_path: "{{ dna_home }}/bin"
 tmp_path: /tmp
 
+dev:
+  python_version: 3.4
+
 consul_enabled: false
 consul_version: 0.5.2
 consul_archive: "{{ consul_version }}_darwin_amd64.zip"

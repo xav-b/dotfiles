@@ -2,10 +2,24 @@
 # -- {{ ansible_managed }}
 # --
 
-export PATH=$PATH:{{ dna_bin_path }}:{{ consul_home }}/bin
+# environment configuration
+test -d {{ dna_bin_path }} && export PATH=$PATH:{{ dna_bin_path }}
+test -d {{ consul_home }}/bin && export PATH=$PATH:{{ consul_home }}/bin
+
+# third party utilities
+[[ -f {{ dna_home }}/lib/k.sh ]] && source {{ dna_home }}/lib/k.sh
+[[ -f {{ dna_home }}/lib/z.sh ]] && source {{ dna_home }}/lib/z.sh
 
 # NOTE Make it a function/alias ?
-function dstart() {
+dstart() {
   local MACHINE_NAME="${1:-{{ docker_vm_name }}}"
   docker-machine start ${MACHINE_NAME} && eval "$(docker-machine env ${MACHINE_NAME})"
+}
+
+dhack () {
+  local name=${1:-lab}
+  local container="$(basename $PWD)_${name}_1"
+  dstart
+  docker-compose up -d
+  docker exec -it ${container} bash
 }
