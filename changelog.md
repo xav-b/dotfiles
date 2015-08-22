@@ -11,3 +11,7 @@ All notable changes to this project will be documented in this file, following [
 - stormssh, sshrc, cheat tools
 - tmux configuration, first cheatsheet
 - install code-tools : n, fzf, peco, k
+- pyenv and plugins installation
+
+## Fixed
+- tmux configuration copy

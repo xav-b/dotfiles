@@ -7,10 +7,21 @@ test -d {{ dna_bin_path }} && export PATH=$PATH:{{ dna_bin_path }}
 test -d {{ consul_home }}/bin && export PATH=$PATH:{{ consul_home }}/bin
 
 # third party utilities
+## z and k
 [[ -f {{ dna_home }}/lib/k.sh ]] && source {{ dna_home }}/lib/k.sh
 [[ -f {{ dna_home }}/lib/z.sh ]] && source {{ dna_home }}/lib/z.sh
 
-# NOTE Make it a function/alias ?
+## pyenv
+export PYENV_ROOT={{ dna_lib_path }}/pyenv eval
+export PATH=$PATH:$PYENV_ROOT/bin
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+source {{ dna_lib_path }}/pyenv/completions/pyenv.zsh
+pyenv global {{ dev.python_version}} || pyenv install {{ dev.python_version }}
+
+## install and/or activate node
+n {{ dev.node_version }}
+
 dstart() {
   local MACHINE_NAME="${1:-{{ docker_vm_name }}}"
   docker-machine start ${MACHINE_NAME} && eval "$(docker-machine env ${MACHINE_NAME})"
