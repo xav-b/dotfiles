@@ -1,6 +1,5 @@
 ---
 # TODO export N_PREFIX also
-# TODO install a node version
 - name: download tj/n
   git: repo=https://github.com/tj/n dest={{ tmp_path }}/n
 - name: install Node version management
@@ -10,7 +9,7 @@
 
 # https://github.com/yyuu/pyenv
 - name: install pyenv and essential plugins
-  shell: PYENV_ROOT="{{ dna_lib_path }}/pyenv" curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+  shell: curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | PYENV_ROOT="{{ dna_lib_path }}/pyenv" bash
 
 # https://github.com/qw3rtman/gg
 - name: install Git Goodies
