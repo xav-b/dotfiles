@@ -1,0 +1,2 @@
+# search 'test_blah' in ~/code/
+ag test_blah ~/code/

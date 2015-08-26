@@ -29,3 +29,8 @@ homebrew_pkgs:
 - sshrc
 - cheat
 - fzf
+- sl
+# https://github.com/ggreer/the_silver_searcher
+- the_silver_searcher
+# http://facebook.github.io/PathPicker/
+- fpp

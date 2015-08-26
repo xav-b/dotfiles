@@ -30,3 +30,10 @@
     dest={{ tmp_path }}/peco.zip
 - unarchive: src={{ tmp_path }}/peco.zip dest={{ tmp_path }} copy=no
 - command: mv {{ tmp_path }}/peco_darwin_amd64/peco {{ dna_bin_path }}/peco
+
+# https://github.com/kennethreitz/autoenv
+- name: install autoenv, Directory-based environments
+  git: >
+    repo=https://github.com/kennethreitz/autoenv
+    dest={{ dna_lib_path }}/autoenv
+    version=c4bc3f5093f73e5c23563aa5cd66307e2804f35d

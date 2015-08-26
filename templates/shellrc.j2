@@ -7,8 +7,9 @@ test -d {{ dna_bin_path }} && export PATH=$PATH:{{ dna_bin_path }}
 test -d {{ consul_home }}/bin && export PATH=$PATH:{{ consul_home }}/bin
 
 # third party utilities
-[[ -f {{ dna_home }}/lib/k.sh ]] && source {{ dna_home }}/lib/k.sh
-[[ -f {{ dna_home }}/lib/z.sh ]] && source {{ dna_home }}/lib/z.sh
+[[ -f {{ dna_lib_path }}/k.sh ]] && source {{ dna_lib_path }}/k.sh
+[[ -f {{ dna_lib_path }}/z.sh ]] && source {{ dna_lib_path }}/z.sh
+[[ -f {{ dna_lib_path }}/autoenv/activate.sh ]] && source {{ dna_lib_path }}/autoenv/activate.sh
 
 # NOTE Make it a function/alias ?
 dstart() {
