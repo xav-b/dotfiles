@@ -13,3 +13,7 @@ All notable changes to this project will be documented in this file, following [
 - install code-tools : n, fzf, peco, k
 - install silver_searcher tool
 - install facebook path picker
+- pyenv and plugins installation
+
+## Fixed
+- tmux configuration copy

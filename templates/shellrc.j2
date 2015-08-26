@@ -11,7 +11,17 @@ test -d {{ consul_home }}/bin && export PATH=$PATH:{{ consul_home }}/bin
 [[ -f {{ dna_lib_path }}/z.sh ]] && source {{ dna_lib_path }}/z.sh
 [[ -f {{ dna_lib_path }}/autoenv/activate.sh ]] && source {{ dna_lib_path }}/autoenv/activate.sh
 
-# NOTE Make it a function/alias ?
+## pyenv
+export PYENV_ROOT={{ dna_lib_path }}/pyenv eval
+export PATH=$PATH:$PYENV_ROOT/bin
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+source {{ dna_lib_path }}/pyenv/completions/pyenv.zsh
+pyenv global {{ dev.python_version}} || pyenv install {{ dev.python_version }}
+
+## install and/or activate node
+n {{ dev.node_version }}
+
 dstart() {
   local MACHINE_NAME="${1:-{{ docker_vm_name }}}"
   docker-machine start ${MACHINE_NAME} && eval "$(docker-machine env ${MACHINE_NAME})"
