@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file, following [
 - install silver_searcher tool
 - install facebook path picker
 - pyenv and plugins installation
+- rbenv, ruby manager
 
 ## Fixed
 - tmux configuration copy

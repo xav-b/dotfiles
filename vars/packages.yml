@@ -38,3 +38,4 @@ homebrew_pkgs:
 - the_silver_searcher
 # http://facebook.github.io/PathPicker/
 - fpp
+- archey
