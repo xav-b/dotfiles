@@ -7,7 +7,6 @@ atom_pkgs:
 - ex-mode
 - minimap
 - file-icons
-- markdown-preview
 - color-picker
 - react
 - todo-show
@@ -38,3 +37,9 @@ homebrew_pkgs:
 - the_silver_searcher
 # http://facebook.github.io/PathPicker/
 - fpp
+- youtube-dl
+
+vim_plugins:
+- "'Syntastic'"
+- "'altercation/vim-colors-solarized'"
+- "'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }"

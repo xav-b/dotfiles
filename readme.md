@@ -19,7 +19,12 @@ sudo pip install -U ansible
 ```sh
 # ad-hoc commands
 ansible all -m ping -i hosts
+
+# provision your local machine
 ansible-playbook -i hosts site.yml --ask-sudo-pass
+
+# limit provisioning to tags
+ansible-playbook -i hosts site.yml --tags editor --ask-sudo-pass
 ```
 
 ## Still manual stuff

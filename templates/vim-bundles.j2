@@ -1,0 +1,12 @@
+" --
+" -- {{ ansible_managed }}
+" --
+
+call plug#begin('~/.vim/plugged')
+
+{% for plugin in vim_plugins %}
+  Plug {{ plugin }}
+{% endfor %}
+
+" Add plugins to &runtimepath
+call plug#end()

@@ -1,4 +1,6 @@
 ---
+# TODO use tags http://docs.ansible.com/ansible/playbooks_tags.html
+# TODO and best practices http://docs.ansible.com/ansible/playbooks_best_practices.html
 - hosts: mac
   vars_files:
     - ./vars/properties.yml
@@ -7,8 +9,22 @@
   tasks:
     - include: ./tasks/osx.yml
       when: ansible_os_family == "Darwin"
+      tags:
+        - env
     - include: ./tasks/shell.yml
+      tags:
+        - hack
+        - env
     - include: ./tasks/code-tools.yml
+      tags:
+        - toolbox
+        - hack
+    - include: ./tasks/vim.yml
+      tags:
+        - editor
+        - ide
+        - toolbox
+        - hack
     # NOTE deprecated by docker toolbox : - include: ./tasks/docker.yml
     - include: ./tasks/consul.yml
       when: consul_enabled
