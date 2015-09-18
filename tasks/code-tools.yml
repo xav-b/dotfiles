@@ -41,3 +41,17 @@
     repo=https://github.com/kennethreitz/autoenv
     dest={{ dna_lib_path }}/autoenv
     version=c4bc3f5093f73e5c23563aa5cd66307e2804f35d
+
+# https://github.com/sstephenson/rbenv
+- name: install rbenv, ruby version manager
+  git: >
+    repo=https://github.com/sstephenson/rbenv
+    dest={{ dna_lib_path }}/rbenv
+    version=9e664b5d27cd7b2bdb94a9ec8ce55c32ebe1ad7a
+
+# https://github.com/sstephenson/ruby-build
+- name: install ruby-build
+  git: >
+    repo=https://github.com/sstephenson/ruby-build
+    dest={{ dna_lib_path }}/rbenv/plugins/ruby-build
+    version=8d6ff298006994334ac04b1efed098851c63cf4c

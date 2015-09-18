@@ -19,8 +19,34 @@ eval "$(pyenv virtualenv-init -)"
 source {{ dna_lib_path }}/pyenv/completions/pyenv.zsh
 pyenv global {{ dev.python_version}} || pyenv install {{ dev.python_version }}
 
+## rbenv
+export PATH="{{ dna_lib_path }}/rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+# Check if requested ruby version is installed
+if [ -z "$(rbenv versions | grep {{ dev.ruby_ version }})" ]; then
+  echo -n "Ruby {{ dev.ruby_version }} not found, do you want to install it ? [y/N] "
+  read answer
+  if [ "${answer}" == "y" ]; then
+    rbenv install {{ dev.ruby_version }}
+  fi
+else
+  echo "Now using ruby {{ dev.ruby_version }}"
+  rbenv global {{ dev.ruby_version }}
+fi
+
 ## install and/or activate node
 n {{ dev.node_version }}
+
+## Docker tips -----------------------------------------------------------------
+
+# delete all untagged images.
+alias dcleani='printf "\ndeleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+
+# Shellscript to delete orphaned docker volumes
+# https://github.com/chadoe/docker-cleanup-volumes
+alias dcleanv='printf "\ndeleting orphan volumes\n\n" && docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes'
+
+## docker-machine/compose ------------------------------------------------------
 
 dstart() {
   local MACHINE_NAME="${1:-{{ docker_vm_name }}}"
@@ -34,3 +60,8 @@ dhack () {
   docker-compose up -d
   docker exec -it ${container} bash
 }
+
+# reset docker-compose fleet
+alias dcreset='printf "\ndestroying fleet ...\n" && docker-compose stop && docker-compose rm -v'
+
+## -----------------------------------------------------------------------------

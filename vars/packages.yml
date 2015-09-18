@@ -38,6 +38,7 @@ homebrew_pkgs:
 # http://facebook.github.io/PathPicker/
 - fpp
 - youtube-dl
+- archey
 
 vim_plugins:
 - "'Syntastic'"
