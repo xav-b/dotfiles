@@ -15,3 +15,6 @@
 
 - name: copy vim plugins configuration
   template: src=./templates/vim-bundles.j2 dest={{ ansible_env.HOME }}/.vim/plugins/bundles.vim
+
+- name: install plugins
+  shell: vim +PlugInstall +qall

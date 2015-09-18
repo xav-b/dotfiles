@@ -18,24 +18,26 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 source {{ dna_lib_path }}/pyenv/completions/pyenv.zsh
 pyenv global {{ dev.python_version}} || pyenv install {{ dev.python_version }}
+echo "init | now using python {{ dev.python_version }}"
 
 ## rbenv
 export PATH="{{ dna_lib_path }}/rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 # Check if requested ruby version is installed
-if [ -z "$(rbenv versions | grep {{ dev.ruby_ version }})" ]; then
+if [ -z "$(rbenv versions | grep {{ dev.ruby_version }})" ]; then
   echo -n "Ruby {{ dev.ruby_version }} not found, do you want to install it ? [y/N] "
   read answer
   if [ "${answer}" == "y" ]; then
     rbenv install {{ dev.ruby_version }}
   fi
 else
-  echo "Now using ruby {{ dev.ruby_version }}"
+  echo "init | now using ruby {{ dev.ruby_version }}"
   rbenv global {{ dev.ruby_version }}
 fi
 
 ## install and/or activate node
 n {{ dev.node_version }}
+echo "init | now using node {{ dev.node_version }}"
 
 ## Docker tips -----------------------------------------------------------------
 

@@ -2,9 +2,9 @@
 platform: Darwin
 arch: x86_64
 
-editor: vim
-
 docker_vm_name: dev
+
+editor: vim
 
 # zsh configuration
 # https://github.com/unixorn/awesome-zsh-plugins
@@ -26,8 +26,9 @@ dna_bin_path: "{{ dna_home }}/bin"
 tmp_path: /tmp
 
 dev:
-  python_version: 3.4
   ruby_version: 2.2.3
+  python_version: 3.4.2
+  node_version: 4.0.0
 
 consul_enabled: false
 consul_version: 0.5.2

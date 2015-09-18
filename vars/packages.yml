@@ -1,7 +1,3 @@
-dev:
-  node_version: 0.12.5
-  python_version: 3.4.2
-
 atom_pkgs:
 - vim-mode
 - ex-mode

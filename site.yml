@@ -20,6 +20,7 @@
         - toolbox
         - hack
     - include: ./tasks/vim.yml
+      when: editor == "vim"
       tags:
         - editor
         - ide
@@ -34,3 +35,9 @@
     - name: install atom packages
       command: apm install {{ item }}
       with_items: "{{ atom_pkgs }}"
+      when: editor == "atom"
+      tags:
+        - editor
+        - ide
+        - toolbox
+        - hack

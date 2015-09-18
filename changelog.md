@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file, following [
 
 ---
 
-## [0.1.3] - 2015-07-29
+## [0.2.4] - 2015-07-29
 ### Added
 - This changelog
 - Mac OSX Apps
@@ -15,6 +15,11 @@ All notable changes to this project will be documented in this file, following [
 - install facebook path picker
 - pyenv and plugins installation
 - rbenv, ruby manager
+- initial vim setup
+
+### Changed
+- Conditional editor
 
 ## Fixed
 - tmux configuration copy
+- shell template variables
