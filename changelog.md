@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file, following [
 
 ---
 
-## [0.2.4] - 2015-07-29
+## [0.2.5] - 2015-07-29
 ### Added
 - This changelog
 - Mac OSX Apps
@@ -19,7 +19,9 @@ All notable changes to this project will be documented in this file, following [
 
 ### Changed
 - Conditional editor
+- new vim plugins
 
 ## Fixed
 - tmux configuration copy
 - shell template variables
+- fix vimrc template

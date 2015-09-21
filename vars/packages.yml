@@ -36,6 +36,7 @@ homebrew_pkgs:
 - youtube-dl
 - archey
 - ctags
+- cmake
 
 # TODO use more vim-plug dynamic actions
 vim_plugins:
@@ -48,12 +49,14 @@ vim_plugins:
 - "'kien/ctrlp.vim'"
 - "'myusuf3/numbers.vim'"
 - "'godlygeek/tabular'"
+- "'plasticboy/vim-markdown'"
 
 vim_plugins_dev:
 - "'Syntastic'"
-- "'majutsushi/tagbar'"
+# FIXME - "'Valloric/YouCompleteMe', { 'do': './install.py' }"
+- "'majutsushi/tagbar', { 'on': 'TagbarToggle' }"
 - "'airblade/vim-gitgutter'"
-# FIXME Need vim 7.4 - "'SirVer/ultisnips'"
+- "'SirVer/ultisnips'"
 - "'honza/vim-snippets'"
 - "'scrooloose/nerdcommenter'"
-# TODO on go files- "'fatih/vim-go'"
+- "'fatih/vim-go', { 'for': 'go' }"
