@@ -4,7 +4,10 @@ arch: x86_64
 
 docker_vm_name: dev
 
-editor: vim
+editor:
+  name: vim
+  tab: 2
+  leader: " "
 
 # zsh configuration
 # https://github.com/unixorn/awesome-zsh-plugins
@@ -27,7 +30,7 @@ tmp_path: /tmp
 
 dev:
   ruby_version: 2.2.3
-  python_version: 3.4.2
+  python_version: 2.7.10
   node_version: 4.0.0
 
 consul_enabled: false

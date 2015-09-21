@@ -35,8 +35,25 @@ homebrew_pkgs:
 - fpp
 - youtube-dl
 - archey
+- ctags
 
+# TODO use more vim-plug dynamic actions
 vim_plugins:
-- "'Syntastic'"
 - "'altercation/vim-colors-solarized'"
 - "'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }"
+- "'bling/vim-airline'"
+- "'easymotion/vim-easymotion'"
+- "'terryma/vim-multiple-cursors'"
+- "'tpope/vim-surround'"
+- "'kien/ctrlp.vim'"
+- "'myusuf3/numbers.vim'"
+- "'godlygeek/tabular'"
+
+vim_plugins_dev:
+- "'Syntastic'"
+- "'majutsushi/tagbar'"
+- "'airblade/vim-gitgutter'"
+# FIXME Need vim 7.4 - "'SirVer/ultisnips'"
+- "'honza/vim-snippets'"
+- "'scrooloose/nerdcommenter'"
+# TODO on go files- "'fatih/vim-go'"

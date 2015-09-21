@@ -1,5 +1,4 @@
 ---
-# TODO use tags http://docs.ansible.com/ansible/playbooks_tags.html
 # TODO and best practices http://docs.ansible.com/ansible/playbooks_best_practices.html
 - hosts: mac
   vars_files:
@@ -20,7 +19,7 @@
         - toolbox
         - hack
     - include: ./tasks/vim.yml
-      when: editor == "vim"
+      when: editor.name == "vim"
       tags:
         - editor
         - ide

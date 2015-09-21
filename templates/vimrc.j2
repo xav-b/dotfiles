@@ -1,8 +1,5 @@
 " ===================== Header ======================
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
-
+" FIXME System copy-paste messes up indentation and comments
 set nocompatible
 set enc=utf-8
 
@@ -11,7 +8,8 @@ if filereadable(expand("~/.vim/before.vimrc"))
   source ~/.vim/before.vimrc
 endif
 
-let mapleader=" "
+" rempa leader to a key easier to reach
+let mapleader={{ editor.leader }}
 imap ii <Esc>
 nnoremap ; :
 
@@ -21,21 +19,22 @@ if filereadable(expand("~/.vim/plugins/bundles.vim"))
 endif
 
 " ================ General Config ====================
-"set number                      " Line numbers are good
+set title                       " change terminal title
 set fileformats=unix
 set backspace=indent,eol,start  " Allow backspace in insert mode
+set copyindent                  " copy the previous indentation on autoindenting
 set history=1000                " Store lots of :cmdline history
+set undolevels=1000             " use many muchos levels of undo
 set showcmd                     " Show incomplete cmds down the bottom
 set showmode                    " Show current mode down the bottom
 set autoread                    " Reload files changed outside vim
-set showmatch		                " Show matching brackets.
+set showmatch                   " Show matching brackets.
 set hidden                      " Hide buffers when they are abandoned
-set mouse=a		                  " Enable mouse usage (all modes)
+set mouse=a                     " Enable mouse usage (all modes)
 set ttyfast                     " Optimize for fast terminal connections
 set gdefault                    " Add the g flag to search/replace by default
 set encoding=utf-8 nobomb       " Use UTF-8 without BOM
-" Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,nbsp:_
+set lcs=tab:▸\ ,trail:·,extends:#,nbsp:_  " Show “invisible” characters
 set list
 
 " Uncomment the following to have Vim jump to the last position when reopening a file
@@ -66,9 +65,10 @@ set undofile
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+set shiftwidth={{ editor.tab }}
+set softtabstop={{ editor.tab }}
+set tabstop={{ editor.tab }}
 set expandtab
 
 if has("syntax")
@@ -80,6 +80,9 @@ if has("autocmd")
 endif
 
 set nowrap       "Don't wrap lines
+" jump to the next row in the editor (much more natural)
+nnoremap j gj
+nnoremap k gk
 
 " ================ Folds ============================
 set foldmethod=indent       " Fold based on indent
@@ -134,6 +137,13 @@ vnoremap <Down> <C-w>j
 
 " ====================== Misc ========================
 
+" a trick by Steve Losh for when you forgot to sudo before editing a file that
+" requires root privileges
+cmap w!! w !sudo tee % >/dev/null
+" maps the ,ev and ,sv keys to edit/reload .vimrc. (I got this from Derek
+" Wyatt’s .vimrc file)
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>e :e
@@ -144,6 +154,7 @@ nnoremap <leader>N :new<CR>     " Opens a new file
 
 "Dict file completion
 set complete+=k
+" TODO default location ? template language ?
 set dictionary+=/usr/share/vim/vim73/spell/fr.utf-8.spl
 " Pressing <leader>ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
@@ -184,3 +195,18 @@ endfunction
 if filereadable(expand("~/.vim/after.vimrc"))
   source ~/.vim/after.vimrc
 endif
+
+" TEMPORARY - to be moved on specific settings
+colorscheme solarized
+set background=dark
+function! ToggleBG()
+  let s:tbg = &background
+  " inversion
+  if s:tbg == "dark"
+    set background=light
+  else
+    set background=dark
+  endif
+endfunction
+noremap <leader>bg :call ToggleBG()<CR>
+" TEMPORARY ----------------------------------

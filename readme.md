@@ -24,7 +24,7 @@ ansible all -m ping -i hosts
 ansible-playbook -i hosts site.yml --ask-sudo-pass
 
 # limit provisioning to tags
-ansible-playbook -i hosts site.yml --tags editor --ask-sudo-pass
+ansible-playbook -i hosts site.yml --tags editor
 ```
 
 ## Still manual stuff

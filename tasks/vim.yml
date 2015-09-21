@@ -1,6 +1,5 @@
 ---
-# TODO install vim or neovim
-# TODO automatic installation of vim plugins
+# TODO download and compile vim
 
 - name: install Vim-plug, Minimalist Vim Plugin Manager
   file: path={{ ansible_env.HOME }}/.vim/autoload state=directory
@@ -10,7 +9,7 @@
     dest={{ ansible_env.HOME }}/.vim/autoload
 
 - name: Copy vimrc configuration file
-  copy: src=./files/vim/vimrc dest={{ ansible_env.HOME }}/.vimrc
+  template: src=./templates/vimrc.j2 dest={{ ansible_env.HOME }}/.vimrc
 # TODO copy an helper like in dna
 
 - name: copy vim plugins configuration
