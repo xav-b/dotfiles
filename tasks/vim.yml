@@ -1,17 +1,33 @@
 ---
-# TODO download and compile vim
+# TODO execute when editor.version >= 7.4
 # download and compile vim 7.4
 - name: download vim 7.4
   git: repo=https://github.com/vim/vim
-       dest=/tmp/vim
+       dest={{ dna_lib_path }}/vim
        version=v7.4.873
 - name: compile and install vim
-  shell: ./configure --with-features=huge --enable-pythoninterp
+  shell: >
+    ./configure
+    --with-features=huge
+    --enable-multibyte
+    --enable-rubyinterp
+    --enable-pythoninterp
+    --with-python-config-dir=/usr/lib/python2.7/config
+    --enable-perlinterp
+    --enable-luainterp
+    --enable-cscope
+    --with-cscope
+    --with-lua
+    --enable-fail-if-missing
+    --with-lua-prefix=/usr/local/Cellar/lua/5.2.4_1
   args:
-    chdir: /tmp/vim
-- shell: make && sudo make install
+    chdir: "{{ dna_lib_path }}/vim"
+- shell: make VIMRUNTIMEDIR=/usr/local/share/vim/vim74/
   args:
-    chdir: /tmp/vim
+    chdir: "{{ dna_lib_path }}/vim"
+- shell: make install
+  args:
+    chdir: "{{ dna_lib_path }}/vim"
 
 - name: install Vim-plug, Minimalist Vim Plugin Manager
   file: path={{ ansible_env.HOME }}/.vim/autoload state=directory

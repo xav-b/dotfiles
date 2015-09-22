@@ -39,8 +39,11 @@ homebrew_pkgs:
 - cmake
 
 # TODO use more vim-plug dynamic actions
+# TODO explore http://vimawesome.com/
 vim_plugins:
 - "'altercation/vim-colors-solarized'"
+# NOTE should install on Mac https://github.com/chriskempson/base16-iterm2 ?
+- "'chriskempson/base16-vim'"
 - "'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }"
 - "'bling/vim-airline'"
 - "'easymotion/vim-easymotion'"
@@ -49,14 +52,29 @@ vim_plugins:
 - "'kien/ctrlp.vim'"
 - "'myusuf3/numbers.vim'"
 - "'godlygeek/tabular'"
-- "'plasticboy/vim-markdown'"
+# TODO and .markdown as well
+- "'plasticboy/vim-markdown', { 'for': 'md' }"
+# tmux integration
+# NOTE study - "'https://github.com/christoomey/vim-tmux-navigator"'
+# TODO check if tmux is installed
+- "'benmills/vimux'"
+# NOTE redundant with ctrlp ?
+# TODO check if ag is installed
+# - "'rking/ag.vim'"
+- "'Raimondi/delimitMate'"
+- "'sjl/gundo.vim'"
+- "'aperezdc/vim-template'"
+- "'vim-scripts/YankRing.vim'"
+# NOTE interesting comparison between buffer tabs (and airline) https://github.com/ap/vim-buftabline
 
 vim_plugins_dev:
 - "'Syntastic'"
+- "'Shougo/neocomplete.vim'"
 # FIXME - "'Valloric/YouCompleteMe', { 'do': './install.py' }"
 - "'majutsushi/tagbar', { 'on': 'TagbarToggle' }"
 - "'airblade/vim-gitgutter'"
 - "'SirVer/ultisnips'"
 - "'honza/vim-snippets'"
 - "'scrooloose/nerdcommenter'"
+# NOTE is there a best alternative ?
 - "'fatih/vim-go', { 'for': 'go' }"
