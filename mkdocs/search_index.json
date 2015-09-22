@@ -1,0 +1,14 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Welcome to DNA Documentation\n\n\n\n\nHacking environment genetics\n\n\n\n\nDNA is a compilation of community dotfiles and projects, aimed at\ncreating the most awesome and powerful development environment.\n\n\nThe project is just getting started, stay tune or contribute !",
+            "title": "Home"
+        },
+        {
+            "location": "/#welcome-to-dna-documentation",
+            "text": "Hacking environment genetics   DNA is a compilation of community dotfiles and projects, aimed at\ncreating the most awesome and powerful development environment.  The project is just getting started, stay tune or contribute !",
+            "title": "Welcome to DNA Documentation"
+        }
+    ]
+}
