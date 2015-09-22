@@ -5,12 +5,14 @@
   git: repo=https://github.com/vim/vim
        dest={{ dna_lib_path }}/vim
        version=v7.4.873
+# custom ruby path bypass rbenv issues
 - name: compile and install vim
   shell: >
     ./configure
     --with-features=huge
     --enable-multibyte
     --enable-rubyinterp
+    --with-ruby-command=/usr/bin/ruby
     --enable-pythoninterp
     --with-python-config-dir=/usr/lib/python2.7/config
     --enable-perlinterp
@@ -25,7 +27,8 @@
 - shell: make VIMRUNTIMEDIR=/usr/local/share/vim/vim74/
   args:
     chdir: "{{ dna_lib_path }}/vim"
-- shell: make install
+# NOTE is sudo really necessary for /usr/local/bin
+- shell: sudo make install
   args:
     chdir: "{{ dna_lib_path }}/vim"
 

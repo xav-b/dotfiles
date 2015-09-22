@@ -37,6 +37,8 @@ homebrew_pkgs:
 - archey
 - ctags
 - cmake
+# needed for vim completion
+- lua
 
 # TODO use more vim-plug dynamic actions
 # TODO explore http://vimawesome.com/
