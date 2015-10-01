@@ -36,6 +36,7 @@ echo "init | now using python {{ dev.python_version }}"
 
 ## -- rbenv
 export PATH="{{ dna_lib_path }}/rbenv/bin:$PATH"
+export RBENV_ROOT="{{ dna_lib_path }}/rbenv/"
 eval "$(rbenv init -)"
 # Check if requested ruby version is installed
 if [ -z "$(rbenv versions | grep {{ dev.ruby_version }})" ]; then
