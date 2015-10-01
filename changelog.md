@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file, following [
 
 ---
 
-## [0.2.5] - 2015-07-29
+## [0.2.6] - 2015-07-29
 ### Added
 - This changelog
 - Mac OSX Apps
@@ -16,6 +16,10 @@ All notable changes to this project will be documented in this file, following [
 - pyenv and plugins installation
 - rbenv, ruby manager
 - initial vim setup
+- v, z for vim
+- spot, tiny search utility
+- shml.sh, style for terminal
+- marker, bookmark your terminal commands
 
 ### Changed
 - Conditional editor

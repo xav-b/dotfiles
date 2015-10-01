@@ -27,6 +27,7 @@
     url=https://raw.githubusercontent.com/rupa/z/master/z.sh
     dest={{ dna_lib_path }}/z.sh
 
+# NOTE what about percol ? (https://github.com/mooz/percol)
 # https://github.com/peco/peco
 - name: download peco, Simplistic interactive filtering tool
   get_url: >

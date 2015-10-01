@@ -48,3 +48,11 @@
 
 - name: install plugins
   shell: /usr/local/bin/vim +PlugInstall +qall
+
+  # TODO download man page (but wher to put it on mac ?)
+  # TODO is it the right mode for user execution ?
+- name: install v, z for vim
+  get_url:
+    url=https://raw.githubusercontent.com/rupa/v/master/v
+    dest={{ dna_bin_path }}/v
+    mode=0755

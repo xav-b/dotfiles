@@ -16,7 +16,9 @@
     dest={{ dna_home }}/antigen.zsh
 
 - name: enable Fish-like autosuggestions for zsh
-  git: repo=https://github.com/tarruda/zsh-autosuggestions dest="{{ dna_home }}/lib/zsh-autosuggestions"
+  git:
+    repo=https://github.com/tarruda/zsh-autosuggestions
+    dest="{{ dna_lib_path }}/zsh-autosuggestions"
 
 # TODO copy zshrc in dna_home and symlink it in $HOME
 - name: copy shell configurations
@@ -35,3 +37,22 @@
 # TODO check if gem is installed
 - name: install tmuxinator
   gem: name=tmuxinator state=latest
+
+- name: install spot, tiny search utility
+  get_url:
+    url=https://raw.github.com/rauchg/spot/master/spot.sh
+    dest={{ dna_bin_path }}/spot
+
+- name: install shml, style for terminal
+  get_url:
+    url=https://raw.githubusercontent.com/MaxCDN/shml/master/shml.sh
+    dest={{ dna_lib_path }}/shml.sh
+
+- name: install marker, bookmark your terminal commands
+  git:
+    repo=https://github.com/pindexis/marker
+    dest="{{ dna_lib_path }}/marker"
+    version=1a2d9137cd9152043fdad1e11532e12373093b64
+- command: ./install.py
+  args:
+    chdir: "{{ dna_lib_path }}/marker"
