@@ -56,3 +56,7 @@
     repo=https://github.com/sstephenson/ruby-build
     dest={{ dna_lib_path }}/rbenv/plugins/ruby-build
     version=8d6ff298006994334ac04b1efed098851c63cf4c
+
+# https://github.com/moovweb/gvm
+- name: install go version manager
+  shell: bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)

@@ -32,6 +32,8 @@ dev:
   ruby_version: 2.2.3
   python_version: 2.7.10
   node_version: 4.0.0
+  # waiting for v1.5.1 : https://github.com/moovweb/gvm/issues/161
+  go_version: 1.4.3
 
 consul_enabled: false
 consul_version: 0.5.2

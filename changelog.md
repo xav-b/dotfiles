@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file, following [
 - spot, tiny search utility
 - shml.sh, style for terminal
 - marker, bookmark your terminal commands
+- go version manager
 
 ### Changed
 - Conditional editor

@@ -1,4 +1,4 @@
-# --
+z --
 # -- {{ ansible_managed }}
 # --
 
@@ -25,6 +25,11 @@ safe_import autoenv/activate.sh
 # TODO use same approach for languages (install confirmation, ...)
 ## ---------------------------- virtual environment
 
+## -- gvm
+[[ -s "/Users/xav/.gvm/scripts/gvm" ]] && source "/Users/xav/.gvm/scripts/gvm"
+printf "init | "
+gvm use go{{ dev.go_version }} || gvm install go{{ dev.go_version }}
+
 ## -- pyenv
 export PYENV_ROOT={{ dna_lib_path }}/pyenv eval
 export PATH=$PATH:$PYENV_ROOT/bin
@@ -32,7 +37,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 source {{ dna_lib_path }}/pyenv/completions/pyenv.zsh
 pyenv global {{ dev.python_version}} || pyenv install {{ dev.python_version }}
-echo "init | now using python {{ dev.python_version }}"
+echo "init | now using Python {{ dev.python_version }}"
 
 ## -- rbenv
 export PATH="{{ dna_lib_path }}/rbenv/bin:$PATH"

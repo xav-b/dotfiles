@@ -82,5 +82,6 @@ vim_plugins_dev:
 - "'SirVer/ultisnips'"
 - "'honza/vim-snippets'"
 - "'scrooloose/nerdcommenter'"
-# NOTE is there a best alternative ?
+# TODO install goimports, gocode and other packages that makes the experience great
+- "'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }"
 - "'fatih/vim-go', { 'for': 'go' }"
