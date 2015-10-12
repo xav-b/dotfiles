@@ -14,7 +14,11 @@
       tags:
         - hack
         - env
-    - include: ./tasks/code-tools.yml
+    - include: ./tasks/compilers.yml
+      tags:
+        - toolbox
+        - hack
+    - include: ./tasks/tools.yml
       tags:
         - toolbox
         - hack
@@ -26,6 +30,7 @@
         - toolbox
         - hack
     # NOTE deprecated by docker toolbox : - include: ./tasks/docker.yml
+
     - include: ./tasks/consul.yml
       when: consul_enabled
 
