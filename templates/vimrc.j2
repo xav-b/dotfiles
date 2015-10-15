@@ -36,6 +36,8 @@ set gdefault                    " Add the g flag to search/replace by default
 set encoding=utf-8 nobomb       " Use UTF-8 without BOM
 set lcs=tab:▸\ ,trail:·,extends:#,nbsp:_  " Show “invisible” characters
 set list
+set cursorline                  " highlight current line"
+set lazyredraw          " redraw only when we need to."
 
 " Uncomment the following to have Vim jump to the last position when reopening a file
 if has("autocmd")
@@ -67,16 +69,17 @@ set smartindent
 set smarttab
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set shiftwidth={{ editor.tab }}
-set softtabstop={{ editor.tab }}
-set tabstop={{ editor.tab }}
-set expandtab
+set softtabstop={{ editor.tab }}  " number of visual spaces per TAB"
+set tabstop={{ editor.tab }}  " number of spaces in tab when editing
+set expandtab   " tabs as spaces
 
 if has("syntax")
-  syntax on
+  syntax enable           " enable syntax processing"
+  " NOTE What's the difference with 'syntax on' ?
 endif
 if has("autocmd")
   filetype plugin on
-  filetype indent on
+  filetype indent on  " load filetype-specific indent files"
 endif
 
 set nowrap       "Don't wrap lines
@@ -91,7 +94,7 @@ set foldcolumn=1
 
 " ================ Completion =======================
 set wildmode=list:longest
-set wildmenu                " Enable ctrl-n and ctrl-p to scroll thru matches
+set wildmenu                " visual autocomplete for command menu"
 set wildignore=*.o,*.obj,*~ " Stuff to ignore when tab completing
 set wildignore+=*.swp,*.bak,*.class,*.pyc
 set wildignore+=*vim/backups*

@@ -1,4 +1,5 @@
 ---
+# NOTE Alternative : brew install macvim --HEAD --with-cscope --with-lua --override-system-vim --with-luajit --with-python
 # TODO execute when editor.version >= 7.4
 # download and compile vim 7.4
 - name: download vim 7.4

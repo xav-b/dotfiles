@@ -34,7 +34,17 @@
   with_fileglob:
     - ./files/cheatsheets/*
 
-# TODO check if gem is installed
+- name: copy scripts
+  copy: src={{ item }} dest={{ dna_bin_path }}
+  with_fileglob:
+    - ./files/scripts/*
+# NOTE to test : will it copy the directory as-is ?
+- name: copy library helpers
+  copy: src={{ item }} dest={{ dna_lib_path }}
+  with_fileglob:
+    - ./files/etc/*
+
+# TODO check if gem is installed (better : use after rbenv installation)
 - name: install tmuxinator
   gem: name=tmuxinator state=latest
 

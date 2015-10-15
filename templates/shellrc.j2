@@ -84,6 +84,10 @@ dhack () {
 # reset docker-compose fleet
 alias dcreset='printf "\ndestroying fleet ...\n" && docker-compose stop && docker-compose rm -v'
 
+# pretty/smart printing for small terminals
+alias dlc='docker-container-list'
+alias dli='docker-image-list'
+
 ## -----------------------------------------------------------------------------
 
 # TODO special alias file
