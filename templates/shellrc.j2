@@ -1,4 +1,4 @@
-z --
+# --
 # -- {{ ansible_managed }}
 # --
 
@@ -18,7 +18,7 @@ safe_import k.sh
 safe_import z.sh
 safe_import autoenv/activate.sh
 # NOTE cannot keep it in dna path ?
-[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker"
+[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
 # FIXME see issue #3
 #safe_import shml.sh
 
@@ -26,7 +26,7 @@ safe_import autoenv/activate.sh
 ## ---------------------------- virtual environment
 
 ## -- gvm
-[[ -s "/Users/xav/.gvm/scripts/gvm" ]] && source "/Users/xav/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 printf "init | "
 gvm use go{{ dev.go_version }} || gvm install go{{ dev.go_version }}
 
