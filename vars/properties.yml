@@ -21,7 +21,6 @@ zsh_plugins:
   - zsh-users/zsh-completions src
   - zsh-users/zsh-syntax-highlighting
   - zsh-users/zsh-history-substring-search
-  - kennethreitz/autoenv
 
 dna_home: "{{ ansible_env.HOME }}/.dna"
 dna_lib_path: "{{ dna_home }}/lib"

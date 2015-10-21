@@ -27,6 +27,6 @@
 # https://github.com/kennethreitz/autoenv
 - name: install autoenv, Directory-based environments
   git: >
-    repo=https://github.com/kennethreitz/autoenv
+    repo=https://github.com/hackliff/autoenv
     dest={{ dna_lib_path }}/autoenv
-    version=c4bc3f5093f73e5c23563aa5cd66307e2804f35d
+    version=040b792c2625c5e73e1a7cf97c5032b631c28b5f
