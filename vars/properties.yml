@@ -1,13 +1,13 @@
+---
+author:
+  name: Xavier Bruhiere
+  mail: xavier.bruhiere@gmail.com
+
 # TODO use ansible facts (ansible mac -m setup -i hosts)
 platform: Darwin
 arch: x86_64
 
 docker_vm_name: dev
-
-editor:
-  name: vim
-  tab: 2
-  leader: " "
 
 # zsh configuration
 # https://github.com/unixorn/awesome-zsh-plugins
@@ -41,3 +41,10 @@ consul_download: "https://dl.bintray.com/mitchellh/consul/{{ consul_archive }}"
 consul_home: "{{ dna_lib_path }}/consul"
 # NOTE is /etc/consul.d mandatory ? local user space possible ?
 consul_config_dir: "{{ consul_home }}/consul.d"
+
+editor:
+  rcpath: "{{ dna_lib_path }}/vimrc"
+  name: vim
+  tab: 2
+  leader: " "
+  colorscheme: solarized

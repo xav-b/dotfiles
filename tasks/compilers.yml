@@ -26,6 +26,8 @@
     version=8d6ff298006994334ac04b1efed098851c63cf4c
 
 # https://github.com/moovweb/gvm
+- stat: path={{ ansible_env.HOME }}/.gvm
+  register: gvm_path
 - name: install go version manager
-  #shell: bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
   shell: curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | bash
+  when: not (gvm_path.stat.isdir is defined and gvm_path.stat.isdir)

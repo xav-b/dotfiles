@@ -28,7 +28,8 @@
 - shell: make VIMRUNTIMEDIR=/usr/local/share/vim/vim74/
   args:
     chdir: "{{ dna_lib_path }}/vim"
-# NOTE is sudo really necessary for /usr/local/bin
+# NOTE is sudo really necessary for /usr/local/bin ?
+# FIXME ask for sudo password even with --ask-sudo
 - shell: sudo make install
   args:
     chdir: "{{ dna_lib_path }}/vim"
@@ -44,13 +45,25 @@
   template: src=./templates/vimrc.j2 dest={{ ansible_env.HOME }}/.vimrc
 # TODO copy an helper like in dna
 
-- name: copy vim plugins configuration
-  template: src=./templates/vim-bundles.j2 dest={{ ansible_env.HOME }}/.vim/plugins/bundles.vim
+- file: path={{ editor.rcpath }}/plugins/settings state=directory
+- name: copy vim partials configuration
+  template: >
+    src={{ item }}
+    dest={{ editor.rcpath }}/plugins/
+  with_fileglob:
+    - ../templates/vimrc-partials/*.vim
 
-- name: install plugins
+- name: copy vim plugins settings
+  template: >
+    src={{ item }}
+    dest={{ editor.rcpath }}/plugins/settings/
+  with_fileglob:
+    - ../templates/vimrc-partials/settings/*.vim
+
+- name: download and install plugins
   shell: /usr/local/bin/vim +PlugInstall +qall
 
-  # TODO download man page (but wher to put it on mac ?)
+  # TODO download man page (but where to put it on mac ?)
   # TODO is it the right mode for user execution ?
 - name: install v, z for vim
   get_url:

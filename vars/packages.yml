@@ -36,35 +36,37 @@ homebrew_pkgs:
 - youtube-dl
 - archey
 - ctags
+# go support : https://github.com/jstemmer/gotags
+- gotags
 - cmake
 # needed for vim completion
 - lua
 
 # TODO use more vim-plug dynamic actions
-# TODO explore http://vimawesome.com/
 vim_plugins:
 - "'altercation/vim-colors-solarized'"
 # NOTE should install on Mac https://github.com/chriskempson/base16-iterm2 ?
 - "'chriskempson/base16-vim'"
 - "'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }"
+# NOTE or "'bling/vim-airline'" ?
 - "'itchyny/lightline.vim'"
-  # NOTE or - "'bling/vim-airline'" ?
 - "'easymotion/vim-easymotion'"
 - "'terryma/vim-multiple-cursors'"
 - "'tpope/vim-surround'"
 - "'kien/ctrlp.vim'"
-- "'myusuf3/numbers.vim'"
-- "'godlygeek/tabular'"
+  # NOTE not sure to keept it: - "'myusuf3/numbers.vim'"
+- "'junegunn/vim-easy-align'"
 # TODO and .markdown as well
 - "'plasticboy/vim-markdown', { 'for': 'md' }"
 # tmux integration
 # NOTE study - "'https://github.com/christoomey/vim-tmux-navigator"'
 # TODO check if tmux is installed
-- "'benmills/vimux'"
 # NOTE redundant with ctrlp ?
-# TODO check if ag is installed
-# - "'rking/ag.vim'"
+- "'benmills/vimux'"
+# NOTE nice switch using ack.vim : https://github.com/carlhuda/janus/blob/master/janus/vim/core/plugins.vim 
+- "'rking/ag.vim'"
 - "'Raimondi/delimitMate'"
+# NOTE need Python
 - "'sjl/gundo.vim'"
 - "'aperezdc/vim-template'"
 - "'vim-scripts/YankRing.vim'"
@@ -72,16 +74,24 @@ vim_plugins:
 # nice markdown editing (http://www.swamphogg.com/2015/vim-setup/)
 - "'junegunn/goyo.vim'"
 - "'junegunn/limelight.vim'"
+- "'jiangmiao/auto-pairs'"
+- "'Yggdroot/indentLine'"
 
 vim_plugins_dev:
 - "'Syntastic'"
 - "'Shougo/neocomplete.vim'"
 # FIXME - "'Valloric/YouCompleteMe', { 'do': './install.py' }"
+# TODO if executable("ctags")
 - "'majutsushi/tagbar', { 'on': 'TagbarToggle' }"
 - "'airblade/vim-gitgutter'"
+# FIXME <tab> doesn't work neocomplete
 - "'SirVer/ultisnips'"
 - "'honza/vim-snippets'"
 - "'scrooloose/nerdcommenter'"
 # TODO install goimports, gocode and other packages that makes the experience great
+#      i.e. /usr/local/bin/vim +GoInstallBinaries +qall
 - "'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }"
 - "'fatih/vim-go', { 'for': 'go' }"
+- "'pangloss/vim-javascript', { 'for': 'js' }"
+- "'elzr/vim-json', { 'for': 'json' }"
+- "'tpope/vim-dispatch'"

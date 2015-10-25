@@ -1,0 +1,2 @@
+ansible==1.9.4
+mkdocs==0.14.0

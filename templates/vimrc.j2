@@ -1,43 +1,51 @@
-" ===================== Header ======================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+"
+" Maintainer:
+"   {{ author.name }} - {{ author.mail }}
+"
+" Version: 
+"       0.1.5 - 24/10/2015
+"
+" Sections:
+"   TODO
+"
+" Provisioning:
+"   {{ ansible_managed }}
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" TODOs {
 " FIXME System copy-paste messes up indentation and comments
-set nocompatible
-set enc=utf-8
+" }
 
 " Load external configuration before anything else
 if filereadable(expand("~/.vim/before.vimrc"))
   source ~/.vim/before.vimrc
 endif
 
-" rempa leader to a key easier to reach
-let mapleader="{{ editor.leader }}"
-imap ii <Esc>
-nnoremap ; :
-
-" ============= Vim-Plug Initialization =============
-if filereadable(expand("~/.vim/plugins/bundles.vim"))
-    source ~/.vim/plugins/bundles.vim
-endif
+" Options {
+    let g:dna_vim_path = expand("{{ editor.rcpath }}")
+    let mapleader="{{ editor.leader }}"  " rempa leader to a key easier to reach
+" }
 
 " ================ General Config ====================
+set nocompatible
 set title                       " change terminal title
 set fileformats=unix
 set backspace=indent,eol,start  " Allow backspace in insert mode
 set copyindent                  " copy the previous indentation on autoindenting
 set history=1000                " Store lots of :cmdline history
 set undolevels=1000             " use many muchos levels of undo
-set showcmd                     " Show incomplete cmds down the bottom
-set showmode                    " Show current mode down the bottom
 set autoread                    " Reload files changed outside vim
 set showmatch                   " Show matching brackets.
 set hidden                      " Hide buffers when they are abandoned
-set mouse=a                     " Enable mouse usage (all modes)
 set ttyfast                     " Optimize for fast terminal connections
-set gdefault                    " Add the g flag to search/replace by default
-set encoding=utf-8 nobomb       " Use UTF-8 without BOM
-set lcs=tab:▸\ ,trail:·,extends:#,nbsp:_  " Show “invisible” characters
-set list
-set cursorline                  " highlight current line"
-set lazyredraw          " redraw only when we need to."
+set lazyredraw                  " redraw only when we need to."
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a                   " Enable mouse usage (all modes)
+endif
 
 " Uncomment the following to have Vim jump to the last position when reopening a file
 if has("autocmd")
@@ -45,13 +53,15 @@ if has("autocmd")
 endif
 
 " ================ Search Settings  =================
+set gdefault                    " Add the g flag to search/replace by default
 set incsearch                   " Find the next match as we type the search
 set hlsearch                    " Hilight searches by default
 set viminfo='100,f1             " Save up to 100 marks, enable capital marks
-set smartcase		            " Do smart case matching
+set smartcase                   " Do smart case matching
 nmap <silent> // :nohlsearch<cr>
 "map <space> /
 map <c-space> ?
+set magic                       " For regular expressions turn magic on
 
 " ================ Turn Off Swap Files ==============
 set noswapfile
@@ -73,39 +83,38 @@ set softtabstop={{ editor.tab }}  " number of visual spaces per TAB"
 set tabstop={{ editor.tab }}  " number of spaces in tab when editing
 set expandtab   " tabs as spaces
 
-if has("syntax")
-  syntax enable           " enable syntax processing"
-  " NOTE What's the difference with 'syntax on' ?
-endif
-if has("autocmd")
-  filetype plugin on
-  filetype indent on  " load filetype-specific indent files"
-endif
-
 set nowrap       "Don't wrap lines
 " jump to the next row in the editor (much more natural)
 nnoremap j gj
 nnoremap k gk
 
 " ================ Folds ============================
-set foldmethod=indent       " Fold based on indent
-set foldnestmax=3           " Deepest fold is 3 levels
+set foldenable              " enable folding
+set foldmethod=indent       " fold based on indent
+set foldlevelstart=3        " fold starting to 3
+set foldnestmax=5           " deepest fold is 5 levels
 set foldcolumn=1
 
 " ================ Completion =======================
 set wildmode=list:longest
 set wildmenu                " visual autocomplete for command menu"
-set wildignore=*.o,*.obj,*~ " Stuff to ignore when tab completing
-set wildignore+=*.swp,*.bak,*.class,*.pyc
 set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
+" Ignore typical uninteresting project directories
+set wildignore+=vendor/**,log/**,tmp/**
+" Ignore medias
 set wildignore+=*.png,*.jpg,*.gif
+" Disable output and VCS files
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem,*.pyc,*.class
+" Disable archive files
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+" Ignore bundler and sass cache
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+" Ignore librarian-chef, vagrant, test-kitchen and Berkshelf cache set
+set wildignore+=*/tmp/librarian/*,*/.vagrant/*,*/.kitchen/*,*/vendor/cookbooks/*
+" Ignore rails temporary asset caches
+set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
+" Disable temp and backup files
+set wildignore+=*.swp,*~,._*,*DS_Store*,*.bak
 
 " ================ Scrolling ========================
 set scrolloff=8             " Start scrolling when we're 8 lines away from margins
@@ -140,13 +149,25 @@ vnoremap <Down> <C-w>j
 
 " ====================== Misc ========================
 
+" Remove the Windows ^M - when the encodings gets messed up
+noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
+" Toggle paste mode on and off
+map <leader>pp :setlocal paste!<cr>
+
+nnoremap B ^              " move to the beginning of line
+nnoremap E $              " move to the end of line
+
+nmap <leader>w :w!<cr>    " Fast saving
 " a trick by Steve Losh for when you forgot to sudo before editing a file that
 " requires root privileges
 cmap w!! w !sudo tee % >/dev/null
+
 " maps the ,ev and ,sv keys to edit/reload .vimrc. (I got this from Derek
 " Wyatt’s .vimrc file)
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>e :e
@@ -170,46 +191,33 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 vmap <C-c> y: call system("xclip -i -selection clipboard", getreg("\" ))<CR>
 nmap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 
-" =================== Status line ====================
-" Make the command line two lines high and change the statusline display to
-" something that looks useful.
-function! CWD()
-    let curdir = substitute(getcwd(), '/home/xavier', "~", "g")
-    return curdir
-endfunction
-
-set cmdheight=1
-" FIXME Move to external settings set statusline=[%l,%v\ %P%M][Cwd\ %{CWD()}][File\ %f]\ %r%h%w\ %#warningmsg#%{SyntasticStatuslineFlag()}%*
-" FIXME Move to external settings : set statusline+=%{fugitive#statusline()}\ (%{&ff})
-
-" define :HighlightLongLines command to highlight the offending parts of
-" lines that are longer than the specified length (defaulting to 80)
-command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
-function! s:HighlightLongLines(width)
-    let targetWidth = a:width != '' ? a:width : 79
-    if targetWidth > 0
-        exec 'match Todo /\%>' . (targetWidth) . 'v/'
-    else
-        echomsg "Usage: HighlightLongLines [natural number]"
-    endif
-endfunction
-
 " Load external configuration after anything else
 if filereadable(expand("~/.vim/after.vimrc"))
   source ~/.vim/after.vimrc
 endif
 
-" TEMPORARY - to be moved on specific settings
-" FIXME make vim install to block : colorscheme solarized
-set background=dark
-function! ToggleBG()
-  let s:tbg = &background
-  " inversion
-  if s:tbg == "dark"
-    set background=light
-  else
-    set background=dark
-  endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Partials: load partial configurations
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function SafeLoad(filepath)
+    let sourcePath = expand(g:dna_vim_path . a:filepath)
+    if filereadable(sourcePath)
+        execute 'source' . sourcePath
+    endif
 endfunction
-noremap <leader>bg :call ToggleBG()<CR>
-" TEMPORARY ----------------------------------
+
+call SafeLoad("/plugins/bundles.vim")
+call SafeLoad("/plugins/mappings.vim")
+call SafeLoad("/plugins/filetypes.vim")
+call SafeLoad("/plugins/ux.vim")
+call SafeLoad("/plugins/settings/complete.vim")
+call SafeLoad("/plugins/settings/misc.vim")
+if executable("ag")
+  if filereadable(g:dna_vim_path . "/plugged/ag.vim")
+    call SafeLoad("/plugins/settings/ag.vim")
+  endif
+endif
