@@ -1,14 +1,54 @@
 {
     "docs": [
         {
-            "location": "/",
-            "text": "Welcome to DNA Documentation\n\n\n\n\nHacking environment genetics\n\n\n\n\nDNA is a compilation of community dotfiles and projects, aimed at\ncreating the most awesome and powerful development environment.\n\n\nThe project is just getting started, stay tune or contribute !",
+            "location": "/", 
+            "text": "Hacker Machine Provisioning\n\n\nInstallation\n\n\nRequirements\n\n\n\n\nPython\n\n\n\n\n$ # tested in the following environment\n\n$ python --version\nPython 2.7.10\n\n$ pip --version\npip 7.1.2\n\n\n\n\n\n\nAnsible\n\n\n\n\n\n\nApp deployment, configuration management and orchestration - all from one\nsystem.\n\n\n\n\n\n\nMkdocs\n\n\n\n\n\n\nFast, simple and downright gorgeous static site generator that's geared\ntowards building project documentation. \n\n\n\n\nJust run \nmake\n to install them.\n\n\nUsage\n\n\n# check ansible is correctly configured for local provisioning (make check)\nansible all -m ping -i hosts\n\n# provision your local machine\nansible-playbook -i hosts site.yml --ask-sudo-pass\n\n# limit provisioning to tags\nansible-playbook -i hosts site.yml --tags editor", 
             "title": "Home"
-        },
+        }, 
         {
-            "location": "/#welcome-to-dna-documentation",
-            "text": "Hacking environment genetics   DNA is a compilation of community dotfiles and projects, aimed at\ncreating the most awesome and powerful development environment.  The project is just getting started, stay tune or contribute !",
-            "title": "Welcome to DNA Documentation"
+            "location": "/#hacker-machine-provisioning", 
+            "text": "", 
+            "title": "Hacker Machine Provisioning"
+        }, 
+        {
+            "location": "/#installation", 
+            "text": "Requirements   Python   $ # tested in the following environment\n\n$ python --version\nPython 2.7.10\n\n$ pip --version\npip 7.1.2   Ansible    App deployment, configuration management and orchestration - all from one\nsystem.    Mkdocs    Fast, simple and downright gorgeous static site generator that's geared\ntowards building project documentation.    Just run  make  to install them.", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/#usage", 
+            "text": "# check ansible is correctly configured for local provisioning (make check)\nansible all -m ping -i hosts\n\n# provision your local machine\nansible-playbook -i hosts site.yml --ask-sudo-pass\n\n# limit provisioning to tags\nansible-playbook -i hosts site.yml --tags editor", 
+            "title": "Usage"
+        }, 
+        {
+            "location": "/apps/", 
+            "text": "Mac OSX Applications\n\n\nManual setup\n\n\n\n\nRemap Caps-Lock to Escape with \nSeil\n\n\nSolarized / \nflat design\n Terminal\n\n\n\n\nProgramming Fonts\n\n\n\n\nApple support\n\n\nSource Code Sans-pro\n\n\nFiraCode\n\n\n\n\nApps\n\n\n\n\nGoogle Chrome\n\n\nDashlane\n - \nLe meilleur gestionnaire de mots de passe et portefeuille num\u00e9rique du monde\n\n\nSpotify\n\n\nPrey\n - \nA solid, feature packed recovery solution for your laptop, phone and tablet\n\n\nAtom\n - \nA hackable text editor for the 21st Century\n\n\nVirtualbox\n\n\nVagrant\n - \nDevelopment environments made easy\n\n\n\n\nApp Store\n\n\n\n\nBehance\n - \nShowcase \n Discover Creative Work\n\n\nPushbullet\n - \nconnects your devices, making them feel like one\n\n\nNoizio\n - \nJust turn on the sound and allow yourself to become engulfed in the tranquil sounds of nature\n\n\nLetterspace\n - \ntaking notes made easy\n\n\nFlashlight\n - \nControl your Mac with a keystroke\n\n\nSpectacle\n - \nMove and resize windows with ease.\n\n\nCheatsheet\n - \nKnow your short cuts\n\n\nPadbury Clock\n - \nminimalist screensaver", 
+            "title": "Apps"
+        }, 
+        {
+            "location": "/apps/#mac-osx-applications", 
+            "text": "", 
+            "title": "Mac OSX Applications"
+        }, 
+        {
+            "location": "/apps/#manual-setup", 
+            "text": "Remap Caps-Lock to Escape with  Seil  Solarized /  flat design  Terminal", 
+            "title": "Manual setup"
+        }, 
+        {
+            "location": "/apps/#programming-fonts", 
+            "text": "Apple support  Source Code Sans-pro  FiraCode   Apps   Google Chrome  Dashlane  -  Le meilleur gestionnaire de mots de passe et portefeuille num\u00e9rique du monde  Spotify  Prey  -  A solid, feature packed recovery solution for your laptop, phone and tablet  Atom  -  A hackable text editor for the 21st Century  Virtualbox  Vagrant  -  Development environments made easy   App Store   Behance  -  Showcase   Discover Creative Work  Pushbullet  -  connects your devices, making them feel like one  Noizio  -  Just turn on the sound and allow yourself to become engulfed in the tranquil sounds of nature  Letterspace  -  taking notes made easy  Flashlight  -  Control your Mac with a keystroke  Spectacle  -  Move and resize windows with ease.  Cheatsheet  -  Know your short cuts  Padbury Clock  -  minimalist screensaver", 
+            "title": "Programming Fonts"
+        }, 
+        {
+            "location": "/vim/", 
+            "text": "Vim loving custom craft", 
+            "title": "Vim"
+        }, 
+        {
+            "location": "/vim/#vim-loving-custom-craft", 
+            "text": "", 
+            "title": "Vim loving custom craft"
         }
     ]
 }

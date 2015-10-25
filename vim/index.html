@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="./img/favicon.ico">
+        <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>DNA Documentation</title>
+	<title>Vim - DNA Documentation</title>
 
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/highlight.css">
-        <link href="./css/base.css" rel="stylesheet">
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -41,7 +41,7 @@
             </button>
 
             <!-- Main title -->
-            <a class="navbar-brand" href=".">DNA Documentation</a>
+            <a class="navbar-brand" href="..">DNA Documentation</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -50,20 +50,20 @@
             <ul class="nav navbar-nav">
             
             
+                <li >
+                    <a href="..">Home</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../apps/">Apps</a>
+                </li>
+            
+            
+            
                 <li class="active">
-                    <a href=".">Home</a>
-                </li>
-            
-            
-            
-                <li >
-                    <a href="apps/">Apps</a>
-                </li>
-            
-            
-            
-                <li >
-                    <a href="vim/">Vim</a>
+                    <a href="./">Vim</a>
                 </li>
             
             
@@ -71,13 +71,13 @@
 
             <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
-                <li class="disabled">
-                    <a rel="next" >
+                <li >
+                    <a rel="next" href="../apps/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
-                <li >
-                    <a rel="prev" href="apps/">
+                <li class="disabled">
+                    <a rel="prev" >
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -91,57 +91,14 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#hacker-machine-provisioning">Hacker Machine Provisioning</a></li>
-        
-            <li><a href="#installation">Installation</a></li>
-        
-            <li><a href="#usage">Usage</a></li>
+        <li class="main active"><a href="#vim-loving-custom-craft">Vim loving custom craft</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="hacker-machine-provisioning">Hacker Machine Provisioning</h1>
-<h2 id="installation">Installation</h2>
-<p><strong>Requirements</strong></p>
-<ul>
-<li>Python</li>
-</ul>
-<pre><code class="Sh">$ # tested in the following environment
-
-$ python --version
-Python 2.7.10
-
-$ pip --version
-pip 7.1.2
-</code></pre>
-
-<ul>
-<li><a href="http://www.ansible.com/">Ansible</a></li>
-</ul>
-<blockquote>
-<p>App deployment, configuration management and orchestration - all from one
-system.</p>
-</blockquote>
-<ul>
-<li><a href="http://www.mkdocs.org/">Mkdocs</a></li>
-</ul>
-<blockquote>
-<p>Fast, simple and downright gorgeous static site generator that's geared
-towards building project documentation. </p>
-</blockquote>
-<p>Just run <code>make</code> to install them.</p>
-<h2 id="usage">Usage</h2>
-<pre><code class="sh"># check ansible is correctly configured for local provisioning (make check)
-ansible all -m ping -i hosts
-
-# provision your local machine
-ansible-playbook -i hosts site.yml --ask-sudo-pass
-
-# limit provisioning to tags
-ansible-playbook -i hosts site.yml --tags editor
-</code></pre></div>
+<h1 id="vim-loving-custom-craft">Vim loving custom craft</h1></div>
         </div>
 
         <footer class="col-md-12">
@@ -150,9 +107,9 @@ ansible-playbook -i hosts site.yml --tags editor
             <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
         </footer>
 
-        <script src="./js/jquery-1.10.2.min.js"></script>
-        <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/highlight.pack.js"></script>
-        <script src="./js/base.js"></script>
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
     </body>
 </html>
