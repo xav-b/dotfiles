@@ -11,6 +11,8 @@
 - [Apple support][apple]
 - [Source Code Sans-pro][codepro]
 - [FiraCode][fira]
+- [Inconsolata][inconsolata]
+- [Anonymous][anonymous]
 
 ### Apps
 
@@ -37,3 +39,5 @@
 [apple]: https://support.apple.com/fr-fr/HT201749
 [fira]: https://github.com/tonsky/FiraCode
 [codepro]: https://github.com/adobe-fonts/source-code-pro
+[anonymous]: http://www.marksimonson.com/fonts/view/anonymous-pro
+[inconsolata]: http://levien.com/type/myfonts/inconsolata.html

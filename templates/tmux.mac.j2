@@ -110,3 +110,14 @@ set-option -g default-command "/bin/bash -c 'which reattach-to-user-namespace >/
 
 # Allow the arrow key to be used immediately after changing windows
 set-option -g repeat-time 0
+
+# TODO move the list to vars, this file to template and change the copy instruction
+# NOTE How to trigger the installation (tmux source tmux.conf && prefix + I) ?
+# List of plugins
+{% for plugin in tmux_plugins %}
+  Plug {{ plugin }}
+  set -g @plugin '{{ plugin }}'
+{% endfor %}
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

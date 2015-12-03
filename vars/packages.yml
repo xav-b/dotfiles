@@ -42,6 +42,14 @@ homebrew_pkgs:
 # needed for vim completion
 - lua
 
+tmux_plugins:
+- tmux-plugins/tmux-sensible
+- tmux-plugins/tmux-yank
+- tmux-plugins/tmux-copycat
+- tmux-plugins/tmux-prefix-highlight
+- tmux-plugins/tmux-sessionist
+- tmux-plugins/tmux-open
+
 # TODO use more vim-plug dynamic actions
 vim_plugins:
 - "'altercation/vim-colors-solarized'"
@@ -76,6 +84,7 @@ vim_plugins:
 - "'junegunn/limelight.vim'"
 - "'jiangmiao/auto-pairs'"
 - "'Yggdroot/indentLine'"
+- "'flazz/vim-colorschemes'"
 
 vim_plugins_dev:
 - "'Syntastic'"

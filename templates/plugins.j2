@@ -19,6 +19,10 @@ antigen theme {{ prompt_theme }}
 # Tell antigen that we're done.
 antigen apply
 
+# substring search
+bindkey '\e[A' history-substring-search-up
+bindkey '\e[B' history-substring-search-down
+
 # -- Load zsh-autosuggestions.
 if [[ -d ~/.dna/lib/zsh-autosuggestions ]]; then
   source ~/.dna/lib/zsh-autosuggestions/autosuggestions.zsh

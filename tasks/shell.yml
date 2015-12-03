@@ -27,7 +27,7 @@
 - template: src=./templates/shellrc.j2 dest={{ dna_home }}/shellrc
 
 - name: copy tmux configuration
-  copy: src=./files/tmux.mac.conf dest={{ ansible_env.HOME }}/.tmux.conf
+  template: src=./templates/tmux.mac.j2 dest={{ ansible_env.HOME }}/.tmux.conf
 # NOTE alternative : https://github.com/tldr-pages/tldr
 - name: copy cheatsheets
   copy: src={{ item }} dest={{ ansible_env.HOME }}/.cheat/
@@ -66,3 +66,9 @@
 - command: ./install.py
   args:
     chdir: "{{ dna_lib_path }}/marker"
+
+- name: download Tmux Plugin Manager
+  git:
+    repo=https://github.com/tmux-plugins/tpm
+    dest="{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+    version=f75ba16d5f8276b6f8d08b73f0e2e35a40719251
