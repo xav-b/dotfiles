@@ -62,7 +62,7 @@ vim_plugins:
 - "'terryma/vim-multiple-cursors'"
 - "'tpope/vim-surround'"
 - "'kien/ctrlp.vim'"
-  # NOTE not sure to keept it: - "'myusuf3/numbers.vim'"
+# NOTE not sure to keept it: - "'myusuf3/numbers.vim'"
 - "'junegunn/vim-easy-align'"
 # TODO and .markdown as well
 - "'plasticboy/vim-markdown', { 'for': 'md' }"
@@ -76,7 +76,7 @@ vim_plugins:
 - "'Raimondi/delimitMate'"
 # NOTE need Python
 - "'sjl/gundo.vim'"
-- "'aperezdc/vim-template'"
+- "'hackliff/vim-template'"
 - "'vim-scripts/YankRing.vim'"
 # NOTE interesting comparison between buffer tabs (and airline) https://github.com/ap/vim-buftabline
 # nice markdown editing (http://www.swamphogg.com/2015/vim-setup/)
