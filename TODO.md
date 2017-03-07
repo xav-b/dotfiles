@@ -14,6 +14,7 @@
 - Fix Vim auto trailing space suppression
 - Fix idempotent rbenv installation
 - Fix Python syntastic in vim
+- Fix Docker installation
 
 - Automate Apps installation thanks to cask ?
 - Use better tags ?

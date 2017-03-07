@@ -1,11 +1,12 @@
 ---
 # TODO and best practices http://docs.ansible.com/ansible/playbooks_best_practices.html
-- hosts: mac
+- hosts: machine
   vars_files:
-    - ./vars/properties.yml
-    - ./vars/packages.yml
+    - ./vars/internal.yml
+    - ./vars/settings.yml
+    - ./vars/editor.yml
+    - ./vars/osx.yml
 
-  # TODO there should be a better way than tags[0] == task
   tasks:
     - include: ./tasks/osx.yml
       when: ansible_os_family == "Darwin"
@@ -24,7 +25,8 @@
       when: editor.name == "vim"
       tags: ["editor", "toolbox", "hack"]
 
-    # NOTE DEPRECATED by docker for Mac : - include: ./tasks/docker.yml
+    # NOTE DEPRECATED docker for Mac and docker CE screwed everything...
+    # - include: ./tasks/docker.yml
 
     # TODO install atom thanks to cask
     # TODO check ~/.atom/packages/{{ item }}

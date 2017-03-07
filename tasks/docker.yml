@@ -1,15 +1,14 @@
 ---
 
+# FIXME docker for Mac and docker CE screwed everything...
 # TODO pull cool docker images ?
 
 - name: install docker client
   get_url:
-    url=https://get.docker.com/builds/{{ platform }}/{{ arch }}/docker-latest
+    url=https://get.docker.com/builds/{{ ansible_os_family }}/{{ ansible_userspace_architecture }}/docker-latest
     dest={{ dna_bin_path }}/docker
     mode=755
 
-# TODO check if virtualbox 4.3.28 is installed (brew-cask can install it)
-# TODO docker-machine create --driver virtualbox {{ vm_name }} on condition
 - name: install docker-machine
   get_url:
     url=https://github.com/docker/machine/releases/download/v0.3.0/docker-machine_darwin-amd64
@@ -18,6 +17,6 @@
 
 - name: install docker-compose
   get_url:
-    url=https://github.com/docker/compose/releases/download/1.3.2/docker-compose-{{ platform }}-{{ arch }}
+    url=https://github.com/docker/compose/releases/download/1.3.2/docker-compose-{{ platform }}-{{ ansible_userspace_architecture }}
     dest={{ dna_bin_path }}/docker-compose
     mode=755

@@ -1,8 +1,4 @@
 ---
-# TODO use ansible facts (ansible mac -m setup -i hosts)
-platform: Darwin
-arch: x86_64
-
 author:
   name: Xavier Bruhiere
   mail: xavier.bruhiere@gmail.com
@@ -13,7 +9,6 @@ git:
 
 # zsh configuration
 # https://github.com/unixorn/awesome-zsh-plugins
-# TODO https://github.com/zsh-users/antigen/wiki/In-the-wild
 prompt_theme: robbyrussell
 zsh_plugins:
   # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
@@ -22,11 +17,6 @@ zsh_plugins:
   - zsh-users/zsh-completions src
   - zsh-users/zsh-syntax-highlighting
   - zsh-users/zsh-history-substring-search
-
-dna_home: "{{ ansible_env.HOME }}/.dna"
-dna_lib_path: "{{ dna_home }}/lib"
-dna_bin_path: "{{ dna_home }}/bin"
-tmp_path: /tmp
 
 dev:
   ruby_version: 2.2.3
@@ -45,4 +35,12 @@ editor:
   leader: " "
   colorscheme: solarized
 
-docker_vm_name: dev
+tmux_plugins:
+  - tmux-plugins/tmux-sensible
+  - tmux-plugins/tmux-yank
+  - tmux-plugins/tmux-copycat
+  - tmux-plugins/tmux-prefix-highlight
+  - tmux-plugins/tmux-sessionist
+  - tmux-plugins/tmux-open
+  - tmux-plugins/tmux-resurrect
+
