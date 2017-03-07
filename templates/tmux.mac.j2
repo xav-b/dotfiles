@@ -1,18 +1,22 @@
-# use C-a, since it's on the home row and easier to hit than C-b
-set-option -g prefix C-a
+# -- general -------------------------------------------------------------------
+set-option -g prefix C-a            # use C-a, since it's on the home row and easier to hit than C-b
 unbind-key C-a
 bind-key C-a send-prefix
-set -g base-index 1
-set -g pane-base-index 1
+
+set -s escape-time 0                # fastest command sequences
+set -s quiet on                     # disable various messages
+# Allow the arrow key to be used immediately after changing windows
+set-option -g repeat-time 0
+
+set -g history-limit 5000           # boost history
 
 # Easy config reload
 bind-key R source-file ~/.tmux.conf \; display-message "tmux.conf reloaded."
 
-# Copy-paste integration
-set-option -g default-command "reattach-to-user-namespace -l bash"
+# -- Copying -------------------------------------------------------------------
 
-# vi is good
-setw -g mode-keys vi
+# Copy-paste integration
+set-option -g default-command "reattach-to-user-namespace -l zsh"
 
 # Setup 'v' to begin selection as in Vim
 bind-key -t vi-copy v begin-selection
@@ -25,14 +29,33 @@ bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 # Bind ']' to use pbpaste
 bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
 
+# Enable native Mac OS X copy/paste
+set-option -g default-command "/bin/bash -c 'which reattach-to-user-namespace >/dev/null && exec reattach-to-user-namespace $SHELL -l || exec $SHELL -l'"
+
+# Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# -- display -------------------------------------------------------------------
+set -g base-index 1                 # start windows numbering at 1
+setw -g pane-base-index 1           # make pane numbering consistent with windows
+
+set-option -g default-terminal screen-256color   # colors !
+
+# set window notifications
+setw -g monitor-activity on
+set -g visual-activity on
+
+# -- navigation ----------------------------------------------------------------
+setw -g mode-keys vi                # vi is good
+
 # mouse behavior
-setw -g mode-mouse on
-set -g mouse-select-pane on
-set -g mouse-resize-pane on
+set -g mouse on
+#setw -g mode-mouse on
+#set -g mouse-select-pane on
+#set -g mouse-resize-pane on
 # Sane scrolling
 set -g terminal-overrides 'xterm*:smcup@:rmcup@'
-
-set-option -g default-terminal screen-256color
 
 bind-key : command-prompt
 bind-key r refresh-client
@@ -74,10 +97,6 @@ bind-key T previous-window
 bind-key [ copy-mode
 bind-key ] paste-buffer
 
-# Setup 'v' to begin selection as in Vim
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
-
 # Update default binding of `Enter` to also use copy-pipe
 unbind -t vi-copy Enter
 bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
@@ -87,7 +106,7 @@ set-window-option -g display-panes-time 1500
 # Status Bar
 set-option -g status-interval 1
 set-option -g status-left ''
-set-option -g status-right '%l:%M%p'
+set-option -g status-right '#{prefix_highlight} #(sysctl -n vm.loadavg)  | %l:%M%p'
 set-window-option -g window-status-current-fg white
 set-option -g status-fg default
 
@@ -96,28 +115,20 @@ set-option -g status-bg black
 set-option -g pane-active-border-fg black
 set-option -g pane-border-fg black
 
-# Status Bar solarized-light
+# status Bar solarized-light
 if-shell "[ \"$COLORFGBG\" = \"11;15\" ]" "set-option -g status-bg white"
 if-shell "[ \"$COLORFGBG\" = \"11;15\" ]" "set-option -g pane-active-border-fg white"
 if-shell "[ \"$COLORFGBG\" = \"11;15\" ]" "set-option -g pane-border-fg white"
 
-# Set window notifications
-setw -g monitor-activity on
-set -g visual-activity on
-
-# Enable native Mac OS X copy/paste
-set-option -g default-command "/bin/bash -c 'which reattach-to-user-namespace >/dev/null && exec reattach-to-user-namespace $SHELL -l || exec $SHELL -l'"
-
-# Allow the arrow key to be used immediately after changing windows
-set-option -g repeat-time 0
-
-# TODO move the list to vars, this file to template and change the copy instruction
-# NOTE How to trigger the installation (tmux source tmux.conf && prefix + I) ?
-# List of plugins
+# TODO How to trigger the installation (tmux source tmux.conf && prefix + I) ?
+# List of plugins {
 {% for plugin in tmux_plugins %}
-  Plug {{ plugin }}
   set -g @plugin '{{ plugin }}'
 {% endfor %}
+# }
+
+# also restore vim-sessions
+set -g @resurrect-strategy-vim 'session'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'

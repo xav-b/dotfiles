@@ -15,32 +15,31 @@ homebrew_taps:
 - caskroom/versions
 - homebrew/versions
 - homebrew/binary
+- neovim/neovim
 
 # TODO install and use brew-cask http://caskroom.io/
+# TODO move as much as possible to portable strategies
 homebrew_pkgs:
+- diff-so-fancy
+- brew install reattach-to-user-namespace  # allow copy/paste in tmux
 - zsh
 - zsh-completions
 - tmux
 - htop
-- git-flow
-- brew-cask
+- git-town             # or git-flow, choose your favorite workflow
 - stormssh
 - sshrc
 - cheat
-- fzf
 - sl
-# https://github.com/ggreer/the_silver_searcher
-- the_silver_searcher
-# http://facebook.github.io/PathPicker/
-- fpp
+- the_silver_searcher  # https://github.com/ggreer/the_silver_searcher
+- fpp                  # http://facebook.github.io/PathPicker/
 - youtube-dl
 - archey
 - ctags
-# go support : https://github.com/jstemmer/gotags
-- gotags
-- cmake
-# needed for vim completion
-- lua
+- gotags               # go support : https://github.com/jstemmer/gotags
+- lua                  # needed for vim completion
+- git-town
+- mercurial            # needed to install go
 
 tmux_plugins:
 - tmux-plugins/tmux-sensible
@@ -49,6 +48,7 @@ tmux_plugins:
 - tmux-plugins/tmux-prefix-highlight
 - tmux-plugins/tmux-sessionist
 - tmux-plugins/tmux-open
+- tmux-plugins/tmux-resurrect
 
 # TODO use more vim-plug dynamic actions
 vim_plugins:
@@ -61,8 +61,8 @@ vim_plugins:
 - "'easymotion/vim-easymotion'"
 - "'terryma/vim-multiple-cursors'"
 - "'tpope/vim-surround'"
-- "'kien/ctrlp.vim'"
-# NOTE not sure to keept it: - "'myusuf3/numbers.vim'"
+- "'ctrlpvim/ctrlp.vim'"
+  # NOTE not sure to keept it: - "'myusuf3/numbers.vim'"
 - "'junegunn/vim-easy-align'"
 # TODO and .markdown as well
 - "'plasticboy/vim-markdown', { 'for': 'md' }"
@@ -71,7 +71,7 @@ vim_plugins:
 # TODO check if tmux is installed
 # NOTE redundant with ctrlp ?
 - "'benmills/vimux'"
-# NOTE nice switch using ack.vim : https://github.com/carlhuda/janus/blob/master/janus/vim/core/plugins.vim 
+# NOTE nice switch using ack.vim : https://github.com/carlhuda/janus/blob/master/janus/vim/core/plugins.vim
 - "'rking/ag.vim'"
 - "'Raimondi/delimitMate'"
 # NOTE need Python
@@ -85,6 +85,8 @@ vim_plugins:
 - "'jiangmiao/auto-pairs'"
 - "'Yggdroot/indentLine'"
 - "'flazz/vim-colorschemes'"
+- "'mhinz/vim-startify'"
+- "'tpope/vim-obsession'"
 
 vim_plugins_dev:
 - "'Syntastic'"
@@ -93,9 +95,8 @@ vim_plugins_dev:
 # TODO if executable("ctags")
 - "'majutsushi/tagbar', { 'on': 'TagbarToggle' }"
 - "'airblade/vim-gitgutter'"
-# FIXME <tab> doesn't work neocomplete
-- "'SirVer/ultisnips'"
-- "'honza/vim-snippets'"
+# FIXME Broken on OSX - "'SirVer/ultisnips'"
+# FIXME idem - "'honza/vim-snippets'"
 - "'scrooloose/nerdcommenter'"
 # TODO install goimports, gocode and other packages that makes the experience great
 #      i.e. /usr/local/bin/vim +GoInstallBinaries +qall
@@ -104,3 +105,4 @@ vim_plugins_dev:
 - "'pangloss/vim-javascript', { 'for': 'js' }"
 - "'elzr/vim-json', { 'for': 'json' }"
 - "'tpope/vim-dispatch'"
+- "'ekalinin/Dockerfile.vim'"

@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file, following [
 
 ## [0.2.6] - 2015-07-29
 ### Added
+- tmux-ressurect plugin
+- conda python package manager choice
 - This changelog
 - Mac OSX Apps
 - stormssh, sshrc, cheat tools
@@ -23,6 +25,7 @@ All notable changes to this project will be documented in this file, following [
 - go version manager
 
 ### Changed
+- use private convention in bash
 - Conditional editor
 - new vim plugins
 

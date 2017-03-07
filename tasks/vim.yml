@@ -1,11 +1,11 @@
 ---
 # NOTE Alternative : brew install macvim --HEAD --with-cscope --with-lua --override-system-vim --with-luajit --with-python
-# TODO execute when editor.version >= 7.4
-# download and compile vim 7.4
-- name: download vim 7.4
+# TODO execute when editor.version >= 7.4 and the one installed is not
+# FIXME lua version (see path) is hardcoded
+# download and compile vim from source
+- name: download latest vim
   git: repo=https://github.com/vim/vim
        dest={{ dna_lib_path }}/vim
-       version=v7.4.873
 # custom ruby path bypass rbenv issues
 - name: compile and install vim
   shell: >
@@ -19,13 +19,11 @@
     --enable-perlinterp
     --enable-luainterp
     --enable-cscope
-    --with-cscope
-    --with-lua
     --enable-fail-if-missing
-    --with-lua-prefix=/usr/local/Cellar/lua/5.2.4_1
+    --with-lua-prefix=/usr/local/Cellar/lua/5.2.4_4
   args:
     chdir: "{{ dna_lib_path }}/vim"
-- shell: make VIMRUNTIMEDIR=/usr/local/share/vim/vim74/
+- shell: make VIMRUNTIMEDIR=/usr/local/share/vim/vim80/
   args:
     chdir: "{{ dna_lib_path }}/vim"
 # NOTE is sudo really necessary for /usr/local/bin ?
@@ -60,8 +58,8 @@
   with_fileglob:
     - ../templates/vimrc-partials/settings/*.vim
 
-- name: download and install plugins
-  shell: /usr/local/bin/vim +PlugInstall +qall
+# FIXME Hang - name: download and install plugins
+#  shell: /usr/local/bin/vim +PlugInstall +qall
 
   # TODO download man page (but where to put it on mac ?)
   # TODO is it the right mode for user execution ?
@@ -70,3 +68,6 @@
     url=https://raw.githubusercontent.com/rupa/v/master/v
     dest={{ dna_bin_path }}/v
     mode=0755
+
+- name: install neovim
+  shell: brew install --HEAD neovim

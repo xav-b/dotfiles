@@ -1,8 +1,10 @@
+# vim: filetype=sh
 # --
 # -- {{ ansible_managed }}
 # --
 
 source {{ dna_home }}/shellrc
+source {{ dna_lib_path }}/aliases
 
 source {{ dna_home }}/antigen.zsh
 source {{ dna_home }}/plugins.zsh
@@ -12,3 +14,14 @@ source {{ dna_home }}/plugins.zsh
 
 export CHEATCOLORS=true
 export EDITOR={{ editor.name }}
+
+
+{% if dev.python_pm == "virtualenv" %}
+# setup python virtualenv
+export WORKON_HOME={{ dev.python_pm_home }}
+source /usr/local/bin/virtualenvwrapper.sh &>/dev/null
+{% endif %}
+
+# need to be filled if you use this kinf of stuff
+# alternatively, one can run `git config --global github.token "xxx"`
+export GITHUB_TOKEN=""

@@ -7,16 +7,20 @@ __Requirements__
 - Python
 
 ```Sh
-$ # tested in the following environment
+$ # tested under conda virtualenv
+$ conda --version
+conda 4.2.12
+$ conda create --name dotfiles python=3
+$ source activate dotfiles
 
 $ python --version
-Python 2.7.10
+Python 3.5.2 :: Continuum Analytics, Inc.
 
 $ pip --version
-pip 7.1.2
+pip 9.0.1 from /Users/...
 ```
 
-- [Ansible][ansible]
+- [Ansible 2.2.0.0][ansible]
 
 > App deployment, configuration management and orchestration - all from one
 > system.
@@ -41,6 +45,11 @@ ansible-playbook -i hosts site.yml --ask-sudo-pass
 # limit provisioning to tags
 ansible-playbook -i hosts site.yml --tags editor
 ```
+
+
+## TODO
+
+- Optional neovim/vim installation
 
 
 [ansible]: http://www.ansible.com/

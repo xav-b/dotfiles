@@ -4,6 +4,10 @@
   file: path={{ dna_home }} state=directory
 - file: path={{ dna_home }}/bin state=directory
 
+# ---
+# --- Configure zsh
+# ---
+
 - name: Set zsh as default shell
   #user: name={{ ansible_ssh_user }} shell=/bin/zsh
   command: chsh -s /bin/zsh
@@ -12,37 +16,58 @@
 # NOTE lightweight alternative : https://github.com/tarjoilija/zgen
 - name: install antigen framework
   get_url:
-    url=https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh
+    url=https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh
     dest={{ dna_home }}/antigen.zsh
 
 - name: enable Fish-like autosuggestions for zsh
   git:
-    repo=https://github.com/tarruda/zsh-autosuggestions
+    repo=https://github.com/zsh-users/zsh-autosuggestions
     dest="{{ dna_lib_path }}/zsh-autosuggestions"
+
+# ---
+# --- Customize shell experience
+# ---
 
 # TODO copy zshrc in dna_home and symlink it in $HOME
 - name: copy shell configurations
   template: src=./templates/zshrc.j2 dest={{ ansible_env.HOME }}/.zshrc
 - template: src=./templates/plugins.j2 dest={{ dna_home }}/plugins.zsh
 - template: src=./templates/shellrc.j2 dest={{ dna_home }}/shellrc
-
-- name: copy tmux configuration
-  template: src=./templates/tmux.mac.j2 dest={{ ansible_env.HOME }}/.tmux.conf
-# NOTE alternative : https://github.com/tldr-pages/tldr
-- name: copy cheatsheets
-  copy: src={{ item }} dest={{ ansible_env.HOME }}/.cheat/
-  with_fileglob:
-    - ./files/cheatsheets/*
+- template: src=./templates/gitconfig.j2 dest={{ ansible_env.HOME }}/.gitconfig
+- copy: src=./files/aliases.sh dest={{ dna_lib_path }}/aliases
 
 - name: copy scripts
   copy: src={{ item }} dest={{ dna_bin_path }}
   with_fileglob:
-    - ./files/scripts/*
+    - ../files/scripts/*
 # NOTE to test : will it copy the directory as-is ?
 - name: copy library helpers
   copy: src={{ item }} dest={{ dna_lib_path }}
   with_fileglob:
-    - ./files/etc/*
+    - ../files/etc/*
+
+# ---
+# --- Configure tmux
+# ---
+
+- name: copy tmux configuration
+  template: src=./templates/tmux.mac.j2 dest={{ ansible_env.HOME }}/.tmux.conf
+
+- name: download Tmux Plugin Manager
+  git:
+    repo=https://github.com/tmux-plugins/tpm
+    dest="{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+    version=f75ba16d5f8276b6f8d08b73f0e2e35a40719251
+
+# ---
+# --- Install shell tools
+# ---
+
+# NOTE alternative : https://github.com/tldr-pages/tldr
+- name: copy cheatsheets
+  copy: src={{ item }} dest={{ ansible_env.HOME }}/.cheat/
+  with_fileglob:
+    - ../files/cheatsheets/*
 
 # TODO check if gem is installed (better : use after rbenv installation)
 - name: install tmuxinator
@@ -58,17 +83,13 @@
     url=https://raw.githubusercontent.com/MaxCDN/shml/master/shml.sh
     dest={{ dna_lib_path }}/shml.sh
 
-- name: install marker, bookmark your terminal commands
-  git:
-    repo=https://github.com/pindexis/marker
-    dest="{{ dna_lib_path }}/marker"
-    version=1a2d9137cd9152043fdad1e11532e12373093b64
-- command: ./install.py
-  args:
-    chdir: "{{ dna_lib_path }}/marker"
-
-- name: download Tmux Plugin Manager
-  git:
-    repo=https://github.com/tmux-plugins/tpm
-    dest="{{ ansible_env.HOME }}/.tmux/plugins/tpm"
-    version=f75ba16d5f8276b6f8d08b73f0e2e35a40719251
+# FIXME only work with bash 4+ (won't be available on Mac)
+# http://apple.stackexchange.com/questions/24632/is-it-safe-to-upgrade-bash-via-homebrew/24635#24635
+#- name: install marker, bookmark your terminal commands
+#  git:
+#    repo=https://github.com/pindexis/marker
+#    dest="{{ dna_lib_path }}/marker"
+#    version=1a2d9137cd9152043fdad1e11532e12373093b64
+#- command: ./install.py
+#  args:
+#    chdir: "{{ dna_lib_path }}/marker"

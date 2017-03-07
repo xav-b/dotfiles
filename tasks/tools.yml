@@ -30,3 +30,19 @@
     repo=https://github.com/hackliff/autoenv
     dest={{ dna_lib_path }}/autoenv
     version=040b792c2625c5e73e1a7cf97c5032b631c28b5f
+
+# https://github.com/gleitz/howdoi
+- name: install howdoi
+  pip: name=howdoi version=1.1.9
+
+# https://github.com/junegunn/fzf
+- name: install fzf, fuzzy searcher
+  git: repo=https://github.com/junegunn/fzf dest={{ dna_lib_path }}/.fzf
+- command: {{ dna_lib_path }}/.fzf/install --all
+
+# http://www.jefftk.com/icdiff
+- name: install icdiff
+  get_url: >
+    url=https://raw.githubusercontent.com/jeffkaufman/icdiff/release-1.8.1/icdiff
+    dest={{ dna_bin_path }}/icdiff
+    mode="ugo+rx"

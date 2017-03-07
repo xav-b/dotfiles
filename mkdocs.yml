@@ -5,4 +5,5 @@ pages:
   - Shell: shell.md
   - Hack: hack.md
   - Vim: vim.md
+  - Candidates: candidates.md
 theme: flatly

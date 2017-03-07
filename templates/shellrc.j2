@@ -1,94 +1,112 @@
+# vim: filetype=sh
 # --
 # -- {{ ansible_managed }}
 # --
 
+# makes `n` to find its lib and bin
+export N_PREFIX={{ dna_home }}
+
+# TODO problem is, you don't know when it fails
 safe_import () {
   local filename=$1
   [[ -f {{ dna_lib_path }}/${filename} ]] && \
     source {{ dna_lib_path }}/${filename}
 }
 
+dna_log () {
+  local level="$1"; shift;
+  local message="$@"
+
+  printf "[ $(date +'%T') ] dna::${level} > ${message}\n"
+}
 
 # -- environment configuration
 test -d {{ dna_bin_path }} && export PATH=$PATH:{{ dna_bin_path }}
-test -d {{ consul_home }}/bin && export PATH=$PATH:{{ consul_home }}/bin
 
-# -- third party utilities
-safe_import k.sh
-safe_import z.sh
-safe_import autoenv/activate.sh
-# NOTE cannot keep it in dna path ?
-[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
-# FIXME see issue #3
-#safe_import shml.sh
-
-# TODO use same approach for languages (install confirmation, ...)
-## ---------------------------- virtual environment
-
-## -- gvm
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-printf "init | "
-gvm use go{{ dev.go_version }} || gvm install go{{ dev.go_version }}
-
-## -- pyenv
-export PYENV_ROOT={{ dna_lib_path }}/pyenv eval
-export PATH=$PATH:$PYENV_ROOT/bin
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-source {{ dna_lib_path }}/pyenv/completions/pyenv.zsh
-pyenv global {{ dev.python_version}} || pyenv install {{ dev.python_version }}
-echo "init | now using Python {{ dev.python_version }}"
-
-## -- rbenv
-export PATH="{{ dna_lib_path }}/rbenv/bin:$PATH"
-export RBENV_ROOT="{{ dna_lib_path }}/rbenv/"
-eval "$(rbenv init -)"
-# Check if requested ruby version is installed
-if [ -z "$(rbenv versions | grep {{ dev.ruby_version }})" ]; then
-  echo -n "Ruby {{ dev.ruby_version }} not found, do you want to install it ? [y/N] "
-  read answer
-  [[ "${answer}" == "y" ]] && rbenv install {{ dev.ruby_version }}
-else
-  echo "init | now using ruby {{ dev.ruby_version }}"
-  rbenv global {{ dev.ruby_version }}
-fi
-
-## -- install and/or activate node
-n {{ dev.node_version }}
-echo "init | now using node {{ dev.node_version }}"
-
-## -- Docker tips --------------------------------------------------------------
-
-# delete all untagged images.
-alias dcleani='printf "\ndeleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
-
-# Shellscript to delete orphaned docker volumes
-# https://github.com/chadoe/docker-cleanup-volumes
-alias dcleanv='printf "\ndeleting orphan volumes\n\n" && docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes'
-
-## docker-machine/compose ------------------------------------------------------
-
-dstart() {
-  local MACHINE_NAME="${1:-{{ docker_vm_name }}}"
-  docker-machine start ${MACHINE_NAME} && eval "$(docker-machine env ${MACHINE_NAME})"
+__load_tools () {
+  # -- third party utilities
+  dna_log "info" "activating k, z, autoenv"
+  safe_import k.sh
+  safe_import z.sh
+  safe_import autoenv/activate.sh
+  # NOTE cannot keep it in dna path ?
+  # FIXME [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
+  # FIXME see issue #3
+  #safe_import shml.sh
 }
 
-dhack () {
-  local name=${1:-lab}
-  local container="$(basename $PWD)_${name}_1"
-  dstart
-  docker-compose up -d
-  docker exec -it ${container} bash
+# --
+# -- virtual environments
+# --
+
+__init_go () {
+  local go_version="go${1}"
+  # -- gvm
+  dna_log "info" "initializing go version manager"
+  [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+  [ -z "$(gvm list | grep ${go_version})" ] && gvm install ${go_version}
 }
 
-# reset docker-compose fleet
-alias dcreset='printf "\ndestroying fleet ...\n" && docker-compose stop && docker-compose rm -v'
+__init_pyenv () {
+  local python_version="$1"
 
-# pretty/smart printing for small terminals
-alias dlc='docker-container-list'
-alias dli='docker-image-list'
+  # -- pyenv
+  export PYENV_ROOT={{ dna_lib_path }}/pyenv eval
+  export PATH=$PATH:$PYENV_ROOT/bin
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+  source {{ dna_lib_path }}/pyenv/completions/pyenv.zsh
+  pyenv global ${python_version} || pyenv install ${python_version}
+  dna_log "info" "now using Python ${python_version}"
+}
 
-## -----------------------------------------------------------------------------
+__init_conda () {
+  local conda_home="$1"
+  export PATH=${conda_home}/bin:$PATH
+  # all set !
+}
 
-# TODO special alias file
-alias vim='/usr/local/bin/vim'
+__init_ruby () {
+  local ruby_version="$1"
+
+  # -- rbenv
+  export PATH="{{ dna_lib_path }}/rbenv/bin:$PATH"
+  export RBENV_ROOT="{{ dna_lib_path }}/rbenv/"
+  eval "$(rbenv init -)"
+
+  dna_log "info" "initializing ruby version manager"
+  # Check if requested ruby version is installed
+  [ -z "$(rbenv versions | grep ${ruby_version})" ] && rbenv install ${ruby_version}
+
+  rbenv global ${ruby_version}
+  dna_log "info" "now using Ruby ${ruby_version}"
+}
+
+__init_node () {
+  local node_version="$1"
+
+  # -- install and/or activate node
+  n ${node_version}
+  dna_log "info" "now using node ${node_version}"
+}
+
+__load_ssh_keys () {
+  # TODO keys as argument ? loop over them ?
+  test -f $HOME/.ssh/id_rsa && ssh-add $HOME/.ssh/id_rsa
+  dna_log "info" "ssh keys loaded:\n\t$(ssh-add -l)"
+}
+
+__load_ssh_keys
+__load_tools
+
+{% if dev.python_pm == "pyenv" %}
+  __init_pyenv "{{ dev.python_version }}"
+{% elif dev.python_pm == "pyenv" %}
+  __init_conda "{{ dev.python_home }}"
+{% endif %}
+__init_go "{{ dev.go_version }}"
+#__init_node "{{ dev.node_version }}"
+#__init_ruby "{{ dev.ruby_version }}"
+
+# remove duplicates in bash history
+export HISTCONTROL=ignoreboth:erasedups

@@ -1,18 +1,19 @@
 ---
-author:
-  name: Xavier Bruhiere
-  mail: xavier.bruhiere@gmail.com
-
 # TODO use ansible facts (ansible mac -m setup -i hosts)
 platform: Darwin
 arch: x86_64
 
-docker_vm_name: dev
+author:
+  name: Xavier Bruhiere
+  mail: xavier.bruhiere@gmail.com
+
+git:
+  username: hackliff
+  mail: xavier.bruhiere@gmail.com
 
 # zsh configuration
 # https://github.com/unixorn/awesome-zsh-plugins
 # TODO https://github.com/zsh-users/antigen/wiki/In-the-wild
-# TODO https://github.com/unixorn/awesome-zsh-plugins
 prompt_theme: robbyrussell
 zsh_plugins:
   # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
@@ -29,18 +30,13 @@ tmp_path: /tmp
 
 dev:
   ruby_version: 2.2.3
-  python_version: 2.7.10
-  node_version: 4.0.0
-  # waiting for v1.5.1 : https://github.com/moovweb/gvm/issues/161
-  go_version: 1.4.3
-
-consul_enabled: false
-consul_version: 0.5.2
-consul_archive: "{{ consul_version }}_darwin_amd64.zip"
-consul_download: "https://dl.bintray.com/mitchellh/consul/{{ consul_archive }}"
-consul_home: "{{ dna_lib_path }}/consul"
-# NOTE is /etc/consul.d mandatory ? local user space possible ?
-consul_config_dir: "{{ consul_home }}/consul.d"
+  python_version: 3.5.1
+  node_version: 7.3.0
+  # FIXME we need go to build go > 1.5+ : https://github.com/moovweb/gvm/issues/161
+  go_version: 1.8
+  # support virtualenv, pyenv and miniconda
+  python_pm: virtualenv
+  python_pm_home: "{{ ansible_env.HOME }}/.virtualenvs"
 
 editor:
   rcpath: "{{ dna_lib_path }}/vimrc"
@@ -48,3 +44,5 @@ editor:
   tab: 2
   leader: " "
   colorscheme: solarized
+
+docker_vm_name: dev

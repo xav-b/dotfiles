@@ -4,12 +4,13 @@
 
 - name: check if homebrew is installed
   command: which brew
+  register: is_installed
+  failed_when: is_installed.rc > 1
   changed_when: no
-  register: brew_check
 
 - name: install homebrew
   shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  when: brew_check.rc != 0
+  when: is_installed.rc != 0
 
 - name: brew tap
   homebrew_tap: tap="{{ item }}" state=present

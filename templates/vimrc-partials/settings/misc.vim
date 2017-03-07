@@ -60,12 +60,14 @@ nmap ga <Plug>(EasyAlign)
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+set runtimepath^=~/.vim/plugged/ctrlp.vim
+let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git$\|\.hg$\|\.svn$'
 " Default to filename searches
 let g:ctrlp_by_filename = 1
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_max_height = 20
 if executable("ag")
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 endif
@@ -77,3 +79,25 @@ nnoremap <silent> <leader>v :CtrlPMixed<CR>
 
 "Ctrl-m is not good - it overrides behavior of Enter
 nnoremap <silent> <C-M> :CtrlPBufTag<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Syntastic:  Syntax checking hacks for vim
+" Github:     https://github.com/scrooloose/syntastic
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Linters
+let g:syntastic_python_checkers=['pylint']
+let g:syntastic_javascript_checkers = ['eslint', 'jscs']"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Gitgutter:  A Vim plugin which shows a git diff in the gutter (sign column)
+" Github:     https://github.com/airblade/vim-gitgutter
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:gitgutter_enabled=0
+nnoremap <silent> <leader>d :GitGutterToggle<cr>

@@ -5,43 +5,31 @@
     - ./vars/properties.yml
     - ./vars/packages.yml
 
+  # TODO there should be a better way than tags[0] == task
   tasks:
     - include: ./tasks/osx.yml
       when: ansible_os_family == "Darwin"
-      tags:
-        - env
+      tags: ["osx", "env"]
+
     - include: ./tasks/shell.yml
-      tags:
-        - hack
-        - env
+      tags: ["shell", "hack", "env"]
+
     - include: ./tasks/compilers.yml
-      tags:
-        - toolbox
-        - hack
+      tags: ["compilers", "toolbox", "hack"]
+
     - include: ./tasks/tools.yml
-      tags:
-        - toolbox
-        - hack
+      tags: ["tools", "toolbox", "hack"]
+
     - include: ./tasks/vim.yml
       when: editor.name == "vim"
-      tags:
-        - editor
-        - ide
-        - toolbox
-        - hack
-    # NOTE deprecated by docker toolbox : - include: ./tasks/docker.yml
+      tags: ["editor", "toolbox", "hack"]
 
-    - include: ./tasks/consul.yml
-      when: consul_enabled
+    # NOTE DEPRECATED by docker for Mac : - include: ./tasks/docker.yml
 
-    # TODO check or install atom https://atom.io/docs/latest/getting-started-installing-atom
+    # TODO install atom thanks to cask
     # TODO check ~/.atom/packages/{{ item }}
     - name: install atom packages
       command: apm install {{ item }}
       with_items: "{{ atom_pkgs }}"
       when: editor == "atom"
-      tags:
-        - editor
-        - ide
-        - toolbox
-        - hack
+      tags: ["editor", "toolbox", "hack"]

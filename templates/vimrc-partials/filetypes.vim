@@ -31,7 +31,7 @@ augroup configgroup
   " TODO check what the two first line do
   autocmd!
   autocmd VimEnter * highlight clear SignColumn
-  autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md
+  " FIXME autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md
     \:call <SID>DeleteTrailingWS()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -61,6 +61,16 @@ augroup configgroup
   " make Python follow PEP8 for whitespace
   " (http://www.python.org/dev/peps/pep-0008/)
   autocmd FileType python setlocal tabstop=4 shiftwidth=4
+
+  " uses `isort` to automatically sort imports
+  " so it requires `pip install isort` to work
+  " https://github.com/timothycrosley/isort
+  autocmd FileType python nnoremap <leader>i :!isort %<CR><CR>
+
+  " uses `yapf` to automatically fmt python file
+  " so it requires `pip install yapf` to work
+  " https://github.com/google/yapf
+  autocmd FileType python nnoremap <leader>= :0,$!yapf<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
