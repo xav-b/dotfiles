@@ -1,8 +1,50 @@
 # Hacker Machine Provisioning
 
+Store your confiuration files and deploy them with ease on your machine,
+or others, thanks to [Ansible][ansible]. Handy to manage at scale the
+setup of developer's machines or to preoperly organize and customize
+your own setuP.
+
+
+## Usage
+
+```sh
+# check ansible is correctly configured for local provisioning (make check)
+ansible all -m ping -i hosts
+
+# provision your local machine
+ansible-playbook -i hosts site.yml --ask-sudo-pass
+
+# limit provisioning to tags
+ansible-playbook -i hosts site.yml --tags editor
+```
+
+
 ## Installation
 
-__Requirements__
+```Bash
+$ DNA_VCS_BRANCH="feat/upgrade"
+$ curl https://raw.githubusercontent.com/hackliff/suit-up/feat/upgrade/bootstrap.sh | bash
+```
+
+You should have [Ansible][ansible] installed and the repository
+downloaded in `/tmp/suit-up`.
+
+Go there and edit to your taste `./vars/packages.yml` (third parties
+packages to be installed) and `./vars/properties.yml` where live the
+settings.
+
+Then, suit-up your machine :
+
+```Bash
+$ ansible-playbook site.yml \
+  --inventory hosts \
+  --ask-sudo-pass \
+  --tags "${TAGS}"
+```
+
+
+## Contributing
 
 - Python
 
@@ -31,25 +73,6 @@ pip 9.0.1 from /Users/...
 > towards building project documentation. 
 
 Just run `make` to install them.
-
-
-## Usage
-
-```sh
-# check ansible is correctly configured for local provisioning (make check)
-ansible all -m ping -i hosts
-
-# provision your local machine
-ansible-playbook -i hosts site.yml --ask-sudo-pass
-
-# limit provisioning to tags
-ansible-playbook -i hosts site.yml --tags editor
-```
-
-
-## TODO
-
-- Optional neovim/vim installation
 
 
 [ansible]: http://www.ansible.com/

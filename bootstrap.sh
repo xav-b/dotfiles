@@ -61,7 +61,7 @@ function main() {
   cd ${WORKSPACE}
 
   # test setup
-  ansible all -m ping -i hosts
+  make check
 }
 
 main $@

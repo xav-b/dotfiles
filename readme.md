@@ -37,10 +37,7 @@ settings.
 Then, suit-up your machine :
 
 ```Bash
-$ ansible-playbook site.yml \
-  --inventory hosts \
-  --ask-sudo-pass \
-  --tags "${TAGS}"
+$ TAGS="shell,tools" make
 ```
 
 

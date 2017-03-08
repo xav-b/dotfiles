@@ -70,8 +70,8 @@
     - ../files/cheatsheets/*
 
 # TODO check if gem is installed (better : use after rbenv installation)
-- name: install tmuxinator
-  gem: name=tmuxinator state=latest
+#- name: install tmuxinator
+#  gem: name=tmuxinator state=latest
 
 - name: install spot, tiny search utility
   get_url:

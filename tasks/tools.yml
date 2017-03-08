@@ -38,7 +38,7 @@
 # https://github.com/junegunn/fzf
 - name: install fzf, fuzzy searcher
   git: repo=https://github.com/junegunn/fzf dest={{ dna_lib_path }}/.fzf
-- command: {{ dna_lib_path }}/.fzf/install --all
+- command: "{{ dna_lib_path }}/.fzf/install --all"
 
 # http://www.jefftk.com/icdiff
 - name: install icdiff
