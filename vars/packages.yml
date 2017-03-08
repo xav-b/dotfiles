@@ -44,6 +44,7 @@ linux_pkgs:
   - git-flow
   - exuberant-ctags      # TODO use https://github.com/universal-ctags/ctags
   - bison
+  - xclip
 
 zsh_plugins:
   # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh

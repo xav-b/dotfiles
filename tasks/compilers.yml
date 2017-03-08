@@ -9,6 +9,8 @@
 # ---
 # --- Python virtualenv
 # ---
+#
+# NOTE should we use `pip --user` ?
 
 # http://virtualenvwrapper.readthedocs.io/en/latest/
 - name: install virtualenvwrapper

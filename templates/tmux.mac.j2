@@ -24,7 +24,11 @@ bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 
 # Update default binding of `Enter` to also use copy-pipe
 unbind -t vi-copy Enter
+{% if ansible_os_family == "Darwin" %}
 bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+{% else %}
+bind -t vi-copy y copy-pipe "xclip -sel clip -i"
+{% endif %]}
 
 # Bind ']' to use pbpaste
 bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"

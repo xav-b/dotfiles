@@ -15,6 +15,7 @@
 - Fix Python syntastic in vim
 - Fix Docker installation
 - Fix tmuxinator installation (gem is not supposed to be installed)
+- Fix gnome/vim/tmux colorscheme issue
 
 - Automate Apps installation thanks to cask ?
 - Use better tags ?
