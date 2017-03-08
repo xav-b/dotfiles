@@ -4,13 +4,17 @@
   vars_files:
     - ./vars/internal.yml
     - ./vars/settings.yml
+    - ./vars/packages.yml
     - ./vars/editor.yml
-    - ./vars/osx.yml
 
   tasks:
     - include: ./tasks/osx.yml
       when: ansible_os_family == "Darwin"
       tags: ["osx", "env"]
+
+    - include: ./tasks/linux.yml
+      when: ansible_os_family == "Debian"
+      tags: ["linux", "env"]
 
     - include: ./tasks/shell.yml
       tags: ["shell", "hack", "env"]

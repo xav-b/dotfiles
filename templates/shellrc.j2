@@ -93,7 +93,6 @@ __init_node () {
 __load_ssh_keys () {
   # TODO keys as argument ? loop over them ?
   test -f $HOME/.ssh/id_rsa && ssh-add $HOME/.ssh/id_rsa
-  dna_log "info" "ssh keys loaded:\n\t$(ssh-add -l)"
 }
 
 __load_ssh_keys

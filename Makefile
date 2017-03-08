@@ -10,6 +10,9 @@ all: install
 check:
 	ansible all -m ping -i hosts
 
+facts:
+	@ansible all -m setup -i hosts
+
 .PHONY: install
 install:
 	# provision your local machine

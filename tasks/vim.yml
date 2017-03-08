@@ -20,7 +20,8 @@
     --enable-luainterp
     --enable-cscope
     --enable-fail-if-missing
-    --with-lua-prefix=/usr/local/Cellar/lua/5.2.4_4
+    --with-lua-prefix=/usr
+    #--with-lua-prefix=/usr/local/Cellar/lua/5.2.4_4
   args:
     chdir: "{{ dna_lib_path }}/vim"
 - shell: make VIMRUNTIMEDIR=/usr/local/share/vim/vim80/
@@ -68,6 +69,3 @@
     url=https://raw.githubusercontent.com/rupa/v/master/v
     dest={{ dna_bin_path }}/v
     mode=0755
-
-- name: install neovim
-  shell: brew install --HEAD neovim

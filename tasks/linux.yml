@@ -1,0 +1,9 @@
+---
+- name: update apt packages
+  apt: update_cache=yes cache_valid_time=3600
+  become: true
+
+- name: install linux dependencies
+  apt: name="{{ item }}" state=present
+  with_items: "{{ linux_pkgs }}"
+  become: true

@@ -9,9 +9,8 @@
 # ---
 
 - name: Set zsh as default shell
-  #user: name={{ ansible_ssh_user }} shell=/bin/zsh
   command: chsh -s /bin/zsh
-  sudo: yes
+  #user: name={{ ansible_ssh_user }} shell=/bin/zsh
 
 # NOTE lightweight alternative : https://github.com/tarjoilija/zgen
 - name: install antigen framework
@@ -73,7 +72,7 @@
 #- name: install tmuxinator
 #  gem: name=tmuxinator state=latest
 
-- name: install spot, tiny search utility
+- name: install spot, tiny search utilitygem
   get_url:
     url=https://raw.github.com/rauchg/spot/master/spot.sh
     dest={{ dna_bin_path }}/spot

@@ -10,20 +10,13 @@ git:
 # zsh configuration
 # https://github.com/unixorn/awesome-zsh-plugins
 prompt_theme: robbyrussell
-zsh_plugins:
-  # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
-  - common-aliases
-  - command-not-found
-  - zsh-users/zsh-completions src
-  - zsh-users/zsh-syntax-highlighting
-  - zsh-users/zsh-history-substring-search
 
 dev:
   ruby_version: 2.2.3
   python_version: 3.5.1
-  node_version: 7.3.0
+  node_version: stable
   # FIXME we need go to build go > 1.5+ : https://github.com/moovweb/gvm/issues/161
-  go_version: 1.8
+  go_version: 1.4
   # support virtualenv, pyenv and miniconda
   python_pm: virtualenv
   python_pm_home: "{{ ansible_env.HOME }}/.virtualenvs"
@@ -34,13 +27,4 @@ editor:
   tab: 2
   leader: " "
   colorscheme: solarized
-
-tmux_plugins:
-  - tmux-plugins/tmux-sensible
-  - tmux-plugins/tmux-yank
-  - tmux-plugins/tmux-copycat
-  - tmux-plugins/tmux-prefix-highlight
-  - tmux-plugins/tmux-sessionist
-  - tmux-plugins/tmux-open
-  - tmux-plugins/tmux-resurrect
 

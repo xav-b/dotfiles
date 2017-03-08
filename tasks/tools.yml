@@ -1,7 +1,7 @@
 ---
 # https://github.com/qw3rtman/gg
 - name: install Git Goodies
-  shell: curl -fsSL git.io/gg.sh | sh
+  shell: curl -fsSL git.io/gg.sh | bash
 
 # https://github.com/rimraf/k
 - name: install k, the new l, yo
@@ -24,7 +24,6 @@
 - unarchive: src={{ tmp_path }}/peco.zip dest={{ tmp_path }} copy=no
 - command: mv {{ tmp_path }}/peco_darwin_amd64/peco {{ dna_bin_path }}/peco
 
-# https://github.com/kennethreitz/autoenv
 - name: install autoenv, Directory-based environments
   git: >
     repo=https://github.com/hackliff/autoenv

@@ -1,12 +1,6 @@
-# Mac OSX Applications
+## Linux Apps
 
-## Manual setup
-
-- Remap Caps-Lock to Escape with [Seil](https://pqrs.org/osx/karabiner/seil.html.en)
-- Solarized / [flat design](https://github.com/ahmetsulek/flat-terminal) Terminal
-- Allow `Alt` as a meta-key (instead of `Esc`) : In Mac Terminal.app
-  this setting is Preferences > Profiles tab > Keyboard sub-tab > at the
-  bottom "Use option as meta key."
+- [Gnome Shell Extensions](https://extensions.gnome.org/)
 
 
 ## Programming Fonts
@@ -16,6 +10,16 @@
 - [FiraCode][fira]
 - [Inconsolata][inconsolata]
 - [Anonymous][anonymous]
+
+## Mac OSX Applications
+
+### Manual setup
+
+- Remap Caps-Lock to Escape with [Seil](https://pqrs.org/osx/karabiner/seil.html.en)
+- Solarized / [flat design](https://github.com/ahmetsulek/flat-terminal) Terminal
+- Allow `Alt` as a meta-key (instead of `Esc`) : In Mac Terminal.app
+  this setting is Preferences > Profiles tab > Keyboard sub-tab > at the
+  bottom "Use option as meta key."
 
 
 ### Apps

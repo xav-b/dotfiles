@@ -9,3 +9,5 @@
 - [Joe](https://github.com/karan/joe) - _A .gitignore magician in your command line_
 - [Jo](https://github.com/jpmens/jo) - _JSON output from a shell_
 - [fzf-vim](https://github.com/junegunn/fzf.vim)
+- [RipGrep](https://github.com/BurntSushi/ripgrep) - _ripgrep combines the usability of The Silver Searcher with the raw speed of grep_
+- [icdiff](http://www.jefftk.com/icdiff)- _improved colored diff_

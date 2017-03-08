@@ -1,0 +1,63 @@
+---
+homebrew_taps:
+  - caskroom/cask
+  - caskroom/versions
+  - homebrew/versions
+  - homebrew/binary
+  - neovim/neovim
+
+# TODO install and use brew-cask http://caskroom.io/
+# TODO move as much as possible to portable strategies
+homebrew_pkgs:
+  - reattach-to-user-namespace  # allow copy/paste in tmux
+  - git-town             # or git-flow, choose your favorite workflow
+  - sshrc
+  - sl
+  - youtube-dl
+  - archey
+  - ctags
+  - git-town
+  # packages that should be installed cross-distributions
+  - the_silver_searcher  # https://github.com/ggreer/the_silver_searcher
+  - mercurial            # needed to install go
+  - lua                  # needed for vim completion
+  - htop
+  - zsh
+  - tmux
+  - diff-so-fancy        # TODO use npm
+  - stormssh             # TODO use pip
+  - cheat                # TODO use pip
+  - fpp                  # http://facebook.github.io/PathPicker/
+  - gotags               # TODO use go get
+
+linux_pkgs:
+  - zsh
+  - mercurial            # needed to install go
+  - lua5.1               # needed for vim completion
+  - liblua5.1-dev
+  - libperl-dev
+  - ruby                 # TODO force version>1.6 for vim compilation
+  - ruby-dev
+  - htop
+  - tmux
+  - silversearcher-ag
+  - git-flow
+  - exuberant-ctags      # TODO use https://github.com/universal-ctags/ctags
+  - bison
+
+zsh_plugins:
+  # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
+  - common-aliases
+  - command-not-found
+  - zsh-users/zsh-completions
+  - zsh-users/zsh-syntax-highlighting
+  - zsh-users/zsh-history-substring-search
+
+tmux_plugins:
+  - tmux-plugins/tmux-sensible
+  - tmux-plugins/tmux-yank
+  - tmux-plugins/tmux-copycat
+  - tmux-plugins/tmux-prefix-highlight
+  - tmux-plugins/tmux-sessionist
+  - tmux-plugins/tmux-open
+  - tmux-plugins/tmux-resurrect
