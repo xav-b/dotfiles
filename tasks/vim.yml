@@ -20,16 +20,15 @@
     --enable-luainterp
     --enable-cscope
     --enable-fail-if-missing
-    --with-lua-prefix=/usr
-    #--with-lua-prefix=/usr/local/Cellar/lua/5.2.4_4
+    --with-lua-prefix={% if ansible_os_family == 'Darwin' %}/usr/local/Cellar/lua/5.2.4_4{% else %}/usr{% endif %}
   args:
     chdir: "{{ dna_lib_path }}/vim"
 - shell: make VIMRUNTIMEDIR=/usr/local/share/vim/vim80/
   args:
     chdir: "{{ dna_lib_path }}/vim"
-# NOTE is sudo really necessary for /usr/local/bin ?
-# FIXME ask for sudo password even with --ask-sudo
-- shell: sudo make install
+- shell: make install
+  become_user: root
+  become: true
   args:
     chdir: "{{ dna_lib_path }}/vim"
 

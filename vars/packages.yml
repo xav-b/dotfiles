@@ -6,6 +6,16 @@ homebrew_taps:
   - homebrew/binary
   - neovim/neovim
 
+homebrew_casks:
+  - google-chrome
+  - docker
+  - 1password
+  - spotify
+  - typora
+  - slack
+  - spectacle
+  - cheatsheet
+
 # TODO install and use brew-cask http://caskroom.io/
 # TODO move as much as possible to portable strategies
 homebrew_pkgs:
@@ -29,6 +39,7 @@ homebrew_pkgs:
   - cheat                # TODO use pip
   - fpp                  # http://facebook.github.io/PathPicker/
   - gotags               # TODO use go get
+  - ncdu                 # https://dev.yorhel.nl/ncdu
 
 linux_pkgs:
   - zsh

@@ -22,12 +22,19 @@ ansible-playbook -i hosts site.yml --tags editor
 
 ## Installation
 
+If you are using a Mac, you need first to install Xcode developer tools
+(running `git` for example will prompt you to do so) or the script will
+abort to ask you to do that (and you will need to run it again, which is
+not a big deal, granted).
+
 ```Bash
+$ # you can personalize installation
+$ DNA_TMP_WORKSPACE="./suit-up"
 $ DNA_VCS_BRANCH="feat/upgrade"
-$ curl https://raw.githubusercontent.com/hackliff/suit-up/feat/upgrade/bootstrap.sh | bash
+$ curl https://raw.githubusercontent.com/hackliff/suit-up/${DNA_VCS_BRANCH}/bootstrap.sh | bash
 ```
 
-You should have [Ansible][ansible] installed and the repository
+You should now have [Ansible][ansible] installed and the repository
 downloaded in `/tmp/suit-up`.
 
 Go there and edit to your taste `./vars/packages.yml` (third parties

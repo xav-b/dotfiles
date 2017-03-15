@@ -17,5 +17,9 @@
   with_items: "{{ homebrew_taps }}"
 
 - name: Ensure homebrew packages are installed.
-  homebrew: name={{ item }} state=latest
-  with_items: "{{ homebrew_pkgs }} "
+  homebrew: name={{ item }} state=present
+  with_items: "{{ homebrew_pkgs }} "
+
+- name: Ensure homebrew casks packages are installed.
+  homebrew_cask: name={{ item }} state=present
+  with_items: "{{ homebrew_casks }} "

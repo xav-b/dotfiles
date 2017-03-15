@@ -4,10 +4,9 @@ set -euo pipefail
 
 # Script to bootstrap a machine from hackliff/suit-up setup
 # TODO safe trusted network pipe
-# TODO Fix dna vs suit-up namings cohabitation
+# TODO install Python if not here
 # usage:
 #   $ # you can configure provisioning with environment variable
-#   $ export DNA_TAGS="osx,hack"
 #   $ export DNA_TMP_WORKSPACE="/opt"
 #   $ export DNA_VCS_BRANCH="develop"
 #   $ curl ... | bash
@@ -24,7 +23,6 @@ set -euo pipefail
   # customisable
   WORKSPACE=${DNA_TMP_WORKSPACE:-"/tmp/suit-up"}
   BRANCH=${DNA_VCS_BRANCH:-"master"}
-  readonly TAGS=${DNA_TAGS:-"all"}
 
   readonly PIP_INSTALL_URL="https://bootstrap.pypa.io/get-pip.py"
 # }

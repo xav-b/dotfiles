@@ -15,13 +15,6 @@ source {{ dna_home }}/plugins.zsh
 export CHEATCOLORS=true
 export EDITOR={{ editor.name }}
 
-
-{% if dev.python_pm == "virtualenv" %}
-# setup python virtualenv
-export WORKON_HOME={{ dev.python_pm_home }}
-source /usr/local/bin/virtualenvwrapper.sh &>/dev/null
-{% endif %}
-
 # need to be filled if you use this kinf of stuff
 # alternatively, one can run `git config --global github.token "xxx"`
 export GITHUB_TOKEN=""

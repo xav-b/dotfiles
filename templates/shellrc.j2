@@ -100,8 +100,12 @@ __load_tools
 
 {% if dev.python_pm == "pyenv" %}
   __init_pyenv "{{ dev.python_version }}"
-{% elif dev.python_pm == "pyenv" %}
+{% elif dev.python_pm == "conda" %}
   __init_conda "{{ dev.python_home }}"
+{% if dev.python_pm == "virtualenv" %}
+  # setup python virtualenv
+  export WORKON_HOME={{ dev.python_pm_home }}
+  source /usr/local/bin/virtualenvwrapper.sh &>/dev/null
 {% endif %}
 __init_go "{{ dev.go_version }}"
 #__init_node "{{ dev.node_version }}"
