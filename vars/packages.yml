@@ -15,6 +15,7 @@ homebrew_casks:
   - slack
   - spectacle
   - cheatsheet
+  - shellcheck
 
 # TODO install and use brew-cask http://caskroom.io/
 # TODO move as much as possible to portable strategies
@@ -56,6 +57,7 @@ linux_pkgs:
   - exuberant-ctags      # TODO use https://github.com/universal-ctags/ctags
   - bison
   - xclip
+  - shellcheck
 
 zsh_plugins:
   # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh

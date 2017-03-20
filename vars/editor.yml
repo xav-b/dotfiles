@@ -38,7 +38,7 @@ vim_plugins:
   - "'tpope/vim-obsession'"
 
 vim_plugins_dev:
-  - "'Syntastic'"
+  - "'w0rp/ale'"
   - "'Shougo/neocomplete.vim'"
   # FIXME - "'Valloric/YouCompleteMe', { 'do': './install.py' }"
   # TODO if executable("ctags")

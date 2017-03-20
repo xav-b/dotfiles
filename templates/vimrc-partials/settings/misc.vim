@@ -83,13 +83,18 @@ nnoremap <silent> <C-M> :CtrlPBufTag<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Syntastic:  Syntax checking hacks for vim
-" Github:     https://github.com/scrooloose/syntastic
+" Ale:    Syntax checking hacks for vim
+" Github: https://github.com/w0rp/ale
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linters
-let g:syntastic_python_checkers=['pylint']
-let g:syntastic_javascript_checkers = ['eslint', 'jscs']"
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'python': ['flake8'],
+\   'shell': ['shellcheck'],
+\}
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

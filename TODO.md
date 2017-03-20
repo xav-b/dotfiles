@@ -5,6 +5,7 @@
 - Move away from brew when possible
 - Add another local file sourced by zshrc
 - Manage dependencies between tasks/tags
+- Run GoInnstallBinaries in Vim
 
 - Fix `gvm` with go1.8 installation
 - Fix auto-zsh shell (both platforms)
@@ -12,7 +13,6 @@
 - Fix Ultisnips installations
 - Fix Vim auto trailing space suppression
 - Fix idempotent rbenv installation
-- Fix Python syntastic in vim
 - Fix Docker installation
 - Fix tmuxinator installation (gem is not supposed to be installed)
 - Fix gnome/vim/tmux colorscheme issue

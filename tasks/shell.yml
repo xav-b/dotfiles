@@ -30,6 +30,7 @@
 # TODO copy zshrc in dna_home and symlink it in $HOME
 - name: copy shell configurations
   template: src=./templates/zshrc.j2 dest={{ ansible_env.HOME }}/.zshrc
+  template: src=./templates/settings.j2 dest={{ dna_home }}/settings.zsh
 - template: src=./templates/plugins.j2 dest={{ dna_home }}/plugins.zsh
 - template: src=./templates/shellrc.j2 dest={{ dna_home }}/shellrc
 - template: src=./templates/gitconfig.j2 dest={{ ansible_env.HOME }}/.gitconfig

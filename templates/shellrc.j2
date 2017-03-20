@@ -26,9 +26,9 @@ test -d {{ dna_bin_path }} && export PATH=$PATH:{{ dna_bin_path }}
 __load_tools () {
   # -- third party utilities
   dna_log "info" "activating k, z, autoenv"
-  safe_import k.sh
-  safe_import z.sh
-  safe_import autoenv/activate.sh
+  safe_import "k.sh"
+  safe_import "z.sh"
+  safe_import "autoenv/activate.sh"
   # NOTE cannot keep it in dna path ?
   # FIXME [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
   # FIXME see issue #3
@@ -91,8 +91,10 @@ __init_node () {
 }
 
 __load_ssh_keys () {
-  # TODO keys as argument ? loop over them ?
-  test -f $HOME/.ssh/id_rsa && ssh-add $HOME/.ssh/id_rsa
+  # should be set in $HOME/.dna/settings.zsh
+  for key in ${SSH_KEYS}; do
+    test -f $HOME/.ssh/${key} && ssh-add $HOME/.ssh/${key}
+  done
 }
 
 __load_ssh_keys

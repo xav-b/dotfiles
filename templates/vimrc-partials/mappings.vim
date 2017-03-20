@@ -38,3 +38,9 @@ map <leader>pp :setlocal paste!<cr>
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+
+" highlight last inserted text
+nnoremap gV `[v`]`]`
+
+" open ag.vim
+nnoremap <leader>a :Ag

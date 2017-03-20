@@ -79,5 +79,4 @@ function! CWD()
     return curdir
 endfunction
 
-" TODO try: set statusline=[%l,%v\ %P%M][Cwd\ %{CWD()}][File\ %f]\ %r%h%w\ %#warningmsg#%{SyntasticStatuslineFlag()}%*
-set statusline+=%{fugitive#statusline()}\ (%{&ff})
+set statusline+=%{fugitive#statusline()}\ (%{&ff})\ %{ALEGetStatusLine()}
