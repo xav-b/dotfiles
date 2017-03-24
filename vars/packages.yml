@@ -16,6 +16,8 @@ homebrew_casks:
   - spectacle
   - cheatsheet
   - postman
+  - numi
+  - alfred
 
 # TODO install and use brew-cask http://caskroom.io/
 # TODO move as much as possible to portable strategies
