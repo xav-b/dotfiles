@@ -24,7 +24,7 @@
 
 ### Apps
 
-
+- [Numi](http://numi.io/) - _Beautiful calculator for Mac_
 - [Amphetamine](https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12) - _effortlessly override your energy saver settings and keep your Mac awake_
 - [Todoist](https://todoist.com/)
 - [Noizio](http://noiz.io/) - _Just turn on the sound and allow yourself to become engulfed in the tranquil sounds of nature_

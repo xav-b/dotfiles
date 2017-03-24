@@ -6,18 +6,15 @@
 - Add another local file sourced by zshrc
 - Manage dependencies between tasks/tags
 - Run GoInnstallBinaries in Vim
+- Reset Docker installation on Linux (beware of EE and CE now)
 
-- Fix `gvm` with go1.8 installation
-- Fix auto-zsh shell (both platforms)
-- Fix vim plugins installation
+- Fix Go setup => impose go1.4 and fix go1.8 compilation
 - Fix Ultisnips installations
 - Fix Vim auto trailing space suppression
 - Fix idempotent rbenv installation
-- Fix Docker installation
 - Fix tmuxinator installation (gem is not supposed to be installed)
 - Fix gnome/vim/tmux colorscheme issue
 
-- Automate Apps installation thanks to cask ?
 - Use better tags ?
 
 - Automate source code pro installation (or other ?)

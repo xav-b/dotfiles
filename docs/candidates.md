@@ -16,3 +16,6 @@
 - [gone](https://github.com/guillaumebreton/gone) - _Mico pomodoro cli_
 - [scm breeze](https://github.com/scmbreeze/scm_breeze) - _Adds numbered shortcuts to the output git status, and much more_
 - [Ranger](http://ranger.nongnu.org/) - _console file manager with VI key bindings_
+- [Fastd](https://github.com/clvv/fasd) - _offers quick access to files
+  and directories_
+- [prettier](https://github.com/prettier/prettier) and [yapg](https://github.com/google/yapf)

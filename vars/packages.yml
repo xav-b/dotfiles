@@ -15,7 +15,7 @@ homebrew_casks:
   - slack
   - spectacle
   - cheatsheet
-  - shellcheck
+  - postman
 
 # TODO install and use brew-cask http://caskroom.io/
 # TODO move as much as possible to portable strategies
@@ -41,6 +41,7 @@ homebrew_pkgs:
   - fpp                  # http://facebook.github.io/PathPicker/
   - gotags               # TODO use go get
   - ncdu                 # https://dev.yorhel.nl/ncdu
+  - shellcheck
 
 linux_pkgs:
   - zsh

@@ -55,6 +55,7 @@ vim_plugins_dev:
   - "'elzr/vim-json', { 'for': 'json' }"
   - "'tpope/vim-dispatch'"
   - "'ekalinin/Dockerfile.vim'"
+  - "'chrisbra/NrrwRgn'"
 
 atom_pkgs:
   - vim-mode
