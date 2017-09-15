@@ -26,5 +26,5 @@ editor:
   name: vim
   tab: 2
   leader: " "
-  colorscheme: solarized
+  colorscheme: nord
 

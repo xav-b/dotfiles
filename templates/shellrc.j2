@@ -8,9 +8,13 @@ export N_PREFIX={{ dna_home }}
 
 # TODO problem is, you don't know when it fails
 safe_import () {
-  local filename=$1
-  [[ -f {{ dna_lib_path }}/${filename} ]] && \
-    source {{ dna_lib_path }}/${filename}
+  local filename="$1"
+
+  if [[ -f /Users/xav/.dna/lib/${filename} ]]; then
+    source /Users/xav/.dna/lib/${filename}
+  else
+    echo "unable to load ${filename}: no such file"
+  fi
 }
 
 dna_log () {

@@ -5,11 +5,11 @@
 
 source {{ dna_home }}/settings.zsh
 
-source {{ dna_home }}/shellrc
-source {{ dna_lib_path }}/aliases
-
 source {{ dna_home }}/antigen.zsh
 source {{ dna_home }}/plugins.zsh
+
+source {{ dna_home }}/shellrc
+source {{ dna_lib_path }}/aliases
 
 # support for an extra local configuration
 [ -e "${HOME}/.zshrc_local" ] && source "${HOME}/.zshrc_local"

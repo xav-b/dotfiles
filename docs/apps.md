@@ -7,6 +7,7 @@
 
 - [Apple support][apple]
 - [Source Code Sans-pro][codepro]
+- [Office Code D][office-code]
 - [FiraCode][fira]
 - [Inconsolata][inconsolata]
 - [Anonymous][anonymous]
@@ -49,3 +50,4 @@
 [codepro]: https://github.com/adobe-fonts/source-code-pro
 [anonymous]: http://www.marksimonson.com/fonts/view/anonymous-pro
 [inconsolata]: http://levien.com/type/myfonts/inconsolata.html
+[office-code]: https://github.com/nathco/Office-Code-Pro

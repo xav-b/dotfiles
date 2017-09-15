@@ -9,6 +9,7 @@
 - Reset Docker installation on Linux (beware of EE and CE now)
 - Install ipython and copy ./files/ipython/
 - Install `import better_exceptions`
+- map `vim:TagbarToggle` and other tags stuff to cool keys
 
 - Fix Go setup => impose go1.4 and fix go1.8 compilation
 - Fix Ultisnips installations

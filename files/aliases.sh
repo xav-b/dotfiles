@@ -133,3 +133,11 @@ weather() {
 
   curl wttr.in/${city}
 }
+
+SEED="N-ZA-Mn-za-m"
+
+# cypher and decypher strings
+cypher () {
+  local msg_="$@"
+  echo "${msg_}" | tr 'A-Za-z' "${SEED}"
+}

@@ -14,6 +14,9 @@ import logging
 import datetime as dt
 echo('`logging` imported as `dt`')
 
+from pprint import pprint as pp
+echo('`pprint` imported as `pp` (pretty printer)')
+
 try:
     import better_exceptions
     echo('module `better_exceptions` successfully hooked in the interpreter')
@@ -25,6 +28,13 @@ try:
     echo('`pandas` imported as `pd`')
 except:
     echo('`pandas` import failed, moving on...', level='WARN')
+
+# TODO put in in 01-utils.py
+def kk():
+    echo('exporting `kk()` -> kill ipdb process')
+    import os
+    # http://stackoverflow.com/questions/32055062/exiting-python-debugger-ipdb
+    os._exit(0)
 
 print('\n\n\t\t... custom code done ...\n\n')
 

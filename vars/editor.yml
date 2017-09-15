@@ -1,7 +1,9 @@
 ---
 # TODO use more vim-plug dynamic actions
 vim_plugins:
-  - "'altercation/vim-colors-solarized'"
+  # TODO a better way to select theme ?
+  - "'arcticicestudio/nord-vim'"
+  #- "'altercation/vim-colors-solarized'"
   # NOTE should install on Mac https://github.com/chriskempson/base16-iterm2 ?
   - "'chriskempson/base16-vim'"
   - "'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }"
@@ -36,6 +38,7 @@ vim_plugins:
   - "'flazz/vim-colorschemes'"
   - "'mhinz/vim-startify'"
   - "'tpope/vim-obsession'"
+  - "'yuttie/comfortable-motion.vim'"
 
 vim_plugins_dev:
   - "'w0rp/ale'"
@@ -43,6 +46,7 @@ vim_plugins_dev:
   # FIXME - "'Valloric/YouCompleteMe', { 'do': './install.py' }"
   # TODO if executable("ctags")
   - "'majutsushi/tagbar', { 'on': 'TagbarToggle' }"
+  - "'craigemery/vim-autotag'"
   - "'airblade/vim-gitgutter'"
   # FIXME Broken on OSX - "'SirVer/ultisnips'"
   # FIXME idem - "'honza/vim-snippets'"
@@ -56,6 +60,8 @@ vim_plugins_dev:
   - "'tpope/vim-dispatch'"
   - "'ekalinin/Dockerfile.vim'"
   - "'chrisbra/NrrwRgn'"
+  - "'junegunn/gv.vim'"
+  - "'tpope/vim-fugitive'"
 
 atom_pkgs:
   - vim-mode

@@ -19,3 +19,6 @@
 - [Fastd](https://github.com/clvv/fasd) - _offers quick access to files
   and directories_
 - [prettier](https://github.com/prettier/prettier) and [yapg](https://github.com/google/yapf)
+- [Watson](http://tailordev.github.io/Watson/) - _help you monitoring your time_
+- [The Fuck](https://github.com/nvbn/thefuck) - ____Magnificent app which corrects your previous console command_
+- [jid](https://github.com/simeji/jid) - _json incremental digger_
