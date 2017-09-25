@@ -10,6 +10,8 @@ git:
 # zsh configuration
 # https://github.com/unixorn/awesome-zsh-plugins
 prompt_theme: robbyrussell
+antigen theme agnoster
+# others i like: kennethreitz mrtazz sorin theunraveler
 
 dev:
   ruby_version: 2.2.3

@@ -1,3 +1,4 @@
+# This is Git's per-user configuration file.
 [user]
 	email = {{ git.mail }}
 	name = {{ git.username }}
@@ -51,8 +52,13 @@
   l = log --oneline --graph
   ls = log --abbrev-commit --no-merges --pretty='%h (%ad) - [%an] %s %d' --date=format:'%b %d %Y'
   ll = log --no-merges --pretty='\n\n%C(bold yellow)[%cn] %C(bold red)(%cr) %C(bold green)%s' --decorate --numstat
+  graph = log --graph --all --decorate --stat --date=iso
 
   s = status
+  leaderboard = git shortlog -sn
+  stats = shortlog -sn --since='10 weeks' --until='2 weeks'
+  overview = log --all --oneline --no-merges
+  recap = log --all --oneline --no-merges --author={{ git.username }}
 
   # shell commands
   ciao = "!echo \"ciao $USER!\""
