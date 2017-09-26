@@ -42,6 +42,11 @@ homebrew_pkgs:
   - gotags               # TODO use go get
   - ncdu                 # https://dev.yorhel.nl/ncdu
   - shellcheck
+  # Install GNU core utilities (those that come with macOS are outdated).
+  # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+  - coreutils
+  #- moreutils  # NOTE from mathiasbynens but what's the use ?
+  - findutils
 
 linux_pkgs:
   - zsh

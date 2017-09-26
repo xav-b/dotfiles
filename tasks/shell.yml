@@ -35,6 +35,7 @@
 - template: src=./templates/shellrc.j2 dest={{ dna_home }}/shellrc
 - template: src=./templates/gitconfig.j2 dest={{ ansible_env.HOME }}/.gitconfig
 - copy: src=./files/aliases.sh dest={{ dna_lib_path }}/aliases
+- copy: src=./files/functions.sh dest={{ dna_lib_path }}/functions
 
 - name: copy scripts
   copy: src={{ item }} dest={{ dna_bin_path }}

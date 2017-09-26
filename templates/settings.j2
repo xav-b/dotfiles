@@ -3,4 +3,44 @@
 # -- Ansible managed
 # --
 
+# TODO add more controls here
 SSH_KEYS=()
+
+# -- Configuration through environment variables
+
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTSIZE='32768';
+export HISTFILESIZE="${HISTSIZE}";
+# remove duplicates in bash history
+export HISTCONTROL=ignoreboth:erasedups
+
+# FIXME only true for osx
+# GNU core utilities installed with brew (those that come with macOS are outdated)
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+export CHEATCOLORS=true
+export EDITOR={{ editor.name }}
+
+# Prefer US English and use UTF-8.
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+
+# Highlight section titles in manual pages.
+export LESS_TERMCAP_md="${yellow}"
+
+# Don’t clear the screen after quitting a manual page.
+# export MANPAGER='less -X'
+
+# Use sloppy mode by default, matching web browsers.
+export NODE_REPL_MODE='sloppy'
+
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8'
+
+# need to be filled if you use this kinf of stuff
+# alternatively, one can run `git config --global github.token "xxx"`
+export GITHUB_TOKEN=""
+
+# expose our custom bin collection
+test -d {{ dna_bin_path }} && export PATH=$PATH:{{ dna_bin_path }}
