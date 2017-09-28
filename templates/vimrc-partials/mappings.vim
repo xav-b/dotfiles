@@ -41,6 +41,3 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 " highlight last inserted text
 nnoremap gV `[v`]`]`
-
-" open ag.vim
-nnoremap <leader>a :Ag

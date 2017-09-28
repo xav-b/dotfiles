@@ -1,67 +1,77 @@
 ---
 # TODO use more vim-plug dynamic actions
+
 vim_plugins:
-  # TODO a better way to select theme ?
-  - "'arcticicestudio/nord-vim'"
-  #- "'altercation/vim-colors-solarized'"
-  # NOTE should install on Mac https://github.com/chriskempson/base16-iterm2 ?
-  - "'chriskempson/base16-vim'"
+  - 'wellle/targets.vim'
   - "'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }"
-  # NOTE or "'bling/vim-airline'" ?
-  - "'itchyny/lightline.vim'"
   - "'easymotion/vim-easymotion'"
   - "'terryma/vim-multiple-cursors'"
   - "'tpope/vim-surround'"
   - "'ctrlpvim/ctrlp.vim'"
     # NOTE not sure to keept it: - "'myusuf3/numbers.vim'"
   - "'junegunn/vim-easy-align'"
-  # TODO and .markdown as well
-  - "'plasticboy/vim-markdown', { 'for': 'md' }"
-  # tmux integration
   # NOTE study - "'https://github.com/christoomey/vim-tmux-navigator"'
-  # TODO check if tmux is installed
-  # NOTE redundant with ctrlp ?
   - "'benmills/vimux'"
   # NOTE nice switch using ack.vim : https://github.com/carlhuda/janus/blob/master/janus/vim/core/plugins.vim
   - "'rking/ag.vim'"
   - "'Raimondi/delimitMate'"
-  # NOTE need Python
   - "'sjl/gundo.vim'"
   - "'hackliff/vim-template'"
   - "'vim-scripts/YankRing.vim'"
   # NOTE interesting comparison between buffer tabs (and airline) https://github.com/ap/vim-buftabline
   # nice markdown editing (http://www.swamphogg.com/2015/vim-setup/)
+  - "'jiangmiao/auto-pairs'"
+  - "'tpope/vim-obsession'"
+  - "'mhinz/vim-startify'"
+  - "'yuttie/comfortable-motion.vim'"
+  - "'junegunn/fzf'"
+  - "'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}"
+  - "'chrisbra/NrrwRgn'"
+
+# TODO a better way to select theme ?
+vim_plugins_ui:
+  - "'flazz/vim-colorschemes'"
+  - "'arcticicestudio/nord-vim'"
+  - "'joshdick/onedark.vim'"
+  - "'altercation/vim-colors-solarized'"
+  - "'chriskempson/base16-vim'"
+  - "'Yggdroot/indentLine'"
   - "'junegunn/goyo.vim'"
   - "'junegunn/limelight.vim'"
-  - "'jiangmiao/auto-pairs'"
-  - "'Yggdroot/indentLine'"
-  - "'flazz/vim-colorschemes'"
-  - "'mhinz/vim-startify'"
-  - "'tpope/vim-obsession'"
-  - "'yuttie/comfortable-motion.vim'"
+  - "'itchyny/lightline.vim'"
+  - "'ryanoasis/vim-devicons'"
+
+vim_plugins_languages:
+  - "'derekwyatt/vim-scala'"
+  - "'elzr/vim-json', { 'for': 'json' }"
+  - "'ekalinin/Dockerfile.vim'"
+  - "'pangloss/vim-javascript', { 'for': 'js' }"
+  - "'mxw/vim-jsx', { 'for': 'js' }"
+  - "'posva/vim-vue', { 'for': 'vue' }"
+  - "'plasticboy/vim-markdown', { 'for': 'md' }"
+  - "'fatih/vim-go', { 'for': 'go' }"
 
 vim_plugins_dev:
-  - "'w0rp/ale'"
-  - "'Shougo/neocomplete.vim'"
-  # FIXME - "'Valloric/YouCompleteMe', { 'do': './install.py' }"
-  # TODO if executable("ctags")
+  - "'tpope/vim-fugitive'"
   - "'majutsushi/tagbar', { 'on': 'TagbarToggle' }"
-  - "'craigemery/vim-autotag'"
   - "'airblade/vim-gitgutter'"
-  # FIXME Broken on OSX - "'SirVer/ultisnips'"
-  # FIXME idem - "'honza/vim-snippets'"
   - "'scrooloose/nerdcommenter'"
   # TODO install goimports, gocode and other packages that makes the experience great
   #      i.e. /usr/local/bin/vim +GoInstallBinaries +qall
   - "'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }"
-  - "'fatih/vim-go', { 'for': 'go' }"
-  - "'pangloss/vim-javascript', { 'for': 'js' }"
-  - "'elzr/vim-json', { 'for': 'json' }"
   - "'tpope/vim-dispatch'"
-  - "'ekalinin/Dockerfile.vim'"
-  - "'chrisbra/NrrwRgn'"
+  - "'brooth/far.vim'"
   - "'junegunn/gv.vim'"
-  - "'tpope/vim-fugitive'"
+
+vim_plugins_completion:
+  - "'sbdchd/neoformat'"
+  # TODO if executable("ctags")
+  - "'craigemery/vim-autotag'"
+  - "'w0rp/ale'"
+  - "'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }"
+  - "'ervandew/supertab'"
+  - "'SirVer/ultisnips'"
+  - "'honza/vim-snippets'"
 
 atom_pkgs:
   - vim-mode

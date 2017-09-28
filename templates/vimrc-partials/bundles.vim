@@ -10,6 +10,16 @@
 
 call plug#begin('~/.vim/plugged')
 
+  " UI
+{% for plugin in vim_plugins_ui %}
+  Plug {{ plugin }}
+{% endfor %}
+
+  " syntax/languages
+{% for plugin in vim_plugins_languages %}
+  Plug {{ plugin }}
+{% endfor %}
+
   " Essential plugins
 {% for plugin in vim_plugins %}
   Plug {{ plugin }}
@@ -17,6 +27,11 @@ call plug#begin('~/.vim/plugged')
 
   " development focused plugins
 {% for plugin in vim_plugins_dev %}
+  Plug {{ plugin }}
+{% endfor %}
+
+  " auto-completion plugins
+{% for plugin in vim_plugins_completion %}
   Plug {{ plugin }}
 {% endfor %}
 

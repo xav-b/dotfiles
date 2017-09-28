@@ -7,6 +7,7 @@
 # --
 
 alias vim='/usr/local/bin/vim'
+alias ne="NVIM_LISTEN_ADDRESS=/tmp/nvim.sock nvim"
 alias e="$EDITOR"
 
 alias ~="cd ~" # `cd` is probably faster to type though
@@ -72,3 +73,5 @@ alias dli='docker-image-list'
 
 alias cat='ccat'
 alias rm='trash'
+alias cag='clear && ag'
+alias c='clear'

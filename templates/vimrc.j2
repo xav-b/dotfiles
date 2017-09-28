@@ -49,6 +49,10 @@ if has('mouse')
   set mouse=a                   " Enable mouse usage (all modes)
 endif
 
+" useful for moving fast
+set number                      " show line numbers in vim
+set relativenumber              " show relative line numbers
+
 " Uncomment the following to have Vim jump to the last position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -57,7 +61,7 @@ endif
 " ================ Search Settings  =================
 set gdefault                    " Add the g flag to search/replace by default
 set incsearch                   " Find the next match as we type the search
-set hlsearch                    " Hilight searches by default
+set hlsearch                    " Highlight searches by default
 set viminfo='100,f1             " Save up to 100 marks, enable capital marks
 set smartcase                   " Do smart case matching
 nmap <silent> // :nohlsearch<cr>
@@ -189,9 +193,14 @@ map <leader>ss :setlocal spell!<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Copy from clipboard
-"FIXME Error with getrep
+" FIXME Error with getrep
 vmap <C-c> y: call system("xclip -i -selection clipboard", getreg("\" ))<CR>
 nmap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
+
+" add j/k jumps to the jump list
+" https://medium.com/breathe-publication/understanding-vims-jump-list-7e1bfc72cdf0
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
 
 " Load external configuration after anything else
 if filereadable(expand("~/.vim/after.vimrc"))

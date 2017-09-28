@@ -5,7 +5,7 @@
 
 # Create a new directory and enter it
 function mkd() {
-  mkdir -p "$@" && cd "$_";
+  mkdir -p "$@" && cd "$_"
 }
 
 try_stuff () {
@@ -121,4 +121,9 @@ function o() {
   else
     open "$@";
   fi;
+}
+
+function init_pyvenv() {
+  # NOTE suppose to use virtualenvwrapper over conda
+  mkvirtualenv -a . -r dev-requirements.txt "$(basename $PWD)"
 }
