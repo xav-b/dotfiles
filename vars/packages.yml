@@ -47,6 +47,7 @@ homebrew_pkgs:
   - coreutils
   #- moreutils  # NOTE from mathiasbynens but what's the use ?
   - findutils
+  - yank                 # Yank terminal output to clipboard
 
 linux_pkgs:
   - zsh

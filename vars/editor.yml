@@ -10,6 +10,7 @@ vim_plugins:
   - "'ctrlpvim/ctrlp.vim'"
     # NOTE not sure to keept it: - "'myusuf3/numbers.vim'"
   - "'junegunn/vim-easy-align'"
+  # tmux integration
   # NOTE study - "'https://github.com/christoomey/vim-tmux-navigator"'
   - "'benmills/vimux'"
   # NOTE nice switch using ack.vim : https://github.com/carlhuda/janus/blob/master/janus/vim/core/plugins.vim
@@ -48,7 +49,10 @@ vim_plugins_languages:
   - "'pangloss/vim-javascript', { 'for': 'js' }"
   - "'mxw/vim-jsx', { 'for': 'js' }"
   - "'posva/vim-vue', { 'for': 'vue' }"
+  # TODO and .markdown as well
   - "'plasticboy/vim-markdown', { 'for': 'md' }"
+  # using `for: md` would make sense but for some reason it breaks the plugin
+  - "'tpope/vim-markdown'"
   - "'fatih/vim-go', { 'for': 'go' }"
 
 vim_plugins_dev:

@@ -27,3 +27,8 @@
 - [Exa](https://the.exa.website/) - _a modern replacement for ls_
 - [transfert.sh](https://transfer.sh/) - _Easy file sharing from the command line_
 - [jrnl](http://jrnl.sh/) - _A simple command line journal application that stores your journal in a plain text file_
+- [gcal](https://github.com/toniov/gcal-cli) - Google Calendar command line tool for Node.js
+- [fd](https://github.com/sharkdp/fd) - _A simple, fast and user-friendly alternative to find_
+- [Bat](https://github.com/astaxie/bat) - _Go implement CLI, cURL-like tool for humans_
+- [bat](https://github.com/sharkdp/bat/releases) - A cat(1) clone with wings.
+- [statcode](pip install statcode) - _Like man pages, but for HTTP status codes_
