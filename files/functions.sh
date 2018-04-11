@@ -127,3 +127,23 @@ function init_pyvenv() {
   # NOTE suppose to use virtualenvwrapper over conda
   mkvirtualenv -a . -r dev-requirements.txt "$(basename $PWD)"
 }
+
+# credit https://dev.to/ricardomol/note-taking-from-the-command-line-156
+# usage:
+#
+#     $ notes my_command -which -I -want -to remember
+#     $ notes <<NOTE
+# This is a very long note
+# because sometimes I like
+# to write explanations of
+# my commands and such.
+# NOTE
+function note() {
+  local journal="$HOME/journal.wiki"
+
+  if [ ! -z "$1" ]; then
+    echo $(date +"%Y%m%d-%H%M%S") $@  >> ${journal}
+  else
+    echo $(date +"%Y%m%d-%H%M%S") "$(cat)"  >> $${journal}
+  fi
+}

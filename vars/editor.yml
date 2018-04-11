@@ -62,6 +62,9 @@ vim_plugins_dev:
   - "'tpope/vim-dispatch'"
   - "'brooth/far.vim'"
   - "'junegunn/gv.vim'"
+  - "'rust-lang/rust.vim'"
+  - "'racer-rust/vim-racer'"
+  - "'cespare/vim-toml'"
 
 vim_plugins_completion:
   - "'sbdchd/neoformat'"

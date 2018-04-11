@@ -35,6 +35,9 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 call deoplete#custom#set('ultisnips', 'matchers', ['matcher_fuzzy'])
 
+" additional completion for rust
+let g:racer_experimental_completer = 1
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
