@@ -32,3 +32,5 @@
 - [Bat](https://github.com/astaxie/bat) - _Go implement CLI, cURL-like tool for humans_
 - [bat](https://github.com/sharkdp/bat/releases) - A cat(1) clone with wings.
 - [statcode](pip install statcode) - _Like man pages, but for HTTP status codes_
+- [carbon-cli](https://github.com/mixn/carbon-now-cli) - _🎨 Beautiful images of your code — from right inside your terminal._
+- [prettyping](http://denilson.sa.nom.br/prettyping/) - _wrapper around the standard ping tool, making the output prettier, more colorful, more compact, and easier to read._

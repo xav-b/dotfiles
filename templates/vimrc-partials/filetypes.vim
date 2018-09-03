@@ -70,7 +70,13 @@ augroup configgroup
   " uses `yapf` to automatically fmt python file
   " so it requires `pip install yapf` to work
   " https://github.com/google/yapf
-  autocmd FileType python nnoremap <leader>= :0,$!yapf<CR>
+  " NOTE DEPRECATED use black now
+  " autocmd FileType python nnoremap <leader>= :0,$!yapf<CR>
+
+  let g:black_linelength = 100
+  let g:black_skip_string_normalization = 1
+  let g:black_virtualenv = $VIRTUAL_ENV
+  autocmd BufWritePre *.py execute ':Black'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

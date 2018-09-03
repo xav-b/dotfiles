@@ -248,3 +248,16 @@ compare_master() {
 
   open "${master_url}/compare/${branch}"
 }
+
+# credits: https://remysharp.com/2018/08/23/cli-improved
+alias preview="fzf --preview 'bat {}'"
+# add support for ctrl+o to open selected file in VS Code
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
+alias zz="z | fzf"
+
+alias ap="ansible-playbook"
+
+# useful goto url
+# https://www.gizmodo.com.au/2018/09/10-hidden-urls-to-help-you-rule-the-web/
+alias goto_mytrack='open https://www.google.com/maps/timeline?hl=en&authuser=0&ei=6mDLWvKWCoK-gge4346ACA%3A8&ved=1t%3A17706&pb'
+alias goto_wl='open https://www.youtube.com/playlist?list=WL'

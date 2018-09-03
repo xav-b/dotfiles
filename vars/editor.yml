@@ -79,6 +79,7 @@ vim_plugins_completion:
   - "'ervandew/supertab'"
   - "'SirVer/ultisnips'"
   - "'honza/vim-snippets'"
+  - "'ambv/black', { 'for': 'python' }"
 
 atom_pkgs:
   - vim-mode
