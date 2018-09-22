@@ -34,7 +34,7 @@ if [ "$(basename $PWD)" == "suit-up" ]; then
 fi
 
 function prepare_mac() {
-# we need to agree with Apple (and ignore errors)
+  # we need to agree with Apple (and ignore errors)
   xcode-select --install || true
 }
 
@@ -51,6 +51,7 @@ function install_dna() {
 
 function main() {
   # idempotent steps
+  # TODO
   [ $(command -v pip) ] || install_pip
   test -d ${WORKSPACE} || install_dna
 

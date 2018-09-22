@@ -19,5 +19,5 @@ install:
 	ansible-playbook -i hosts site.yml --ask-sudo-pass --tags $(TAGS)
 
 doc:
-	cp readme.md ./docs/index.md
-	mkdocs build --clean
+	cp readme.md ./docs/README.md
+	docsify serve ./docs
