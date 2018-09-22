@@ -47,6 +47,7 @@ homebrew_pkgs:
   - coreutils
   #- moreutils  # NOTE from mathiasbynens but what's the use ?
   - findutils
+  - yank                 # Yank terminal output to clipboard
 
 linux_pkgs:
   - zsh
@@ -72,6 +73,11 @@ zsh_plugins:
   - zsh-users/zsh-completions
   - zsh-users/zsh-syntax-highlighting
   - zsh-users/zsh-history-substring-search
+  - momo-lab/zsh-abbrev-alias
+  - oldratlee/hacker-quotes
+  - hlissner/zsh-autopair
+  - wfxr/forgit
+  - MichaelAquilina/zsh-you-should-use
 
 tmux_plugins:
   - tmux-plugins/tmux-sensible

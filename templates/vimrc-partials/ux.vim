@@ -60,6 +60,14 @@ endfunction
 " lines that are longer than the specified length (defaulting to 80)
 command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
 
+" activate visual vertical line + red underline
+" NOTE TESTING could be part of the function above
+" -- vertical line
+highlight ColorColumn ctermbg=grey
+set colorcolumn=100
+" -  hightlight
+match ErrorMsg '\%>100v.\+'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "

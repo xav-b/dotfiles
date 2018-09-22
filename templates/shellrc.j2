@@ -40,6 +40,15 @@ __load_tools () {
 # -- virtual environments
 # --
 
+__init_py_virtualenv() {
+  export WORKON_HOME="$HOME/.virtualenvs"
+  export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python2.7"
+  export VIRTUALENVWRAPPER_VIRTUALENV="/usr/local/bin/virtualenv"
+  export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+
+  source /usr/local/bin/virtualenvwrapper.sh &>/dev/null
+}
+
 __init_go () {
   local go_version="go${1}"
   # -- gvm

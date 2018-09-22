@@ -4,7 +4,9 @@ unbind-key C-a
 bind-key C-a send-prefix
 
 set -s escape-time 0                # fastest command sequences
-set -s quiet on                     # disable various messages
+# no longer necessary for tmux >= 2.5
+# https://github.com/tmux/tmux/issues/1078
+# set -s quiet on                     # disable various messages
 # Allow the arrow key to be used immediately after changing windows
 set-option -g repeat-time 0
 
@@ -18,27 +20,19 @@ bind-key R source-file ~/.tmux.conf \; display-message "tmux.conf reloaded."
 # Copy-paste integration
 set-option -g default-command "reattach-to-user-namespace -l zsh"
 
-# Setup 'v' to begin selection as in Vim
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
-
 # Update default binding of `Enter` to also use copy-pipe
 unbind -t vi-copy Enter
 {% if ansible_os_family == "Darwin" %}
-  bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+  unbind-key -T copy-mode-vi Space   ;   bind-key -T copy-mode-vi v send-keys -X begin-selection
+  unbind-key -T copy-mode-vi Enter   ;   bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+  unbind-key -T copy-mode-vi [       ;   bind-key -T copy-mode-vi [ send-keys -X begin-selection
+  unbind-key -T copy-mode-vi ]       ;   bind-key -T copy-mode-vi ] send-keys -X copy-selection
 {% else %}
-  bind -t vi-copy y copy-pipe "xclip -sel clip -i"
+  bind -T copy-mode-vi y send-keys -X copy-pipe "xclip -sel clip -i"
 {% endif %]}
-
-# Bind ']' to use pbpaste
-bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
 
 # Enable native Mac OS X copy/paste
 set-option -g default-command "/bin/bash -c 'which reattach-to-user-namespace >/dev/null && exec reattach-to-user-namespace $SHELL -l || exec $SHELL -l'"
-
-# Setup 'v' to begin selection as in Vim
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 
 # -- display -------------------------------------------------------------------
 set -g base-index 1                 # start windows numbering at 1
@@ -114,10 +108,22 @@ set-option -g status-right '#{prefix_highlight} #(sysctl -n vm.loadavg)  | %l:%M
 set-window-option -g window-status-current-fg white
 set-option -g status-fg default
 
+
+# ######################### EXPERIMENTAL
 # Status Bar solarized-dark (default)
-set-option -g status-bg black
-set-option -g pane-active-border-fg black
-set-option -g pane-border-fg black
+#set-option -g status-bg black
+#set-option -g pane-active-border-fg black
+#set-option -g pane-border-fg black
+
+#set inactive/active window styles
+set -g window-style 'fg=colour247,bg=colour236'
+set -g window-active-style 'fg=colour250,bg=black'
+# set the pane border colors 
+set -g pane-border-fg colour250
+set -g pane-border-bg colour236
+set -g pane-active-border-fg colour250 
+set -g pane-active-border-bg colour250
+# ######################### EXPERIMENTAL
 
 # status Bar solarized-light
 if-shell "[ \"$COLORFGBG\" = \"11;15\" ]" "set-option -g status-bg white"

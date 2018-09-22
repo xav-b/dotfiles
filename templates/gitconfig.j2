@@ -34,6 +34,9 @@
 	token = !security find-internet-password -a {{ git.username }} -s github.com -l 'ghi token' -w
 
 [alias]
+  as = rebase -i master --autosquash
+  pf = push --force-with-lease
+
   aliases = config --get-regexp alias
   count = "!f() { compareBranch=${1-master}; echo \"commits since master: $(git rev-list --count HEAD ^$compareBranch)\";  }; f"
   undo = reset --soft HEAD^
@@ -43,9 +46,10 @@
 
   # shortcuts
   co = checkout
+  cb = checkout -b
   aa = add --all
   cm = !git add -A && git commit -m
-  p = pull --rebase
+  up = pull --rebase
 
   h = !git log --graph --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
   hs = !git h --max-count=10
@@ -62,3 +66,13 @@
 
   # shell commands
   ciao = "!echo \"ciao $USER!\""
+
+  tidy = !git branch --merged | egrep -v '(^\\*|master)' | xargs git branch -d && git remote prune origin
+  wip = !git add --all && git commit -m "wip" --no-verify
+  # List diff files
+  ## in commit
+  lsc = diff-tree --no-commit-id --name-only -r
+  ## in head
+  lsh = diff-tree --no-commit-id --name-only -r HEAD
+  ## in branch
+  lsb = !git diff-tree --no-commit-id --name-only -r master..$(git rev-parse --abbrev-ref HEAD)
