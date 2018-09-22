@@ -24,9 +24,6 @@ dna_log () {
   printf "[ $(date +'%T') ] dna::${level} > ${message}\n"
 }
 
-# -- environment configuration
-test -d {{ dna_bin_path }} && export PATH=$PATH:{{ dna_bin_path }}
-
 __load_tools () {
   # -- third party utilities
   dna_log "info" "activating k, z, autoenv"
@@ -116,6 +113,3 @@ __load_tools
 __init_go "{{ dev.go_version }}"
 #__init_node "{{ dev.node_version }}"
 #__init_ruby "{{ dev.ruby_version }}"
-
-# remove duplicates in bash history
-export HISTCONTROL=ignoreboth:erasedups

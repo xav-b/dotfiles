@@ -2,6 +2,7 @@
 # --
 # -- {{ ansible_managed }}
 # --
+# entry point for loading/controlling zsh session setup
 
 source {{ dna_home }}/settings.zsh
 
@@ -10,13 +11,7 @@ source {{ dna_home }}/plugins.zsh
 
 source {{ dna_home }}/shellrc
 source {{ dna_lib_path }}/aliases
+source {{ dna_lib_path }}/functions
 
 # support for an extra local configuration
 [ -e "${HOME}/.zshrc_local" ] && source "${HOME}/.zshrc_local"
-
-export CHEATCOLORS=true
-export EDITOR={{ editor.name }}
-
-# need to be filled if you use this kinf of stuff
-# alternatively, one can run `git config --global github.token "xxx"`
-export GITHUB_TOKEN=""

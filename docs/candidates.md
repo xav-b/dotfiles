@@ -23,6 +23,7 @@
 - [The Fuck](https://github.com/nvbn/thefuck) - _Magnificent app which corrects your previous console command_
 - [jid](https://github.com/simeji/jid) - _json incremental digger_
 - [How2](https://github.com/santinic/how2?utm_source=cronweekly.com) - _stackoverflow from the terminal_
-- [Nord](https://github.com/arcticicestudio/nord) - _An arctic, north-bluish color palette. _
+- [Nord](https://github.com/arcticicestudio/nord) - _An arctic, north-bluish color palette._
 - [Exa](https://the.exa.website/) - _a modern replacement for ls_
 - [transfert.sh](https://transfer.sh/) - _Easy file sharing from the command line_
+- [jrnl](http://jrnl.sh/) - _A simple command line journal application that stores your journal in a plain text file_

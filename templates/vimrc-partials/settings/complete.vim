@@ -15,45 +15,44 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-l>"
-let g:UltiSnipsJumpBackwardTrigger="<c-h>""
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="horizontal"
+let g:ultisnips_python_style = "google"
+let g:ultisnips_python_quoting_style = "simple"
+let g:ultisnips_python_triple_quoting_style = "double"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Neocomplete: Next generation completion framework after neocomplcache
-" Github:      https://github.com/Shougo/neocomplete.vim
+" Deoplete: Dark powered asynchronous completion framework for neovim
+" Github:   https://github.com/Shougo/deoplete.nvim
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Disable AutoComplPop
-let g:acp_enableAtStartup = 0
-" Use neocomplete
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length
-let g:neocomplete#sources#syntax#min_keyword_length = 2
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+call deoplete#custom#set('ultisnips', 'matchers', ['matcher_fuzzy'])
 
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-  let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" additional completion for rust
+let g:racer_experimental_completer = 1
 
-" <TAB>: completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>""
 
-" Enable omni completion
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Neoformat: ✨  A (Neo)vim plugin for formatting code.
+" Github:    https://github.com/sbdchd/neoformat
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
+" auto-format on save
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
+let g:neoformat_enabled_python = ['yapf', 'autopep8']
+" NOTE what about eslint_d or prettier-eslint ?
+let g:neoformat_enabled_javascript = ['prettier']
+" TODO add others https://github.com/sbdchd/neoformat#supported-filetypes
