@@ -1,0 +1,72 @@
+[37m# Taskbook cheatsheet[39;49;00m
+
+- [Actual project](https://github.com/klauscfhq/taskbook)
+
+> A gentle reminders a useful day-to-day commands
+
+[37m# 80% useful commands[39;49;00m
+
+[33m`[39;49;00m[33m`[39;49;00m[33m`[39;49;00m
+[37m# create todo's tasks[39;49;00m
+tb -t @todo @project [34mdo[39;49;00m something
+tb -t @todo @project [34mdo[39;49;00m another thing
+tb -n @todo Oh why not doing this
+
+[37m# list what's up[39;49;00m
+tb -l today pending
+
+tb -s [34m2[39;49;00m
+tb -p @1 [34m2[39;49;00m
+tb -p @3 [34m3[39;49;00m
+[33m`[39;49;00m[33m`[39;49;00m[33m`[39;49;00m
+
+---
+
+[37m# Create a new task/note[39;49;00m
+
+[33m`[39;49;00m[33m`[39;49;00m[33m`[39;49;00m
+[37m# note how we can pin it to a board and assign a priority[39;49;00m
+[37m# priority being between 1 and 3[39;49;00m
+
+tb -t/--task @aboard p:3 My new task
+
+tb -n/--note My new note
+[33m`[39;49;00m[33m`[39;49;00m[33m`[39;49;00m
+
+[37m# Update[39;49;00m
+
+[33m`[39;49;00m[33m`[39;49;00m[33m`[39;49;00m
+[37m# mark as completed[39;49;00m
+tb -c/--check [34m1[39;49;00m [34m3[39;49;00m
+
+[37m# mark as important[39;49;00m
+tb -s/--star [34m2[39;49;00m
+
+[37m# update priority (`@1` is the task id, `2` being the level)[39;49;00m
+tb -p/--priority @1 [34m2[39;49;00m
+
+[37m# move[39;49;00m
+tb -m @1 myboard reviews
+[37m# edit[39;49;00m
+tb -e/--edit @3 Merge PR [37m#42[39;49;00m
+
+[37m# remove[39;49;00m
+tb -d/--delete [34m1[39;49;00m [34m2[39;49;00m
+[37m# or archive[39;49;00m
+tb -a/--archive [34m1[39;49;00m
+[37m# and restore[39;49;00m
+tb -l/--restore [34m1[39;49;00m
+[33m`[39;49;00m[33m`[39;49;00m[33m`[39;49;00m
+
+[37m# Display[39;49;00m
+
+[33m`[39;49;00m[33m`[39;49;00m[33m`[39;49;00m
+[37m# list all items that belong to the default myboard and are pending tasks[39;49;00m
+tb -l/--list myboard pending
+[37m# all boards[39;49;00m
+tb
+
+[37m# timeline[39;49;00m
+tb -i/--timeline
+[33m`[39;49;00m[33m`[39;49;00m[33m`[39;49;00m
+

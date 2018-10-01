@@ -9,7 +9,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Customize settings for vim-template
-let g:username = "hackliff"
+" TODO read them from variables
+let g:username = "Xavier Bruhiere"
 let g:email = "xavier.bruhiere@gmail.com"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

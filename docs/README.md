@@ -1,5 +1,7 @@
 # Hacker Machine Provisioning
 
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 Store your confiuration files and deploy them with ease on your machine,
 or others, thanks to [Ansible][ansible]. Handy to manage at scale the
 setup of developer's machines or to preoperly organize and customize
@@ -31,7 +33,7 @@ not a big deal, granted).
 # you can personalize installation
 DNA_TMP_WORKSPACE="./suit-up"
 DNA_VCS_BRANCH="feat/upgrade"
-curl https://raw.githubusercontent.com/hackliff/suit-up/${DNA_VCS_BRANCH}/bootstrap.sh | bash
+curl https://raw.githubusercontent.com/xav-b/suit-up/${DNA_VCS_BRANCH}/bootstrap.sh | bash
 ```
 
 You should now have [Ansible][ansible] installed and the repository

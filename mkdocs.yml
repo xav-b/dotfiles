@@ -1,9 +1,0 @@
-site_name: DNA Documentation
-pages:
-  - Home: index.md
-  - Apps: apps.md
-  - Shell: shell.md
-  - Hack: hack.md
-  - Vim: vim.md
-  - Candidates: candidates.md
-theme: flatly

@@ -11,7 +11,7 @@
 - [fzf-vim](https://github.com/junegunn/fzf.vim)
 - [RipGrep](https://github.com/BurntSushi/ripgrep) - _ripgrep combines the usability of The Silver Searcher with the raw speed of grep_
 - [icdiff](http://www.jefftk.com/icdiff)- _improved colored diff_
-- [fkill]() - _Fabulously kill processes, cross-platform_
+- [fkill](https://github.com/sindresorhus/fkill-cli) - _Fabulously kill processes, cross-platform_
 - [s](https://github.com/zquestz/s) - _Open a web search in your terminal._
 - [gone](https://github.com/guillaumebreton/gone) - _Mico pomodoro cli_
 - [scm breeze](https://github.com/scmbreeze/scm_breeze) - _Adds numbered shortcuts to the output git status, and much more_
@@ -34,3 +34,11 @@
 - [statcode](pip install statcode) - _Like man pages, but for HTTP status codes_
 - [carbon-cli](https://github.com/mixn/carbon-now-cli) - _🎨 Beautiful images of your code — from right inside your terminal._
 - [prettyping](http://denilson.sa.nom.br/prettyping/) - _wrapper around the standard ping tool, making the output prettier, more colorful, more compact, and easier to read._
+- [wifi-password](https://github.com/rauchg/wifi-password) - _Get the password of the wifi you're on_
+- [is-up](https://github.com/sindresorhus/is-up-cli) - _Check whether a website is up or down_
+- [httpie](https://httpie.org/) - _command line HTTP client with an intuitive UI, JSON support, syntax highlighting, wget-like downloads, plugins, and more._
+- [grip](https://github.com/joeyespo/grip) - _Preview GitHub Markdown files like Readme locally before committing them._
+- [fast-cli](https://github.com/sindresorhus/fast-cli) - _Test your download speed using fast.com_
+- [speed-test](https://github.com/sindresorhus/speed-test) - _Test your internet connection speed and ping using speedtest.net from the CLI_
+- [qfc](https://github.com/pindexis/qfc) - _Quick Command-line File Completion_
+- [gtop](https://github.com/aksakalli/gtop) - _System monitoring dashboard for terminal_

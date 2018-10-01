@@ -26,7 +26,7 @@
 
 - name: install autoenv, Directory-based environments
   git: >
-    repo=https://github.com/hackliff/autoenv
+    repo=https://github.com/xav-b/autoenv
     dest={{ dna_lib_path }}/autoenv
     version=040b792c2625c5e73e1a7cf97c5032b631c28b5f
 

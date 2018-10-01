@@ -17,7 +17,7 @@ vim_plugins:
   - "'rking/ag.vim'"
   - "'Raimondi/delimitMate'"
   - "'sjl/gundo.vim'"
-  - "'hackliff/vim-template'"
+  - "'xav-b/vim-template'"
   - "'vim-scripts/YankRing.vim'"
   # NOTE interesting comparison between buffer tabs (and airline) https://github.com/ap/vim-buftabline
   # nice markdown editing (http://www.swamphogg.com/2015/vim-setup/)
@@ -41,6 +41,7 @@ vim_plugins_ui:
   - "'junegunn/limelight.vim'"
   - "'itchyny/lightline.vim'"
   - "'ryanoasis/vim-devicons'"
+  - "'ayu-theme/ayu-vim'"
 
 vim_plugins_languages:
   - "'derekwyatt/vim-scala'"
@@ -69,6 +70,8 @@ vim_plugins_dev:
   - "'rust-lang/rust.vim'"
   - "'racer-rust/vim-racer'"
   - "'cespare/vim-toml'"
+  - "'vim-scripts/dbext.vim', { 'for': 'sql' }"
+  - "'martingms/vipsql'"
 
 vim_plugins_completion:
   - "'sbdchd/neoformat'"

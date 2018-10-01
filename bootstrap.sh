@@ -2,9 +2,11 @@
 
 set -euo pipefail
 
-# Script to bootstrap a machine from hackliff/suit-up setup
+# Script to bootstrap a machine from xav-b/suit-up setup
+#
 # TODO safe trusted network pipe
 # TODO install Python if not here
+#
 # usage:
 #   $ # you can configure provisioning with environment variable
 #   $ export DNA_TMP_WORKSPACE="/opt"
@@ -44,7 +46,7 @@ function install_pip() {
 }
 
 function install_dna() {
-  git clone https://github.com/hackliff/suit-up ${WORKSPACE}
+  git clone "https://github.com/xav-b/suit-up" "${WORKSPACE}"
   cd ${WORKSPACE} && git checkout ${BRANCH}
   sudo pip install -r requirements.txt
 }

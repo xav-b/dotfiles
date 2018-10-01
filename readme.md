@@ -3,9 +3,9 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 Store your confiuration files and deploy them with ease on your machine,
-or others, thanks to [Ansible][ansible]. Handy to manage at scale the
-setup of developer's machines or to preoperly organize and customize
-your own setup.
+or others, thanks to [Ansible][ansible]. Handy to manage at scale® the
+setup of developer's machines or to properly organize and customize your
+own setup.
 
 
 ## Usage
@@ -33,7 +33,8 @@ not a big deal, granted).
 # you can personalize installation
 DNA_TMP_WORKSPACE="./suit-up"
 DNA_VCS_BRANCH="feat/upgrade"
-curl https://raw.githubusercontent.com/hackliff/suit-up/${DNA_VCS_BRANCH}/bootstrap.sh | bash
+
+curl https://raw.githubusercontent.com/xav-b/suit-up/${DNA_VCS_BRANCH}/bootstrap.sh | bash
 ```
 
 You should now have [Ansible][ansible] installed and the repository
@@ -66,18 +67,20 @@ pip --version
 # pip 9.0.1 from /Users/...
 ```
 
-- [Ansible 2.2.0.0][ansible]
+- [Ansible 2.6.4][ansible]
 
-> App deployment, configuration management and orchestration - all from one
-> system.
+> App deployment, configuration management and orchestration - all from
+> one system.
 
-- [Mkdocs][mkdocs]
+- [docsify][docsify]
 
-> Fast, simple and downright gorgeous static site generator that's geared
-> towards building project documentation. 
+> A magical documentation site generator.
+> Simple and lightweight (~19kB gzipped)
+> No statically built html files
+> Multiple themes
 
 Just run `make` to install them.
 
 
 [ansible]: http://www.ansible.com/
-[mkdocs]: http://www.mkdocs.org/
+[docsify]: https://docsify.js.org/#/

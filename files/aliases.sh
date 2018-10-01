@@ -261,3 +261,5 @@ alias ap="ansible-playbook"
 # https://www.gizmodo.com.au/2018/09/10-hidden-urls-to-help-you-rule-the-web/
 alias goto_mytrack='open https://www.google.com/maps/timeline?hl=en&authuser=0&ei=6mDLWvKWCoK-gge4346ACA%3A8&ved=1t%3A17706&pb'
 alias goto_wl='open https://www.youtube.com/playlist?list=WL'
+
+alias weather='open https://darksky.net/forecast/1.304,103.849/ca12/en'
