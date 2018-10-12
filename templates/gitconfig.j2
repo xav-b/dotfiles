@@ -59,7 +59,7 @@
   graph = log --graph --all --decorate --stat --date=iso
 
   s = status
-  leaderboard = git shortlog -sn
+  leaderboard = shortlog -sn
   stats = shortlog -sn --since='10 weeks' --until='2 weeks'
   overview = log --all --oneline --no-merges
   recap = log --all --oneline --no-merges --author={{ git.username }}
@@ -76,3 +76,5 @@
   lsh = diff-tree --no-commit-id --name-only -r HEAD
   ## in branch
   lsb = !git diff-tree --no-commit-id --name-only -r master..$(git rev-parse --abbrev-ref HEAD)
+
+  yolo = !git commit -m "$(curl -s whatthecommit.com/index.txt)"
