@@ -22,6 +22,7 @@ homebrew_casks:
 # TODO install and use brew-cask http://caskroom.io/
 # TODO move as much as possible to portable strategies
 homebrew_pkgs:
+  - bench               # Command-line benchmark tool
   - reattach-to-user-namespace  # allow copy/paste in tmux
   - sshrc
   - sl

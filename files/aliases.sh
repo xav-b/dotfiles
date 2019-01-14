@@ -263,3 +263,15 @@ alias goto_mytrack='open https://www.google.com/maps/timeline?hl=en&authuser=0&e
 alias goto_wl='open https://www.youtube.com/playlist?list=WL'
 
 alias weather='open https://darksky.net/forecast/1.304,103.849/ca12/en'
+# https://github.com/chubin/wttr.in
+weather_cli() {
+  local city=${1:-Paris}
+
+  curl wttr.in/${city}
+}
+
+# stolen from https://darrenburns.net/posts/tools/
+alias record='svg-term --out ~/tmp/screencast.svg --padding 18 --height 8 --width 80'
+
+# note installed
+# alias ping='prettyping --nolegend'

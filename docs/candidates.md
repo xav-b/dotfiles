@@ -42,3 +42,6 @@
 - [speed-test](https://github.com/sindresorhus/speed-test) - _Test your internet connection speed and ping using speedtest.net from the CLI_
 - [qfc](https://github.com/pindexis/qfc) - _Quick Command-line File Completion_
 - [gtop](https://github.com/aksakalli/gtop) - _System monitoring dashboard for terminal_
+- [Github refined
+  extension](https://github.com/sindresorhus/refined-github) - _Browser extension that simplifies the GitHub interface and adds useful features_
+- [svg-term-cli](https://github.com/marionebl/svg-term-cli)
