@@ -147,3 +147,91 @@ function note() {
     echo $(date +"%Y%m%d-%H%M%S") "$(cat)"  >> $${journal}
   fi
 }
+
+goto() {
+  if [ "$1" = "heroku" ]; then
+    open "https://dashboard.heroku.com/teams/kpler/apps"
+  elif [ "$1" = "datadog" ]; then
+    open "https://app.datadoghq.com/apm/home"
+  elif [ "$1" = "gh" ]; then
+    local repo=${2:-""}
+    open "https://github.com/Kpler/${repo}"
+  elif [ "$1" = "sentry" ]; then
+    open "https://sentry.io/kpler"
+  elif [ "$1" = "es" ]; then
+    open "https://cloud.elastic.co/#clusters/eu-west-1/e3cb79689a0073a3cca03fc9a5e35e56/overview/"
+  elif [ "$1" = "jira" ]; then
+    local ticket="$2"
+    if [[ -n "${ticket}" ]]; then
+      open "https://kpler1.atlassian.net/browse/${ticket}"
+    else
+      open "https://kpler1.atlassian.net/secure/Dashboard.jspa"
+    fi
+  elif [ "$1" = "aws" ]; then
+    local region=${2:-"eu-west-1"}
+    open "https://${region}.console.aws.amazon.com/console/home?region=${region}"
+  elif [ "$1" = "ops" ]; then
+    open "https://app.opsgenie.com/alert/V2#/alert-genie"
+  elif [ "$1" = "ci" ]; then
+    local project="$2"
+    # TODO change Kpler
+    open "https://circleci.com/gh/Kpler/${project}"
+  else:
+    echo "unknown service: ${1}"
+  fi
+}
+
+add_pyth() {
+  # TODO make it idempotent by checking $PYTHONPATH
+  echo "appending ${1} to ${PYTHONPATH}"
+  export PYTHONPATH="${1}:$PYTHONPATH"
+}
+
+rt () {
+  local project=${1:-"nose"}
+  nosetests -v --with-timer --with-doctest --with-xunit --xunit-file=/tmp/${prpject}-tests.xml "$@"
+}
+
+remote () {
+  command_="$1"
+  hosts_="$2"
+  limit_="$3"
+
+  ansible "${hosts_}" \
+    -m shell \
+    -a "${command_}" \
+    --limit "${limit_}" \
+    --user kpler
+}
+
+_start_vipsql () {
+  # TODO use a decent standard path
+  local query_file="$HOME/Hack/queries.sql"
+
+  # TODO make something more generic
+  local commodity=${1:-"lng"}
+  local platform=${2:-"production"}
+  local database="${commodity}"
+
+  local username=$(decrypt_param "kpler_etl_db_user")
+  local password=$(decrypt_param "kpler_etl_db_pass")
+
+  if [[ "${commodity}" == "oil" ]]; then
+    database="${commodity}_testing"
+  fi
+
+  # TODO hide this
+  export PGPASSWORD="${password}"
+
+  # nvim "${query_file}" -c 'setlocal buftype=nofile | setlocal ft=sql | VipsqlOpenSession '"$*"
+  nvim "${query_file}" \
+    -c 'setlocal ft=sql | VipsqlOpenSession '"-h $(_pg_host ${commodity} ${platform}) -U ${username} -d ${database}"
+}
+
+vipsql () {
+  # execute ina  subshell to get back our current working dir
+  (
+    # at Kpler I used to setup the env here
+    _start_vipsql "$@"
+  )
+}

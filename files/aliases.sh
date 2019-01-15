@@ -275,3 +275,5 @@ alias record='svg-term --out ~/tmp/screencast.svg --padding 18 --height 8 --widt
 
 # note installed
 # alias ping='prettyping --nolegend'
+
+alias f="fff"
