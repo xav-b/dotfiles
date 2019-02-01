@@ -46,3 +46,4 @@
   extension](https://github.com/sindresorhus/refined-github) - _Browser extension that simplifies the GitHub interface and adds useful features_
 - [svg-term-cli](https://github.com/marionebl/svg-term-cli)
 - [fff](https://github.com/dylanaraps/fff) - _🚀 fucking fast file-manager_
+- [fx](https://github.com/antonmedv/fx) - _Command-line tool and terminal JSON viewer 🔥_

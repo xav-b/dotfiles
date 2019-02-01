@@ -88,3 +88,19 @@ function! CWD()
 endfunction
 
 set statusline+=%{fugitive#statusline()}\ (%{&ff})\ %{ALEGetStatusLine()}
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Goyo and LimeLight:
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" could be more estetic
+let g:limelight_conceal_ctermfg = 240
+" Default: 0.5
+let g:limelight_default_coefficient = 0.7
+" Number of preceding/following paragraphs to include (default: 0)
+let g:limelight_paragraph_span = 1
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!

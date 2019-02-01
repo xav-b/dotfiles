@@ -13,6 +13,7 @@ export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
 # remove duplicates in bash history
 export HISTCONTROL=ignoreboth:erasedups
+export HISTIGNORE='&:bg:fg:clear:ls:pwd:history:exit:make*:* --help:'
 
 # FIXME only true for osx
 # GNU core utilities installed with brew (those that come with macOS are outdated)

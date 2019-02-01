@@ -51,6 +51,8 @@ augroup configgroup
   if !exists("g:disable_markdown_autostyle")
     autocmd FileType markdown setlocal wrap linebreak textwidth=72 nolist
   endif
+  " as advised here: https://github.com/tpope/vim-markdown
+  let g:markdown_syntax_conceal = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -74,10 +76,11 @@ augroup configgroup
   " NOTE DEPRECATED use black now
   " autocmd FileType python nnoremap <leader>= :0,$!yapf<CR>
 
-  let g:black_linelength = 100
-  let g:black_skip_string_normalization = 1
-  let g:black_virtualenv = $VIRTUAL_ENV
-  autocmd BufWritePre *.py execute ':Black'
+  " NOTE now using neoformat - under test though
+  "let g:black_linelength = 100
+  "let g:black_skip_string_normalization = 1
+  "let g:black_virtualenv = $VIRTUAL_ENV
+  "autocmd BufWritePre *.py execute ':Black'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

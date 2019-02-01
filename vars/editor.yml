@@ -25,8 +25,6 @@ vim_plugins:
   - "'tpope/vim-obsession'"
   - "'mhinz/vim-startify'"
   - "'yuttie/comfortable-motion.vim'"
-  - "'junegunn/fzf'"
-  - "'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}"
   - "'chrisbra/NrrwRgn'"
 
 # TODO a better way to select theme ?
@@ -51,12 +49,12 @@ vim_plugins_languages:
   - "'mxw/vim-jsx', { 'for': 'js' }"
   - "'posva/vim-vue', { 'for': 'vue' }"
   # TODO and .markdown as well
-  - "'plasticboy/vim-markdown', { 'for': 'md' }"
   # using `for: md` would make sense but for some reason it breaks the plugin
-  - "'tpope/vim-markdown'"
+  - "'gabrielelana/vim-markdown', { 'for': 'md' }"
   - "'fatih/vim-go', { 'for': 'go' }"
 
 vim_plugins_dev:
+  - "'editorconfig/editorconfig-vim'"
   - "'tpope/vim-fugitive'"
   - "'majutsushi/tagbar', { 'on': 'TagbarToggle' }"
   - "'airblade/vim-gitgutter'"
@@ -74,15 +72,22 @@ vim_plugins_dev:
   - "'martingms/vipsql'"
 
 vim_plugins_completion:
-  - "'sbdchd/neoformat'"
   # TODO if executable("ctags")
-  - "'craigemery/vim-autotag'"
-  - "'w0rp/ale'"
+  # re-generating tags uses a different command, not sure this is what I wan
+  # - "'craigemery/vim-autotag'"
+  # NOTE powerful but does the same thing as other linters
+  #- "'w0rp/ale'"
+  #- "'ambv/black', { 'for': 'python' }"
+  - "'sbdchd/neoformat'"
+  - "'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}"
+  # (Optional) Multi-entry selection UI.
+  - "'junegunn/fzf'"
+  - "'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}"
   - "'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }"
-  - "'ervandew/supertab'"
-  - "'SirVer/ultisnips'"
-  - "'honza/vim-snippets'"
-  - "'ambv/black', { 'for': 'python' }"
+  - "'Shougo/neosnippet.vim'"
+  - "'Shougo/neosnippet-snippets'"
+  #- "'SirVer/ultisnips'"
+  #- "'honza/vim-snippets'"
 
 atom_pkgs:
   - vim-mode

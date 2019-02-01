@@ -265,7 +265,7 @@ alias goto_wl='open https://www.youtube.com/playlist?list=WL'
 alias weather='open https://darksky.net/forecast/1.304,103.849/ca12/en'
 # https://github.com/chubin/wttr.in
 weather_cli() {
-  local city=${1:-Paris}
+  local city=${1:-"Paris""}
 
   curl wttr.in/${city}
 }
@@ -276,4 +276,14 @@ alias record='svg-term --out ~/tmp/screencast.svg --padding 18 --height 8 --widt
 # note installed
 # alias ping='prettyping --nolegend'
 
-alias f="fff"
+alias f='fff'
+
+# similar to https://github.com/tldr-pages/tldr
+cheat() {
+  curl "cht.sh/$1"
+}
+
+# stolen from https://news.ycombinator.com/item?id=18898523
+cleanchrome() {
+  chromium --user-data-dir "$(mktemp -d)"
+}
