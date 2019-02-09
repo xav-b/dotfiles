@@ -171,7 +171,9 @@ nnoremap E $              " move to the end of line
 nmap <leader>w :w!<cr>    " Fast saving
 " a trick by Steve Losh for when you forgot to sudo before editing a file that
 " requires root privileges
-cmap w!! w !sudo tee % >/dev/null
+" cmap w!! w !sudo tee % >/dev/null
+" version below seems to improve on it thanks to 'Master Vim Quickly' newsletter
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " maps the ,ev and ,sv keys to edit/reload .vimrc. (I got this from Derek
 " Wyatt’s .vimrc file)

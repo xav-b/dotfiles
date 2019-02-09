@@ -33,8 +33,10 @@ abbrev iose import os; os._exit(0)
 set hidden
 
 " FIXME need to install that outside
+" - https://github.com/joe-re/sql-language-server
 let g:LanguageClient_serverCommands = {
   \ 'python': ['/Users/xav/.virtualenvs/alexandrie/bin/pyls'],
+  \ 'sql': ['sql-language-server', 'up', '--method', 'stdio'],
   \ }
 
 nnoremap <silent> gm :call LanguageClient_contextMenu()<CR>
