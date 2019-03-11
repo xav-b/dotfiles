@@ -2,7 +2,7 @@
 # TODO use more vim-plug dynamic actions
 
 vim_plugins:
-  - 'wellle/targets.vim'
+  - "'wellle/targets.vim'"
   - "'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }"
   - "'easymotion/vim-easymotion'"
   - "'terryma/vim-multiple-cursors'"

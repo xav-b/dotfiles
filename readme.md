@@ -88,6 +88,7 @@ Just run `make` to install them.
 
 - Install trash
 - Compile go1.4 before installing qny superior versions
+- Copy `neovim-init` to `˜/.config/mvim/init.vim`
 
 
 ### Fixme
@@ -97,6 +98,7 @@ Just run `make` to install them.
 - tmux looks ugly
 - Fuck is not installed nor configured (`eval $(thefuck --alias)`)
 - global pip package missing: neovim, thefuck
+- `trash-cli` is not installed
 
 [ansible]: http://www.ansible.com/
 [docsify]: https://docsify.js.org/#/
