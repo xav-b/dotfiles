@@ -1,13 +1,15 @@
 ---
 # https://github.com/qw3rtman/gg
-- name: install Git Goodies
-  shell: curl -fsSL git.io/gg.sh | bash
+# FIXME needs password
+#- name: install Git Goodies
+#  shell: curl -fsSL git.io/gg.sh | bash
 
+# less attractive than https://github.com/ogham/exa
 # https://github.com/rimraf/k
-- name: install k, the new l, yo
-  get_url: >
-    url=https://raw.githubusercontent.com/rimraf/k/master/k.sh
-    dest={{ dna_lib_path }}/k.sh
+#- name: install k, the new l, yo
+#  get_url: >
+#    url=https://raw.githubusercontent.com/rimraf/k/master/k.sh
+#    dest={{ dna_lib_path }}/k.sh
 
 # https://github.com/rupa/z
 - name: install z, the new j, yo
@@ -26,13 +28,16 @@
 
 - name: install autoenv, Directory-based environments
   git: >
-    repo=https://github.com/xav-b/autoenv
+    repo="https://github.com/kennethreitz/autoenv"
     dest={{ dna_lib_path }}/autoenv
-    version=040b792c2625c5e73e1a7cf97c5032b631c28b5f
+# version=040b792c2625c5e73e1a7cf97c5032b631c28b5f
 
 # https://github.com/gleitz/howdoi
 - name: install howdoi
-  pip: name=howdoi version=1.1.9
+  pip:
+    name: howdoi
+    extra_args: --user
+    # version: 1.1.9
 
 # https://github.com/junegunn/fzf
 - name: install fzf, fuzzy searcher

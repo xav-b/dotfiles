@@ -6,6 +6,7 @@
 - name: download latest vim
   git: repo=https://github.com/vim/vim
        dest={{ dna_lib_path }}/vim
+  when: editor.name == "vim"
 # custom ruby path bypass rbenv issues
 - name: compile and install vim
   shell: >
@@ -23,14 +24,17 @@
     --with-lua-prefix={% if ansible_os_family == 'Darwin' %}/usr/local/Cellar/lua/5.2.4_4{% else %}/usr{% endif %}
   args:
     chdir: "{{ dna_lib_path }}/vim"
+  when: editor.name == "vim"
 - shell: make VIMRUNTIMEDIR=/usr/local/share/vim/vim80/
   args:
     chdir: "{{ dna_lib_path }}/vim"
+  when: editor.name == "vim"
 - shell: make install
   become_user: root
   become: true
   args:
     chdir: "{{ dna_lib_path }}/vim"
+  when: editor.name == "vim"
 
 - name: install Vim-plug, Minimalist Vim Plugin Manager
   file: path={{ ansible_env.HOME }}/.vim/autoload state=directory
@@ -61,8 +65,8 @@
 # FIXME Hang - name: download and install plugins
 #  shell: /usr/local/bin/vim +PlugInstall +qall
 
-  # TODO download man page (but where to put it on mac ?)
-  # TODO is it the right mode for user execution ?
+# TODO download man page (but where to put it on mac ?)
+# TODO is it the right mode for user execution ?
 - name: install v, z for vim
   get_url:
     url=https://raw.githubusercontent.com/rupa/v/master/v

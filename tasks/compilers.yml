@@ -18,9 +18,9 @@
   when: dev.python_pm == "virtualenv"
 
 # https://github.com/yyuu/pyenv
-- name: install pyenv and essential plugins
-  shell: curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | PYENV_ROOT="{{ dna_lib_path }}/pyenv" bash
-  when: dev.python_pm == "pyenv"
+#- name: install pyenv and essential plugins
+#  shell: curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | PYENV_ROOT="{{ dna_lib_path }}/pyenv" bash
+#  when: dev.python_pm == "pyenv"
 
 # TODO template minconda platform/version ?
 - name: download miniconda

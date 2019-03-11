@@ -11,17 +11,17 @@ homebrew_casks:
   - docker
   - 1password
   - spotify
-  - typora
-  - slack
+  # - slack
   - spectacle
   - cheatsheet
   - postman
   - numi
-  - alfred
+  # - alfred
 
 # TODO install and use brew-cask http://caskroom.io/
 # TODO move as much as possible to portable strategies
 homebrew_pkgs:
+  - exa                 # A modern version of ‘ls’.
   - bench               # Command-line benchmark tool
   - reattach-to-user-namespace  # allow copy/paste in tmux
   - sshrc
@@ -49,6 +49,7 @@ homebrew_pkgs:
   #- moreutils  # NOTE from mathiasbynens but what's the use ?
   - findutils
   - yank                 # Yank terminal output to clipboard
+  - bat                  # A cat(1) clone with wings.
 
 linux_pkgs:
   - zsh
