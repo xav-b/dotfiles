@@ -50,6 +50,7 @@ homebrew_pkgs:
   - findutils
   - yank                 # Yank terminal output to clipboard
   - bat                  # A cat(1) clone with wings.
+  - jq
 
 linux_pkgs:
   - zsh
