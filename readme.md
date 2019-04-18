@@ -56,12 +56,14 @@ TAGS="shell,tools" make
 - Python
 
 ```Sh
-# tested under conda  4.2.12
-conda create --name dotfiles python=3
-source activate dotfiles
+CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.5.6
+
+pyenv virtualenv 3.5.6 suit-up
+# tested under pyenv 1.2.9
+pyenv activate suit-up
 
 python --version
-# Python 3.5.2 :: Continuum Analytics, Inc.
+# Python 3.5.6
 
 pip --version
 # pip 9.0.1 from /Users/...
@@ -81,6 +83,22 @@ pip --version
 
 Just run `make` to install them.
 
+
+### Manual things
+
+- Install trash
+- Compile go1.4 before installing qny superior versions
+- Copy `neovim-init` to `˜/.config/mvim/init.vim`
+
+
+### Fixme
+
+- GVM installation on MacOSX
+- fzf install the search helper only for bash
+- tmux looks ugly
+- Fuck is not installed nor configured (`eval $(thefuck --alias)`)
+- global pip package missing: neovim, thefuck
+- `trash-cli` is not installed
 
 [ansible]: http://www.ansible.com/
 [docsify]: https://docsify.js.org/#/

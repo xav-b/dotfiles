@@ -10,8 +10,8 @@ export N_PREFIX={{ dna_home }}
 safe_import () {
   local filename="$1"
 
-  if [[ -f /Users/xav/.dna/lib/${filename} ]]; then
-    source /Users/xav/.dna/lib/${filename}
+  if [[ -f {{ dna_home }}/lib/${filename} ]]; then
+    source {{ dna_home }}/lib/${filename}
   else
     echo "unable to load ${filename}: no such file"
   fi
@@ -27,7 +27,6 @@ dna_log () {
 __load_tools () {
   # -- third party utilities
   dna_log "info" "activating k, z, autoenv"
-  safe_import "k.sh"
   safe_import "z.sh"
   safe_import "autoenv/activate.sh"
   # NOTE cannot keep it in dna path ?
@@ -114,12 +113,12 @@ __load_tools
   __init_pyenv "{{ dev.python_version }}"
 {% elif dev.python_pm == "conda" %}
   __init_conda "{{ dev.python_home }}"
-{% if dev.python_pm == "virtualenv" %}
+{% elif dev.python_pm == "virtualenv" %}
   # setup python virtualenv
   export WORKON_HOME={{ dev.python_pm_home }}
   source /usr/local/bin/virtualenvwrapper.sh &>/dev/null
 {% endif %}
-__init_go "{{ dev.go_version }}"
+#__init_go "{{ dev.go_version }}"
 #__init_node "{{ dev.node_version }}"
 #__init_ruby "{{ dev.ruby_version }}"
 
@@ -130,5 +129,5 @@ __init_go "{{ dev.go_version }}"
 # default::DeprecationWarning  # Show DeprecationWarning messages
 # ignore,default:::mymodule    # Only report warnings triggered by "mymodule"
 # error:::mymodule[.*]         # Convert warnings to errors in "mymodule"
-                             # and any subpackages of "mymodule"
+                               # and any subpackages of "mymodule"
 export PYTHONWARNINGS="default"

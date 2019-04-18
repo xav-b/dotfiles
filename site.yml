@@ -26,16 +26,8 @@
       tags: ["tools", "toolbox", "hack"]
 
     - include: ./tasks/vim.yml
-      when: editor.name == "vim"
+      when: '"vim" in editor.name'
       tags: ["editor", "toolbox", "hack"]
 
     # NOTE DEPRECATED docker for Mac and docker CE screwed everything...
     # - include: ./tasks/docker.yml
-
-    # TODO install atom thanks to cask
-    # TODO check ~/.atom/packages/{{ item }}
-    - name: install atom packages
-      command: apm install {{ item }}
-      with_items: "{{ atom_pkgs }}"
-      when: editor == "atom"
-      tags: ["editor", "toolbox", "hack"]

@@ -8,8 +8,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 inoremap jk <esc>  " jk is escape
-nmap ; :           " avoid this frequent typo
-noremap ;; ;       " hit it twice for original behavior
+" avoid this frequent typo
+nmap ; :
+" hit it twice for original behavior
+noremap ;; ;
 
 " upper/lower word
 nmap <leader>u mQviwU`Q

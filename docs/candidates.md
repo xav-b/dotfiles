@@ -47,3 +47,5 @@
 - [svg-term-cli](https://github.com/marionebl/svg-term-cli)
 - [fff](https://github.com/dylanaraps/fff) - _🚀 fucking fast file-manager_
 - [fx](https://github.com/antonmedv/fx) - _Command-line tool and terminal JSON viewer 🔥_
+- [Emojis picker](https://matthewpalmer.net/rocket/) - _Mac tool to integrate emojis
+in applications_
