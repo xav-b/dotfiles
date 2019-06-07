@@ -26,6 +26,7 @@ vim_plugins:
   - "'mhinz/vim-startify'"
   - "'yuttie/comfortable-motion.vim'"
   - "'chrisbra/NrrwRgn'"
+  - "'Alok/notational-fzf-vim'"
 
 # TODO a better way to select theme ?
 vim_plugins_ui:
@@ -88,16 +89,3 @@ vim_plugins_completion:
   - "'Shougo/neosnippet-snippets'"
   #- "'SirVer/ultisnips'"
   #- "'honza/vim-snippets'"
-
-atom_pkgs:
-  - vim-mode
-  - ex-mode
-  - minimap
-  - file-icons
-  - color-picker
-  - react
-  - todo-show
-  - atom-beautify
-  - rest-client
-  - open-recent
-

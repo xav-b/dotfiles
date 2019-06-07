@@ -49,3 +49,5 @@
 - [fx](https://github.com/antonmedv/fx) - _Command-line tool and terminal JSON viewer 🔥_
 - [Emojis picker](https://matthewpalmer.net/rocket/) - _Mac tool to integrate emojis
 in applications_
+- [vim-polyglot](https://github.com/sheerun/vim-polyglot) - _A solid language pack for Vim._
+- [lsd](https://github.com/Peltoche/lsd) - _The next gen ls command_
