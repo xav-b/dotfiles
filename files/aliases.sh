@@ -72,7 +72,6 @@ alias dli='docker-image-list'
 # -- Else
 # --
 
-alias cat='ccat'
 alias rm='trash'
 alias c='clear'
 
@@ -162,7 +161,7 @@ scala () {
 
 # https://github.com/chubin/wttr.in
 weather() {
-  local city=${1:-Paris}
+  local city=${1:-"Paris"}
 
   curl wttr.in/${city}
 }
@@ -196,7 +195,6 @@ alias _="sudo"
 
 alias q='exit'
 alias h='history'
-alias c='clear'
 
 # Language aliases
 alias rb='ruby'
@@ -265,7 +263,7 @@ alias goto_wl='open https://www.youtube.com/playlist?list=WL'
 alias weather='open https://darksky.net/forecast/1.304,103.849/ca12/en'
 # https://github.com/chubin/wttr.in
 weather_cli() {
-  local city=${1:-"Paris""}
+  local city=${1:-"Paris"}
 
   curl wttr.in/${city}
 }

@@ -64,7 +64,7 @@ __init_pyenv () {
   export PATH=$PATH:$PYENV_ROOT/bin
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
-  source {{ dna_lib_path }}/pyenv/completions/pyenv.zsh
+  source "$(pyenv root)/completions/pyenv.zsh"
   pyenv global ${python_version} || pyenv install ${python_version}
   dna_log "info" "now using Python ${python_version}"
 }
@@ -96,6 +96,10 @@ __init_node () {
 
   # -- install and/or activate node
   n ${node_version}
+
+  command -v ccat || npm install -g ccat
+  command -v trash || npm install -g trash-cli
+
   dna_log "info" "now using node ${node_version}"
 }
 
@@ -119,7 +123,7 @@ __load_tools
   source /usr/local/bin/virtualenvwrapper.sh &>/dev/null
 {% endif %}
 #__init_go "{{ dev.go_version }}"
-#__init_node "{{ dev.node_version }}"
+__init_node "{{ dev.node_version }}"
 #__init_ruby "{{ dev.ruby_version }}"
 
 # default                      # Show all warnings (even those ignored by default)
@@ -130,4 +134,4 @@ __load_tools
 # ignore,default:::mymodule    # Only report warnings triggered by "mymodule"
 # error:::mymodule[.*]         # Convert warnings to errors in "mymodule"
                                # and any subpackages of "mymodule"
-export PYTHONWARNINGS="default"
+export PYTHONWARNINGS="ignore"

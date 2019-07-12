@@ -47,6 +47,7 @@ homebrew_pkgs:
   - bat # A cat(1) clone with wings.
   - jq
   - neovim
+  - pyenv
 
 linux_pkgs:
   - zsh

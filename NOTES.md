@@ -3,11 +3,14 @@
 #### 2019 upgrade
 
 - Brew: had to run `rm -f /usr/local/lib/libAliST.dylib`
+- Install pyenv and pyenv-virtualenv and pyenv completions
+- tmux start displays invalid options
+- Go installation is broken
+- Link neovim init to vim
+- Install Hack fonts
+- Before having neovim to install bundle, needs to setup python3.6+,
+  make it general and pip install neovim
 
-- Add `ccat` installation
-- Add `trash` installation
-- Move away from brew when possible
-- Add another local file sourced by zshrc
 - Manage dependencies between tasks/tags
 - Run GoInnstallBinaries in Vim
 - Reset Docker installation on Linux (beware of EE and CE now)
@@ -22,6 +25,7 @@
 - Fix tmuxinator installation (gem is not supposed to be installed)
 - Fix gnome/vim/tmux colorscheme issue
 
+- Move away from brew when possible
 - Use better tags ?
 
 - Automate source code pro installation (or other ?)
