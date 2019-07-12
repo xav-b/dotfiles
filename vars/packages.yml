@@ -1,10 +1,5 @@
 ---
-homebrew_taps:
-  - caskroom/cask
-  - caskroom/versions
-  - homebrew/versions
-  - homebrew/binary
-  - neovim/neovim
+# NOTE cask now ships with homebrew
 
 homebrew_casks:
   - google-chrome
@@ -21,50 +16,51 @@ homebrew_casks:
 # TODO install and use brew-cask http://caskroom.io/
 # TODO move as much as possible to portable strategies
 homebrew_pkgs:
-  - exa                 # A modern version of ‘ls’.
-  - bench               # Command-line benchmark tool
-  - reattach-to-user-namespace  # allow copy/paste in tmux
+  - exa # A modern version of ‘ls’.
+  - bench # Command-line benchmark tool
+  - reattach-to-user-namespace # allow copy/paste in tmux
   - sshrc
   - sl
   - youtube-dl
   - archey
   - ctags
   # packages that should be installed cross-distributions
-  - the_silver_searcher  # https://github.com/ggreer/the_silver_searcher
-  - mercurial            # needed to install go
-  - lua                  # needed for vim completion
+  - the_silver_searcher # https://github.com/ggreer/the_silver_searcher
+  - mercurial # needed to install go
+  - lua # needed for vim completion
   - htop
   - zsh
   - tmux
-  - diff-so-fancy        # TODO use npm
-  - stormssh             # TODO use pip
-  - cheat                # TODO use pip
-  - fpp                  # http://facebook.github.io/PathPicker/
-  - gotags               # TODO use go get
-  - ncdu                 # https://dev.yorhel.nl/ncdu
+  - diff-so-fancy # TODO use npm
+  - stormssh # TODO use pip
+  - cheat # TODO use pip
+  - fpp # http://facebook.github.io/PathPicker/
+  - gotags # TODO use go get
+  - ncdu # https://dev.yorhel.nl/ncdu
   - shellcheck
   # Install GNU core utilities (those that come with macOS are outdated).
   # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
   - coreutils
   #- moreutils  # NOTE from mathiasbynens but what's the use ?
   - findutils
-  - yank                 # Yank terminal output to clipboard
-  - bat                  # A cat(1) clone with wings.
+  - yank # Yank terminal output to clipboard
+  - bat # A cat(1) clone with wings.
   - jq
+  - neovim
 
 linux_pkgs:
   - zsh
-  - mercurial            # needed to install go
-  - lua5.1               # needed for vim completion
+  - mercurial # needed to install go
+  - lua5.1 # needed for vim completion
   - liblua5.1-dev
   - libperl-dev
-  - ruby                 # TODO force version>1.6 for vim compilation
+  - ruby # TODO force version>1.6 for vim compilation
   - ruby-dev
   - htop
   - tmux
   - silversearcher-ag
   - git-flow
-  - exuberant-ctags      # TODO use https://github.com/universal-ctags/ctags
+  - exuberant-ctags # TODO use https://github.com/universal-ctags/ctags
   - bison
   - xclip
   - shellcheck

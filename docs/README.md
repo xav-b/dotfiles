@@ -3,9 +3,9 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 Store your confiuration files and deploy them with ease on your machine,
-or others, thanks to [Ansible][ansible]. Handy to manage at scale the
-setup of developer's machines or to preoperly organize and customize
-your own setup.
+or others, thanks to [Ansible][ansible]. Handy to manage at scale® the
+setup of developer's machines or to properly organize and customize your
+own setup.
 
 
 ## Usage
@@ -33,6 +33,7 @@ not a big deal, granted).
 # you can personalize installation
 DNA_TMP_WORKSPACE="./suit-up"
 DNA_VCS_BRANCH="feat/upgrade"
+
 curl https://raw.githubusercontent.com/xav-b/suit-up/${DNA_VCS_BRANCH}/bootstrap.sh | bash
 ```
 
@@ -55,29 +56,49 @@ TAGS="shell,tools" make
 - Python
 
 ```Sh
-# tested under conda  4.2.12
-conda create --name dotfiles python=3
-source activate dotfiles
+CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.5.6
+
+pyenv virtualenv 3.5.6 suit-up
+# tested under pyenv 1.2.9
+pyenv activate suit-up
 
 python --version
-# Python 3.5.2 :: Continuum Analytics, Inc.
+# Python 3.5.6
 
 pip --version
 # pip 9.0.1 from /Users/...
 ```
 
-- [Ansible 2.2.0.0][ansible]
+- [Ansible 2.6.4][ansible]
 
-> App deployment, configuration management and orchestration - all from one
-> system.
+> App deployment, configuration management and orchestration - all from
+> one system.
 
-- [Mkdocs][mkdocs]
+- [docsify][docsify]
 
-> Fast, simple and downright gorgeous static site generator that's geared
-> towards building project documentation. 
+> A magical documentation site generator.
+> Simple and lightweight (~19kB gzipped)
+> No statically built html files
+> Multiple themes
 
 Just run `make` to install them.
 
 
+### Manual things
+
+- Install trash
+- Compile go1.4 before installing qny superior versions
+- Copy `neovim-init` to `˜/.config/mvim/init.vim`
+
+
+### Fixme
+
+- GVM installation on MacOSX
+- fzf install the search helper only for bash
+- tmux looks ugly
+- Fuck is not installed nor configured (`eval $(thefuck --alias)`)
+- global pip package missing: neovim, thefuck
+- `trash-cli` is not installed
+
 [ansible]: http://www.ansible.com/
-[mkdocs]: http://www.mkdocs.org/
+[docsify]: https://docsify.js.org/#/

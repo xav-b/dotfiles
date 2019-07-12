@@ -23,3 +23,4 @@
 - name: Ensure homebrew casks packages are installed.
   homebrew_cask: name={{ item }} state=present
   with_items: "{{ homebrew_casks }} "
+  ignore_errors: True

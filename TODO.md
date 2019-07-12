@@ -1,5 +1,9 @@
 # TODO
 
+#### 2019 upgrade
+
+- Brew: had to run `rm -f /usr/local/lib/libAliST.dylib`
+
 - Add `ccat` installation
 - Add `trash` installation
 - Move away from brew when possible

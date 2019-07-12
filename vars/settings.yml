@@ -17,7 +17,7 @@ prompt_theme: robbyrussell
 
 dev:
   ruby_version: 2.2.3
-  python_version: 3.5.1
+  python_version: 3.6.2
   node_version: stable
   # FIXME we need go to build go > 1.5+ : https://github.com/moovweb/gvm/issues/161
   go_version: 1.4
