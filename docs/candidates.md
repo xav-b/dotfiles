@@ -51,3 +51,4 @@
 in applications_
 - [vim-polyglot](https://github.com/sheerun/vim-polyglot) - _A solid language pack for Vim._
 - [lsd](https://github.com/Peltoche/lsd) - _The next gen ls command_
+- [Tyke](http://tyke.app/) - _A little bit of scratch paper 📝 that lives on your Mac menu bar._
