@@ -48,6 +48,7 @@ homebrew_pkgs:
   - jq
   - neovim
   - pyenv
+  - gotop
 
 linux_pkgs:
   - zsh

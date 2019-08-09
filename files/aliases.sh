@@ -285,3 +285,9 @@ cheat() {
 cleanchrome() {
   chromium --user-data-dir "$(mktemp -d)"
 }
+
+alias vip='nvim +PluginInstall +qall'
+alias vup='nvim +PluginUpdate'
+alias vv='$EDITOR ~/.vimrc'
+alias zz='$EDITOR ~/.zshrc'
+alias gdc='git diff --cached'

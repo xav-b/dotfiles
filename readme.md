@@ -7,7 +7,6 @@ or others, thanks to [Ansible][ansible]. Handy to manage at scale® the
 setup of developer's machines or to properly organize and customize your
 own setup.
 
-
 ## Usage
 
 ```sh
@@ -20,7 +19,6 @@ ansible-playbook -i hosts site.yml --ask-sudo-pass
 # limit provisioning to tags
 ansible-playbook -i hosts site.yml --tags editor
 ```
-
 
 ## Installation
 
@@ -49,7 +47,6 @@ Then, suit-up your machine :
 ```Bash
 TAGS="shell,tools" make
 ```
-
 
 ## Contributing
 
@@ -83,13 +80,11 @@ pip --version
 
 Just run `make` to install them.
 
-
 ### Manual things
 
 - Install trash
 - Compile go1.4 before installing qny superior versions
 - Copy `neovim-init` to `˜/.config/mvim/init.vim`
-
 
 ### Fixme
 
@@ -99,6 +94,61 @@ Just run `make` to install them.
 - Fuck is not installed nor configured (`eval $(thefuck --alias)`)
 - global pip package missing: neovim, thefuck
 - `trash-cli` is not installed
+
+---
+
+<img
+  width="50px"
+  alt="profile"
+  src="https://it.gravatar.com/userimage/51922459/c5e521b1b03eabff18b3763bcdfef8ff.jpeg"
+  align="right" />
+
+### 💖 Shameless plug
+
+> Hey nice to meet you, I'm [Xavier](www.xav-b.fr) and I maintain this project.
+
+<a href="https://www.buymeacoffee.com/xavb" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+&nbsp;&nbsp;&nbsp;
+<a
+  href="https://www.codementor.io/xavierbruhiere?utm_source=github&utm_medium=button&utm_term=xavierbruhiere&utm_campaign=github">
+<img
+      src="https://cdn.codementor.io/badges/i_am_a_codementor_dark.svg"
+      alt="I am a codementor"
+      style="max-width:100%"/>
+</a>
+&nbsp;&nbsp;&nbsp;
+<a target="_blank" href="https://tinyletter.com/Xav">
+<img
+      width="38px"
+      alt="subscribe"
+      src="https://newvitruvian.com/images/svg-buttons-web-1.png"/>
+</a>
+&nbsp;&nbsp;&nbsp;
+
+<div align="center">
+	<br>
+	<br>
+	<br>
+	<br>
+  <sub>Mockingbird - API mocker
+	<br/>Built by
+  <a href="http://www.xav-b.fr">Xavier Bruhiere</a> and
+  <a href="https://github.com/xav-b/mockingbird/graphs/contributors">
+    contributors
+  </a>
+	<br/>with a </i>💻<i> and some </i>🍣
+</div>
+
+<p align="center">
+	<br>
+	<br>
+	<img
+		src="https://github.com/xav-b/on-a-budget/blob/master/assets/vespa.svg"
+		width="48"
+		alt="TIC logo" />
+	<br>
+	<br>
+</p>
 
 [ansible]: http://www.ansible.com/
 [docsify]: https://docsify.js.org/#/
