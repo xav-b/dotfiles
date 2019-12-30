@@ -268,3 +268,14 @@ alias vip='vim +PluginInstall +qall'
 gm() {
   git commit -m ${1}
 }
+
+# generate a qr code of your wifi endpoint
+# very nice for guest people
+# credit: https://feeding.cloud.geek.nz/posts/encoding-wifi-access-point-passwords-qr-code/
+qr_wifi() {
+  # one need to `brew install qrencode`
+  local SSID="$1"
+  local PASSWORD="$2"
+
+  qrencode -o wifi.png "WIFI:T:WPA;S:${SSID};P:${PASSWORD};;"
+}

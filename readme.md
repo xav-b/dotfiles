@@ -85,6 +85,7 @@ Just run `make` to install them.
 - Install trash
 - Compile go1.4 before installing qny superior versions
 - Copy `neovim-init` to `˜/.config/mvim/init.vim`
+- Get Golang started
 
 ### Fixme
 
@@ -130,7 +131,7 @@ Just run `make` to install them.
 	<br>
 	<br>
 	<br>
-  <sub>Mockingbird - API mocker
+  <sub>Suit-up your system.
 	<br/>Built by
   <a href="http://www.xav-b.fr">Xavier Bruhiere</a> and
   <a href="https://github.com/xav-b/mockingbird/graphs/contributors">

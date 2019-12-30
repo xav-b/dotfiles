@@ -48,7 +48,9 @@
 - [fff](https://github.com/dylanaraps/fff) - _🚀 fucking fast file-manager_
 - [fx](https://github.com/antonmedv/fx) - _Command-line tool and terminal JSON viewer 🔥_
 - [Emojis picker](https://matthewpalmer.net/rocket/) - _Mac tool to integrate emojis
-in applications_
+  in applications_
 - [vim-polyglot](https://github.com/sheerun/vim-polyglot) - _A solid language pack for Vim._
 - [lsd](https://github.com/Peltoche/lsd) - _The next gen ls command_
 - [Tyke](http://tyke.app/) - _A little bit of scratch paper 📝 that lives on your Mac menu bar._
+- [Navi](https://github.com/denisidoro/navi) - _An interactive cheatsheet tool for the command-line_
+- [httpstat](https://github.com/reorx/httpstat) - _curl statistics made simple_

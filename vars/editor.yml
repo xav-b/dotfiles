@@ -53,6 +53,7 @@ vim_plugins_languages:
   # using `for: md` would make sense but for some reason it breaks the plugin
   - "'gabrielelana/vim-markdown', { 'for': 'md' }"
   - "'fatih/vim-go', { 'for': 'go' }"
+  - "'jxnblk/vim-mdx-js', { 'for': 'mdx' }"
 
 vim_plugins_dev:
   - "'editorconfig/editorconfig-vim'"
