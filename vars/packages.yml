@@ -17,6 +17,7 @@ homebrew_casks:
 # TODO move as much as possible to portable strategies
 homebrew_pkgs:
   - exa # A modern version of ‘ls’.
+  - charmbracelet/homebrew-tap/glow # Render markdown on the CLI, with pizzazz! 💅🏻
   - bench # Command-line benchmark tool
   - reattach-to-user-namespace # allow copy/paste in tmux
   - sshrc

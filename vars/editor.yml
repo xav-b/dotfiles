@@ -27,6 +27,7 @@ vim_plugins:
   - "'yuttie/comfortable-motion.vim'"
   - "'chrisbra/NrrwRgn'"
   - "'Alok/notational-fzf-vim'"
+  - "'tpope/vim-abolish.git'"
 
 # TODO a better way to select theme ?
 vim_plugins_ui:

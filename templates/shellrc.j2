@@ -58,6 +58,7 @@ __init_go () {
 
 __init_pyenv () {
   local python_version="$1"
+  local python_two_version="$2"
 
   # -- pyenv
   export PYENV_ROOT={{ dna_lib_path }}/pyenv eval
@@ -65,8 +66,9 @@ __init_pyenv () {
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
   source "$(pyenv root)/completions/pyenv.zsh"
-  pyenv global ${python_version} || pyenv install ${python_version}
-  dna_log "info" "now using Python ${python_version}"
+  # TODO to have both python3 and 2 activated we need to pass them both. It makes the auto installation broken
+  pyenv global ${python_version} ${python_two_version} || pyenv install ${python_version}
+  dna_log "info" "now using Python $(python -V)"
 }
 
 __init_conda () {
@@ -114,7 +116,7 @@ __load_ssh_keys
 __load_tools
 
 {% if dev.python_pm == "pyenv" %}
-  __init_pyenv "{{ dev.python_version }}"
+  __init_pyenv "{{ dev.python_versions[0] }}"  "{{ dev.python_versions[1] }}"
 {% elif dev.python_pm == "conda" %}
   __init_conda "{{ dev.python_home }}"
 {% elif dev.python_pm == "virtualenv" %}
@@ -135,3 +137,5 @@ __init_node "{{ dev.node_version }}"
 # error:::mymodule[.*]         # Convert warnings to errors in "mymodule"
                                # and any subpackages of "mymodule"
 export PYTHONWARNINGS="ignore"
+
+test -d "$HOME/.local" && export PATH="$HOME/.local/bin:$PATH"

@@ -54,3 +54,5 @@
 - [Tyke](http://tyke.app/) - _A little bit of scratch paper 📝 that lives on your Mac menu bar._
 - [Navi](https://github.com/denisidoro/navi) - _An interactive cheatsheet tool for the command-line_
 - [httpstat](https://github.com/reorx/httpstat) - _curl statistics made simple_
+- [Broot](https://dystroy.org/broot/) - _A new way to see and navigate directory trees_
+- [Github cli](https://cli.github.com/) - _Take GitHub to the command line_
