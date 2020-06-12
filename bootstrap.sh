@@ -2,15 +2,15 @@
 
 set -euo pipefail
 
-# Script to bootstrap a machine from xav-b/suit-up setup
+# Script to bootstrap a machine from xav-b/dotfiles setup
 #
 # TODO safe trusted network pipe
 # TODO install Python if not here
 #
 # usage:
 #   $ # you can configure provisioning with environment variable
-#   $ export DNA_TMP_WORKSPACE="/opt"
-#   $ export DNA_VCS_BRANCH="develop"
+#   $ export DOTFILES_TMP_WORKSPACE="/opt"
+#   $ export DOTFILES_VCS_BRANCH="develop"
 #   $ curl ... | bash
 #
 # test environment:
@@ -23,14 +23,14 @@ set -euo pipefail
 
 # var {
   # customisable
-  WORKSPACE=${DNA_TMP_WORKSPACE:-"/tmp/suit-up"}
-  BRANCH=${DNA_VCS_BRANCH:-"master"}
+  WORKSPACE=${DOTFILES_TMP_WORKSPACE:-"/tmp/dotfiles"}
+  BRANCH=${DOTFILES_VCS_BRANCH:-"master"}
 
   readonly PIP_INSTALL_URL="https://bootstrap.pypa.io/get-pip.py"
 # }
 
-if [ "$(basename $PWD)" == "suit-up" ]; then
-  # we are already in `suit-up`, overrides
+if [ "$(basename $PWD)" == "dotfiles" ]; then
+  # we are already in `dotfiles`, overrides
   WORKSPACE=$PWD
   BRANCH="$(git symbolic-ref -q HEAD --short)"
 fi
@@ -45,8 +45,8 @@ function install_pip() {
   curl "${PIP_INSTALL_URL}" | sudo python
 }
 
-function install_dna() {
-  git clone "https://github.com/xav-b/suit-up" "${WORKSPACE}"
+function install_dotfiles() {
+  git clone "https://github.com/xav-b/dotfiles" "${WORKSPACE}"
   cd ${WORKSPACE} && git checkout ${BRANCH}
   sudo pip install -r requirements.txt
 }
@@ -55,7 +55,7 @@ function main() {
   # idempotent steps
   # TODO
   [ $(command -v pip) ] || install_pip
-  test -d ${WORKSPACE} || install_dna
+  test -d ${WORKSPACE} || install_dotfiles
 
   [ "$(uname)" == "Darwin" ] && prepare_mac
 

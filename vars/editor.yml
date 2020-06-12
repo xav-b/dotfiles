@@ -73,6 +73,7 @@ vim_plugins_dev:
   - "'cespare/vim-toml'"
   - "'vim-scripts/dbext.vim', { 'for': 'sql' }"
   - "'martingms/vipsql'"
+  - "'ap/vim-css-color'"
 
 vim_plugins_completion:
   # TODO if executable("ctags")

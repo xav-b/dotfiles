@@ -1,6 +1,8 @@
-# Hacker Machine Provisioning
+# Dotfiles
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+> Hacker Machine Provisioning
 
 Store your confiuration files and deploy them with ease on your machine,
 or others, thanks to [Ansible][ansible]. Handy to manage at scale® the
@@ -29,14 +31,14 @@ not a big deal, granted).
 
 ```Bash
 # you can personalize installation
-DNA_TMP_WORKSPACE="./suit-up"
-DNA_VCS_BRANCH="feat/upgrade"
+DOTFILES_TMP_WORKSPACE="./dotfiles"
+DOTFILES_VCS_BRANCH="feat/upgrade"
 
-curl https://raw.githubusercontent.com/xav-b/suit-up/${DNA_VCS_BRANCH}/bootstrap.sh | bash
+curl https://raw.githubusercontent.com/xav-b/dotfiles/${DOTFILES_VCS_BRANCH}/bootstrap.sh | bash
 ```
 
 You should now have [Ansible][ansible] installed and the repository
-downloaded in `/tmp/suit-up`.
+downloaded in `/tmp/dotfiles`.
 
 Go there and edit to your taste `./vars/packages.yml` (third parties
 packages to be installed) and `./vars/properties.yml` where live the
@@ -55,9 +57,9 @@ TAGS="shell,tools" make
 ```Sh
 CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.5.6
 
-pyenv virtualenv 3.5.6 suit-up
+pyenv virtualenv 3.5.6 dotfiles
 # tested under pyenv 1.2.9
-pyenv activate suit-up
+pyenv activate dotfiles
 
 python --version
 # Python 3.5.6
@@ -66,7 +68,7 @@ pip --version
 # pip 9.0.1 from /Users/...
 ```
 
-- [Ansible 2.6.4][ansible]
+- [Ansible 2.9.9][ansible]
 
 > App deployment, configuration management and orchestration - all from
 > one system.
@@ -80,19 +82,17 @@ pip --version
 
 Just run `make` to install them.
 
-### Manual things
+### Manual things to automate
 
-- Install trash
 - Compile go1.4 before installing qny superior versions
 - Copy `neovim-init` to `˜/.config/mvim/init.vim`
-- Get Golang started
 
 ### Fixme
 
 - GVM installation on MacOSX
 - fzf install the search helper only for bash
 - tmux looks ugly
-- Fuck is not installed nor configured (`eval $(thefuck --alias)`)
+- `thefuck` is not installed nor configured (`eval $(thefuck --alias)`)
 - global pip package missing: neovim, thefuck
 - `trash-cli` is not installed
 
