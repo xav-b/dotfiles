@@ -82,6 +82,7 @@ zsh_plugins:
   - hlissner/zsh-autopair
   - wfxr/forgit
   - MichaelAquilina/zsh-you-should-use
+  - Aloxaf/fzf-tab
 
 tmux_plugins:
   - tmux-plugins/tmux-sensible

@@ -64,6 +64,7 @@ __init_pyenv () {
   export PYENV_ROOT={{ dna_lib_path }}/pyenv eval
   export PATH=$PATH:$PYENV_ROOT/bin
   eval "$(pyenv init -)"
+  eval "$(pyenv init --path)"
   eval "$(pyenv virtualenv-init -)"
   source "$(pyenv root)/completions/pyenv.zsh"
   # TODO to have both python3 and 2 activated we need to pass them both. It makes the auto installation broken
@@ -139,3 +140,6 @@ __init_node "{{ dev.node_version }}"
 export PYTHONWARNINGS="ignore"
 
 test -d "$HOME/.local" && export PATH="$HOME/.local/bin:$PATH"
+
+# from this nice idea: https://consoledonottrack.com/?ref=usepanda.com
+export DO_NOT_TRACK=1

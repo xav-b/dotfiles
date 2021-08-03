@@ -43,3 +43,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 " highlight last inserted text
 nnoremap gV `[v`]`]`
+
+" Augmented `*`, search recursively for the word under the cursor.
+" use `cwin` to see occurences
+" credits: https://vimtricks.substack.com/p/vimtrick-search-project-for-current
+map <leader>* :grep -R <cword> * --exclude-dir={.git,tmp,node_modules,.next}<CR><CR>

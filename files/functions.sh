@@ -205,27 +205,20 @@ remote () {
 }
 
 _start_vipsql () {
-  # TODO use a decent standard path
-  local query_file="$HOME/Hack/queries.sql"
+  local query_file="$HOME/.queries.sql"
 
-  # TODO make something more generic
-  local commodity=${1:-"lng"}
-  local platform=${2:-"production"}
-  local database="${commodity}"
+  # use standard postgres variables - with some sane defaults
+  # TODO: also support full uri
+  local pghost=${PGHOST:-"0.0.0.0"}
+  local pgport=${PGPORT:-"5432"}
+  local pguser=${PGUSER:-"postgres"}
 
-  local username=$(decrypt_param "kpler_etl_db_user")
-  local password=$(decrypt_param "kpler_etl_db_pass")
-
-  if [[ "${commodity}" == "oil" ]]; then
-    database="${commodity}_testing"
-  fi
-
-  # TODO hide this
-  export PGPASSWORD="${password}"
+  [[ -z "$PGPASSWORD" ]] && echo -e "[WARN] vipsql: no password set"
+  [[ -z "$PGDATABASE" ]] && echo -e "[WARN] vipsql: no database set"
 
   # nvim "${query_file}" -c 'setlocal buftype=nofile | setlocal ft=sql | VipsqlOpenSession '"$*"
   nvim "${query_file}" \
-    -c 'setlocal ft=sql | VipsqlOpenSession '"-h $(_pg_host ${commodity} ${platform}) -U ${username} -d ${database}"
+    -c 'setlocal ft=sql | VipsqlOpenSession '"--host ${pghost} --username ${pguser} --dbname ${PGDATABASE}"
 }
 
 vipsql () {

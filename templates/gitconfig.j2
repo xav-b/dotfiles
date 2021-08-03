@@ -78,3 +78,6 @@
   lsb = !git diff-tree --no-commit-id --name-only -r master..$(git rev-parse --abbrev-ref HEAD)
 
   yolo = !git commit -m "$(curl -s whatthecommit.com/index.txt)"
+
+  # https://carolynvanslyck.com/blog/2020/12/git-wip/
+  wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads

@@ -56,3 +56,8 @@
 - [httpstat](https://github.com/reorx/httpstat) - _curl statistics made simple_
 - [Broot](https://dystroy.org/broot/) - _A new way to see and navigate directory trees_
 - [Github cli](https://cli.github.com/) - _Take GitHub to the command line_
+- [Bit](https://github.com/chriswalz/bit) - _Bit is a modern Git CLI_
+- [rnvimr](https://github.com/kevinhwang91/rnvimr) - _Make Ranger running in a floating window to communicate with Neovim via RPC _
+- [vim-floaterm](https://github.com/voldikss/vim-floaterm) - _🌟 Use nvim/vim's builtin terminal in the floating/popup window _
+- [git-split-diff](https://github.com/banga/git-split-diffs) - _GitHub style split diffs in your terminal_
+- [gdu](https://github.com/dundee/gdu) - _Disk usage analyzer with console interface written in Go_
