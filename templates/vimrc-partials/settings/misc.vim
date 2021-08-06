@@ -105,3 +105,44 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 let g:gitgutter_enabled=0
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Vipsql: A vim-frontend for interacting with psql
+" Github: https://github.com/martingms/vipsql
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" In visual-mode, sends the selected text to psql.
+vnoremap <leader>ps :VipsqlSendSelection<CR>
+" Sends the current line to psql.
+noremap <leader>pl :VipsqlSendCurrentLine<CR>
+" Sends the entire current buffer to psql.
+noremap <leader>pb :VipsqlSendBuffer<CR>
+" Starts an async psql job, prompting for the psql arguments.
+" Also opens a scratch buffer where output from psql is directed.
+noremap <leader>po :VipsqlOpenSession<CR>
+" In normal-mode, prompts for input to psql directly.
+nnoremap <leader>ps :VipsqlShell<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Vimfloaterm: 🌟 Terminal manager for (neo)vim
+" Github: https://github.com/voldikss/vim-floaterm
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+tnoremap <silent> <leader>i <C-\><C-n>:RnvimrResize<CR>
+nnoremap <silent> <leader>o :RnvimrToggle<CR>
+tnoremap <silent> <leader>o <C-\><C-n>:RnvimrToggle<CR>
+" Make Ranger replace Netrw and be the file explorer
+let g:rnvimr_enable_ex = 1
+" Make Ranger to be hidden after picking a file
+let g:rnvimr_enable_picker = 1
+" Hide the files included in gitignore
+let g:rnvimr_hide_gitignore = 1
+
+nnoremap <silent> <leader>t :FloatermNew --height=0.4 --width=0.98 --wintype=floating --position=bottom --autoclose=2 --title=
+tnoremap <silent> <leader>t<C-\><C-n>:FloatermNew --height=0.4 --width=0.98 --wintype=floating --position=bottom --autoclose=2 --title=
+nnoremap   <C-c><C-c> :FloatermSend<CR>
+vnoremap   <C-c><C-c> :FloatermSend<CR>

@@ -105,7 +105,7 @@ crypt-that () {
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
-function server() {
+server() {
   local port="${1:-8000}";
   sleep 1 && open "http://localhost:${port}/" &
   # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
@@ -272,3 +272,5 @@ qr_wifi() {
 
   qrencode -o wifi.png "WIFI:T:WPA;S:${SSID};P:${PASSWORD};;"
 }
+
+alias scripts='cat package.json | jq "./scripts"'

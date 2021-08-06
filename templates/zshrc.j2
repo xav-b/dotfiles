@@ -15,3 +15,7 @@ source {{ dna_lib_path }}/functions
 
 # support for an extra local configuration
 [ -e "${HOME}/.zshrc_local" ] && source "${HOME}/.zshrc_local"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export DO_NOT_TRACK=1
