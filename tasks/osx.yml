@@ -1,7 +1,4 @@
 ---
-# TODO download solarized for terminal
-#      or flat : https://github.com/ahmetsulek/flat-terminal
-
 - name: check if homebrew is installed
   command: which brew
   register: is_installed
@@ -9,12 +6,9 @@
   changed_when: no
 
 - name: install homebrew
-  shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  become: yes
   when: is_installed.rc != 0
-
-- name: brew tap
-  homebrew_tap: tap="{{ item }}" state=present
-  with_items: "{{ homebrew_taps }}"
 
 - name: Ensure homebrew packages are installed.
   homebrew: name={{ item }} state=present
@@ -23,4 +17,5 @@
 - name: Ensure homebrew casks packages are installed.
   homebrew_cask: name={{ item }} state=present
   with_items: "{{ homebrew_casks }} "
+  when: homebrew_cask_enabled
   ignore_errors: True

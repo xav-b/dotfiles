@@ -5,7 +5,6 @@
 - Brew: had to run `rm -f /usr/local/lib/libAliST.dylib`
 - Install pyenv and pyenv-virtualenv and pyenv completions
 - tmux start displays invalid options
-- Go installation is broken
 - Link neovim init to vim
 - Install Hack fonts
 - Before having neovim to install bundle, needs to setup python3.6+,
@@ -15,7 +14,6 @@
 - Run GoInnstallBinaries in Vim
 - Reset Docker installation on Linux (beware of EE and CE now)
 - Install ipython and copy ./files/ipython/
-- Install `import better_exceptions`
 - map `vim:TagbarToggle` and other tags stuff to cool keys
 
 - Fix Go setup => impose go1.4 and fix go1.8 compilation

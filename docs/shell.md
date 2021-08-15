@@ -18,4 +18,4 @@
 
 
 
-[zsh-pkugins]: https://github.com/unixorn/awesome-zsh-plugins
+[zsh-plugins]: https://github.com/unixorn/awesome-zsh-plugins

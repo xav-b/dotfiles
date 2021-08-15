@@ -16,6 +16,7 @@
   get_url: >
     url=https://raw.githubusercontent.com/rupa/z/master/z.sh
     dest={{ dna_lib_path }}/z.sh
+  when: tools.z
 
 # NOTE what about percol ? (https://github.com/mooz/percol)
 # https://github.com/peco/peco
@@ -23,30 +24,30 @@
   get_url: >
     url=https://github.com/peco/peco/releases/download/v0.3.3/peco_darwin_amd64.zip
     dest={{ tmp_path }}/peco.zip
+  when: tools.peco
 - unarchive: src={{ tmp_path }}/peco.zip dest={{ tmp_path }} copy=no
+  when: tools.peco
 - command: mv {{ tmp_path }}/peco_darwin_amd64/peco {{ dna_bin_path }}/peco
+  when: tools.peco
 
 - name: install autoenv, Directory-based environments
   git: >
     repo="https://github.com/kennethreitz/autoenv"
     dest={{ dna_lib_path }}/autoenv
-# version=040b792c2625c5e73e1a7cf97c5032b631c28b5f
-
-# https://github.com/gleitz/howdoi
-- name: install howdoi
-  pip:
-    name: howdoi
-    extra_args: --user
-    # version: 1.1.9
+  when: tools.autoenv
 
 # https://github.com/junegunn/fzf
 - name: install fzf, fuzzy searcher
-  git: repo=https://github.com/junegunn/fzf dest={{ dna_lib_path }}/.fzf
-- command: "{{ dna_lib_path }}/.fzf/install --all"
+  git: repo=https://github.com/junegunn/fzf dest={{ dna_lib_path }}/fzf
+  when: tools.fzf
+- command: "{{ dna_lib_path }}/fzf/install"
+  when: tools.fzf
 
 # http://www.jefftk.com/icdiff
+# configure git to use it: https://github.com/jeffkaufman/icdiff/tree/release-2.0.4#using-with-git
 - name: install icdiff
   get_url: >
-    url=https://raw.githubusercontent.com/jeffkaufman/icdiff/release-1.8.1/icdiff
+    url=https://raw.githubusercontent.com/jeffkaufman/icdiff/release-{{ tools.icdiff }}/icdiff
     dest={{ dna_bin_path }}/icdiff
     mode="ugo+rx"
+  when: tools.icdiff

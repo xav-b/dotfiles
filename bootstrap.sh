@@ -40,6 +40,7 @@ function prepare_mac() {
   xcode-select --install || true
 }
 
+# https://pip.pypa.io/en/stable/installation/
 function install_pip() {
   echo "installing globaly pip, so we will ask your password"
   curl "${PIP_INSTALL_URL}" | sudo python
@@ -48,7 +49,13 @@ function install_pip() {
 function install_dotfiles() {
   git clone "https://github.com/xav-b/dotfiles" "${WORKSPACE}"
   cd ${WORKSPACE} && git checkout ${BRANCH}
-  sudo pip install -r requirements.txt
+  sudo pip install --user -r requirements.txt
+
+  # make `--user` binaries available. Since it may conflict later on with
+  # virtualenv binaries, this is only setup here, but not meant to be persisted
+  # in theshell configuration
+  python -c 'import site; print(site.USER_BASE + "/bin")'
+  export PATH=$PY_USER_BIN:$PATH
 }
 
 function main() {

@@ -7,6 +7,7 @@
   git: repo=https://github.com/vim/vim
        dest={{ dna_lib_path }}/vim
   when: editor.name == "vim"
+
 # custom ruby path bypass rbenv issues
 - name: compile and install vim
   shell: >
@@ -62,11 +63,11 @@
   with_fileglob:
     - ../templates/vimrc-partials/settings/*.vim
 
-# FIXME Hang - name: download and install plugins
+# FIXME: Hang - name: download and install plugins
 #  shell: /usr/local/bin/vim +PlugInstall +qall
 
-# TODO download man page (but where to put it on mac ?)
-# TODO is it the right mode for user execution ?
+# TODO: download man page (but where to put it on mac ?)
+# TODO: is it the right mode for user execution ?
 - name: install v, z for vim
   get_url:
     url=https://raw.githubusercontent.com/rupa/v/master/v

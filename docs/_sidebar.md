@@ -2,9 +2,10 @@
 
 * [Quickstart](/)
 
-* [Shell](shell.md)
 * [Apps](apps.md)
+* [Visual Studio](visual-studio.md)
 * [Candidates](candidates.md)
 
-* Tech
+* Dev
+  * [Shell](shell.md)
   * [Contributing](./contributing.md)

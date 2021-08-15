@@ -17,17 +17,14 @@
       tags: ["linux", "env"]
 
     - include: ./tasks/shell.yml
-      tags: ["shell", "hack", "env"]
+      tags: ["shell", "dev", "env"]
 
     - include: ./tasks/compilers.yml
-      tags: ["compilers", "toolbox", "hack"]
+      tags: ["compilers", "toolbox", "dev"]
 
     - include: ./tasks/tools.yml
-      tags: ["tools", "toolbox", "hack"]
+      tags: ["tools", "toolbox", "dev"]
 
     - include: ./tasks/vim.yml
       when: '"vim" in editor.name'
-      tags: ["editor", "toolbox", "hack"]
-
-    # NOTE DEPRECATED docker for Mac and docker CE screwed everything...
-    # - include: ./tasks/docker.yml
+      tags: ["editor", "toolbox", "dev"]

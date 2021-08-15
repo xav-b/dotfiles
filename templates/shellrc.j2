@@ -26,13 +26,9 @@ dna_log () {
 
 __load_tools () {
   # -- third party utilities
-  dna_log "info" "activating k, z, autoenv"
+  dna_log "info" "activating z, autoenv"
   safe_import "z.sh"
   safe_import "autoenv/activate.sh"
-  # NOTE cannot keep it in dna path ?
-  # FIXME [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
-  # FIXME see issue #3
-  #safe_import shml.sh
 }
 
 # --
@@ -61,9 +57,8 @@ __init_pyenv () {
   local python_two_version="$2"
 
   # -- pyenv
-  export PYENV_ROOT={{ dna_lib_path }}/pyenv eval
+  export PYENV_ROOT={{ dna_lib_path }}/pyenv
   export PATH=$PATH:$PYENV_ROOT/bin
-  eval "$(pyenv init -)"
   eval "$(pyenv init --path)"
   eval "$(pyenv virtualenv-init -)"
   source "$(pyenv root)/completions/pyenv.zsh"
@@ -125,21 +120,8 @@ __load_tools
   export WORKON_HOME={{ dev.python_pm_home }}
   source /usr/local/bin/virtualenvwrapper.sh &>/dev/null
 {% endif %}
-#__init_go "{{ dev.go_version }}"
-__init_node "{{ dev.node_version }}"
-#__init_ruby "{{ dev.ruby_version }}"
-
-# default                      # Show all warnings (even those ignored by default)
-# ignore                       # Ignore all warnings
-# error                        # Convert all warnings to errors
-# error::ResourceWarning       # Treat ResourceWarning messages as errors
-# default::DeprecationWarning  # Show DeprecationWarning messages
-# ignore,default:::mymodule    # Only report warnings triggered by "mymodule"
-# error:::mymodule[.*]         # Convert warnings to errors in "mymodule"
-                               # and any subpackages of "mymodule"
-export PYTHONWARNINGS="ignore"
+# __init_go "{{ dev.go_version }}"
+# __init_node "{{ dev.node_version }}"
+# __init_ruby "{{ dev.ruby_version }}"
 
 test -d "$HOME/.local" && export PATH="$HOME/.local/bin:$PATH"
-
-# from this nice idea: https://consoledonottrack.com/?ref=usepanda.com
-export DO_NOT_TRACK=1

@@ -4,7 +4,7 @@
 TAGS ?= all
 
 .PHONY: all
-all: install
+all: suitup
 
 .PHONY: check
 check:
@@ -13,10 +13,10 @@ check:
 facts:
 	@ansible all -m setup -i hosts
 
-.PHONY: install
-install:
+.PHONY: suitup
+suitup:
 	# provision your local machine
-	ansible-playbook -i hosts site.yml --ask-sudo-pass --tags $(TAGS)
+	ansible-playbook -i hosts site.yml --ask-become-pass --tags $(TAGS)
 
 doc:
 	cp readme.md ./docs/README.md
