@@ -46,7 +46,6 @@
 
 - name: Copy vimrc configuration file
   template: src=./templates/vimrc.j2 dest={{ ansible_env.HOME }}/.vimrc
-# TODO copy an helper like in dna
 
 - file: path={{ editor.rcpath }}/plugins/settings state=directory
 - name: copy vim partials configuration
@@ -62,6 +61,13 @@
     dest={{ editor.rcpath }}/plugins/settings/
   with_fileglob:
     - ../templates/vimrc-partials/settings/*.vim
+
+- name: create neovim configuration directory
+  file: path={{ ansible_env.HOME }}/.config/nvim state=directory
+  when: editor.name == "nvim"
+- name: copy vim to neovim configuration hook
+  copy: src=./files/vim-to-neovim.vim dest={{ ansible_env.HOME }}/.config/nvim
+  when: editor.name == "nvim"
 
 # FIXME: Hang - name: download and install plugins
 #  shell: /usr/local/bin/vim +PlugInstall +qall

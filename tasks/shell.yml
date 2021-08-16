@@ -4,6 +4,7 @@
   file: path={{ dna_home }} state=directory
 - file: path={{ dna_home }}/bin state=directory
 - file: path={{ dna_home }}/lib state=directory
+- file: path={{ dev.path }}/.psql_history state=directory recursive=true
 
 # ---
 # --- Configure zsh

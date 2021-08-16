@@ -83,12 +83,11 @@ Just run `make` to install them.
 
 ### Manual things to automate
 
-- Compile go1.4 before installing any superior versions
-- Copy `neovim-init` to `˜/.config/mvim/init.vim`
+- Unable python 3 support for neovim: `pip3 install --user pynvim` (to run after `pyenv global 3.*`)
+- Install: tmuxp plugins: `Press prefix + I (capital i, as in Install) to fetch the plugin`
 
 ### Fixme
 
-- fzf install the search helper only for bash
 - tmux looks ugly
 - `thefuck` is not installed nor configured (`eval $(thefuck --alias)`)
 - global pip package missing: neovim, thefuck

@@ -57,3 +57,17 @@ test -d {{ dna_bin_path }} && export PATH=$PATH:{{ dna_bin_path }}
 
 # from this nice idea: https://consoledonottrack.com/?ref=usepanda.com
 export DO_NOT_TRACK=1
+
+# autoenv customisation
+# the idea is to lrave the default `.env` file compatible with `foreman`, i.e.
+# only set env variables. While `.envrc` can be more flexible and run commands
+# (like activating virtualenvs)
+export AUTOENV_ENV_FILENAME=".envrc"
+export AUTOENV_ENV_LEAVE_FILENAME=".envrc.leave"
+
+# link libpq-installed binaries, like psql
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# For compilers to find libpq you may need to set:
+# export LDFLAGS="-L/usr/local/opt/libpq/lib"
+# export CPPFLAGS="-I/usr/local/opt/libpq/include"

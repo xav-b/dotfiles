@@ -51,3 +51,12 @@
     dest={{ dna_bin_path }}/icdiff
     mode="ugo+rx"
   when: tools.icdiff
+
+# TODO: run `joe u`, needs to be allowed on OSX
+# TODO: platform detection
+- name: install joe
+  get_url: >
+    url=https://github.com/karan/joe/releases/download/{{ tools.joe }}/joe-darwin
+    dest={{ dna_bin_path }}/joe
+    mode="ugo+rx"
+  when: tools.joe

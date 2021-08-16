@@ -151,3 +151,8 @@ alias vup='nvim +PluginUpdate'
 alias vv='$EDITOR ~/.vimrc'
 alias zz='$EDITOR ~/.zshrc'
 alias gdc='git diff --cached'
+
+alias l='exa'
+alias la='exa -a'
+alias ll='exa -lah'
+alias ls='exa --color=auto'

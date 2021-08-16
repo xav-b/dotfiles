@@ -46,10 +46,12 @@ homebrew_pkgs:
   - jq
   - neovim
   - gotop
-  # TODO: test:
+  - fd
   - yank # Yank terminal output to clipboard
   - ncdu  # https://dev.yorhel.nl/ncdu - disk usage analyzer with an ncurses interface
   - nnn   # https://github.com/jarun/nnn
+  # https://stackoverflow.com/questions/44654216/correct-way-to-install-psql-without-full-postgres-on-macos
+  - libpq
 
 linux_pkgs:
   - zsh
@@ -99,3 +101,4 @@ tools:
   autoenv: true
   icdiff: 2.0.4
   fzf: true
+  joe: 1.0.3
