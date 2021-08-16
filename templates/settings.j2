@@ -38,6 +38,15 @@ export NODE_REPL_MODE='sloppy'
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8'
+# default                      # Show all warnings (even those ignored by default)
+# ignore                       # Ignore all warnings
+# error                        # Convert all warnings to errors
+# error::ResourceWarning       # Treat ResourceWarning messages as errors
+# default::DeprecationWarning  # Show DeprecationWarning messages
+# ignore,default:::mymodule    # Only report warnings triggered by "mymodule"
+# error:::mymodule[.*]         # Convert warnings to errors in "mymodule"
+                               # and any subpackages of "mymodule"
+export PYTHONWARNINGS="ignore"
 
 # need to be filled if you use this kinf of stuff
 # alternatively, one can run `git config --global github.token "xxx"`
@@ -45,3 +54,20 @@ export GITHUB_TOKEN=""
 
 # expose our custom bin collection
 test -d {{ dna_bin_path }} && export PATH=$PATH:{{ dna_bin_path }}
+
+# from this nice idea: https://consoledonottrack.com/?ref=usepanda.com
+export DO_NOT_TRACK=1
+
+# autoenv customisation
+# the idea is to lrave the default `.env` file compatible with `foreman`, i.e.
+# only set env variables. While `.envrc` can be more flexible and run commands
+# (like activating virtualenvs)
+export AUTOENV_ENV_FILENAME=".envrc"
+export AUTOENV_ENV_LEAVE_FILENAME=".envrc.leave"
+
+# link libpq-installed binaries, like psql
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# For compilers to find libpq you may need to set:
+# export LDFLAGS="-L/usr/local/opt/libpq/lib"
+# export CPPFLAGS="-I/usr/local/opt/libpq/include"

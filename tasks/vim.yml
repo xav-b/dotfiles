@@ -7,6 +7,7 @@
   git: repo=https://github.com/vim/vim
        dest={{ dna_lib_path }}/vim
   when: editor.name == "vim"
+
 # custom ruby path bypass rbenv issues
 - name: compile and install vim
   shell: >
@@ -45,7 +46,6 @@
 
 - name: Copy vimrc configuration file
   template: src=./templates/vimrc.j2 dest={{ ansible_env.HOME }}/.vimrc
-# TODO copy an helper like in dna
 
 - file: path={{ editor.rcpath }}/plugins/settings state=directory
 - name: copy vim partials configuration
@@ -62,11 +62,18 @@
   with_fileglob:
     - ../templates/vimrc-partials/settings/*.vim
 
-# FIXME Hang - name: download and install plugins
+- name: create neovim configuration directory
+  file: path={{ ansible_env.HOME }}/.config/nvim state=directory
+  when: editor.name == "nvim"
+- name: copy vim to neovim configuration hook
+  copy: src=./files/vim-to-neovim.vim dest={{ ansible_env.HOME }}/.config/nvim
+  when: editor.name == "nvim"
+
+# FIXME: Hang - name: download and install plugins
 #  shell: /usr/local/bin/vim +PlugInstall +qall
 
-# TODO download man page (but where to put it on mac ?)
-# TODO is it the right mode for user execution ?
+# TODO: download man page (but where to put it on mac ?)
+# TODO: is it the right mode for user execution ?
 - name: install v, z for vim
   get_url:
     url=https://raw.githubusercontent.com/rupa/v/master/v

@@ -3,12 +3,8 @@
 
 vim_plugins:
   - "'wellle/targets.vim'"
-  - "'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }"
-  - "'easymotion/vim-easymotion'"
-  - "'terryma/vim-multiple-cursors'"
   - "'tpope/vim-surround'"
   - "'ctrlpvim/ctrlp.vim'"
-    # NOTE not sure to keept it: - "'myusuf3/numbers.vim'"
   - "'junegunn/vim-easy-align'"
   # tmux integration
   # NOTE study - "'https://github.com/christoomey/vim-tmux-navigator"'
@@ -19,19 +15,23 @@ vim_plugins:
   - "'sjl/gundo.vim'"
   - "'xav-b/vim-template'"
   - "'vim-scripts/YankRing.vim'"
-  # NOTE interesting comparison between buffer tabs (and airline) https://github.com/ap/vim-buftabline
-  # nice markdown editing (http://www.swamphogg.com/2015/vim-setup/)
   - "'jiangmiao/auto-pairs'"
-  - "'tpope/vim-obsession'"
   - "'mhinz/vim-startify'"
   - "'yuttie/comfortable-motion.vim'"
   - "'chrisbra/NrrwRgn'"
-  - "'Alok/notational-fzf-vim'"
-  - "'tpope/vim-abolish.git'"
+  # - "'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }"
+  # - "'easymotion/vim-easymotion'"
+  # - "'terryma/vim-multiple-cursors'"
+  # - "'myusuf3/numbers.vim'"
+  # - "'tpope/vim-obsession'"
+  # - "'Alok/notational-fzf-vim'"
+  # - "'tpope/vim-abolish.git'"
+  # NOTE interesting comparison between buffer tabs (and airline) https://github.com/ap/vim-buftabline
+  # nice markdown editing (http://www.swamphogg.com/2015/vim-setup/)
 
 # TODO a better way to select theme ?
 vim_plugins_ui:
-  - "'flazz/vim-colorschemes'"
+  # - "'flazz/vim-colorschemes'"
   - "'arcticicestudio/nord-vim'"
   - "'joshdick/onedark.vim'"
   - "'altercation/vim-colors-solarized'"
@@ -44,14 +44,11 @@ vim_plugins_ui:
   - "'ayu-theme/ayu-vim'"
 
 vim_plugins_languages:
-  - "'derekwyatt/vim-scala'"
+  # - "'derekwyatt/vim-scala'"
   - "'elzr/vim-json', { 'for': 'json' }"
   - "'ekalinin/Dockerfile.vim'"
   - "'pangloss/vim-javascript', { 'for': 'js' }"
   - "'mxw/vim-jsx', { 'for': 'js' }"
-  - "'posva/vim-vue', { 'for': 'vue' }"
-  # TODO and .markdown as well
-  # using `for: md` would make sense but for some reason it breaks the plugin
   - "'gabrielelana/vim-markdown', { 'for': 'md' }"
   - "'fatih/vim-go', { 'for': 'go' }"
   - "'jxnblk/vim-mdx-js', { 'for': 'mdx' }"
@@ -65,13 +62,13 @@ vim_plugins_dev:
   # TODO install goimports, gocode and other packages that makes the experience great
   #      i.e. /usr/local/bin/vim +GoInstallBinaries +qall
   - "'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }"
-  - "'tpope/vim-dispatch'"
+  # - "'tpope/vim-dispatch'"
   - "'brooth/far.vim'"
   - "'junegunn/gv.vim'"
   - "'rust-lang/rust.vim'"
-  - "'racer-rust/vim-racer'"
+  # - "'racer-rust/vim-racer'"
   - "'cespare/vim-toml'"
-  - "'vim-scripts/dbext.vim', { 'for': 'sql' }"
+  # - "'vim-scripts/dbext.vim', { 'for': 'sql' }"
   - "'martingms/vipsql'"
   - "'ap/vim-css-color'"
 
@@ -82,13 +79,11 @@ vim_plugins_completion:
   # NOTE powerful but does the same thing as other linters
   #- "'w0rp/ale'"
   #- "'ambv/black', { 'for': 'python' }"
-  - "'sbdchd/neoformat'"
-  - "'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}"
-  # (Optional) Multi-entry selection UI.
+  # FIXME: - "'sbdchd/neoformat'"
+  # FIXME: - "'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}"
   - "'junegunn/fzf'"
-  - "'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}"
-  - "'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }"
-  - "'Shougo/neosnippet.vim'"
-  - "'Shougo/neosnippet-snippets'"
-  #- "'SirVer/ultisnips'"
-  #- "'honza/vim-snippets'"
+  # - "'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }"
+  # - "'Shougo/neosnippet.vim'"
+  # - "'Shougo/neosnippet-snippets'"
+  # - "'SirVer/ultisnips'"
+  # - "'honza/vim-snippets'"

@@ -1,9 +1,4 @@
-## Linux Apps
-
-- [Gnome Shell Extensions](https://extensions.gnome.org/)
-
-
-## Programming Fonts
+## [Programming Fonts](https://www.nerdfonts.com/)
 
 - [Apple support][apple]
 - [Source Code Sans-pro][codepro]
@@ -11,13 +6,16 @@
 - [FiraCode][fira]
 - [Inconsolata][inconsolata]
 - [Anonymous][anonymous]
+- [Hack][hack-font]
 
 ## Mac OSX Applications
 
 ### Manual setup
 
+- [Initialise Github SSH](https://docs.github.com/en/enterprise-server@2.21/github/authenticating-to-github/connecting-to-github-with-ssh)
+- `xcode-select --install`
 - Remap Caps-Lock to Escape with [Seil](https://pqrs.org/osx/karabiner/seil.html.en)
-- Solarized / [flat design](https://github.com/ahmetsulek/flat-terminal) Terminal
+- [Nord](https://github.com/arcticicestudio/nord-terminal-app) / [flat design](https://github.com/ahmetsulek/flat-terminal) Terminal
 - Allow `Alt` as a meta-key (instead of `Esc`) : In Mac Terminal.app
   this setting is Preferences > Profiles tab > Keyboard sub-tab > at the
   bottom "Use option as meta key."
@@ -27,8 +25,11 @@
 
 - [Numi](http://numi.io/) - _Beautiful calculator for Mac_
 - [Amphetamine](https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12) - _effortlessly override your energy saver settings and keep your Mac awake_
-- [Todoist](https://todoist.com/)
+- [Todo list: Akiflow](https://akiflow.com/)
 - [Noizio](http://noiz.io/) - _Just turn on the sound and allow yourself to become engulfed in the tranquil sounds of nature_
+- [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
+- Postman
+- Upnote
 
 **Available from [Cask](https://caskroom.github.io/search)**
 
@@ -51,3 +52,4 @@
 [anonymous]: http://www.marksimonson.com/fonts/view/anonymous-pro
 [inconsolata]: http://levien.com/type/myfonts/inconsolata.html
 [office-code]: https://github.com/nathco/Office-Code-Pro
+[hack-font]: https://sourcefoundry.org/hack/

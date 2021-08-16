@@ -1,57 +1,57 @@
 ---
-# NOTE cask now ships with homebrew
 
+# NOTE cask now ships with homebrew
 homebrew_casks:
-  - google-chrome
   - docker
   - 1password
   - spotify
-  # - slack
-  - spectacle
-  - cheatsheet
   - postman
   - numi
+  - spectacle
+  # - google-chrome  # now use Brave
+  # - cheatsheet
+  # - slack
   # - alfred
 
 # TODO install and use brew-cask http://caskroom.io/
 # TODO move as much as possible to portable strategies
 homebrew_pkgs:
-  - exa # A modern version of ‘ls’.
-  - charmbracelet/homebrew-tap/glow # Render markdown on the CLI, with pizzazz! 💅🏻
-  - bench # Command-line benchmark tool
-  - reattach-to-user-namespace # allow copy/paste in tmux
-  - sshrc
-  - sl
+  # although this not ideal for proper go versinong management, recent go needs
+  # go to be compiled, so it makes sense to bootstrap it this way (I think)
+  # This also seems to be the acknowledged best practice
+  - golang
+  - exa  # A modern version of ‘ls’.
+  - glow  # Render markdown on the CLI, with pizzazz! 💅🏻
+  - reattach-to-user-namespace  # allow copy/paste in tmux
+  - sl  # Cure your bad habit of mistyping
   - youtube-dl
-  - archey
   - ctags
   # packages that should be installed cross-distributions
   - the_silver_searcher # https://github.com/ggreer/the_silver_searcher
-  - mercurial # needed to install go
+  # - mercurial # needed to install go
   - lua # needed for vim completion
   - htop
-  - zsh
   - tmux
   - qrencode
   - diff-so-fancy # TODO use npm
-  - stormssh # TODO use pip
-  - cheat # TODO use pip
-  - fpp # http://facebook.github.io/PathPicker/
-  - gotags # TODO use go get
-  - ncdu # https://dev.yorhel.nl/ncdu
-  - nnn # https://github.com/jarun/nnn
+  - cheat
+  - fpp   # http://facebook.github.io/PathPicker/
   - shellcheck
   # Install GNU core utilities (those that come with macOS are outdated).
   # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
   - coreutils
-  #- moreutils  # NOTE from mathiasbynens but what's the use ?
+  # - moreutils  # NOTE from mathiasbynens but what's the use ?
   - findutils
-  - yank # Yank terminal output to clipboard
   - bat # A cat(1) clone with wings.
   - jq
   - neovim
-  - pyenv
   - gotop
+  - fd
+  - yank # Yank terminal output to clipboard
+  - ncdu  # https://dev.yorhel.nl/ncdu - disk usage analyzer with an ncurses interface
+  - nnn   # https://github.com/jarun/nnn
+  # https://stackoverflow.com/questions/44654216/correct-way-to-install-psql-without-full-postgres-on-macos
+  - libpq
 
 linux_pkgs:
   - zsh
@@ -83,6 +83,7 @@ zsh_plugins:
   - wfxr/forgit
   - MichaelAquilina/zsh-you-should-use
   - Aloxaf/fzf-tab
+  - zsh-users/zsh-autosuggestions
 
 tmux_plugins:
   - tmux-plugins/tmux-sensible
@@ -93,3 +94,11 @@ tmux_plugins:
   - tmux-plugins/tmux-open
   - tmux-plugins/tmux-resurrect
   - arcticicestudio/nord-tmux
+
+tools:
+  peco: false
+  z: true
+  autoenv: true
+  icdiff: 2.0.4
+  fzf: true
+  joe: 1.0.3

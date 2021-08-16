@@ -6,7 +6,6 @@
 - [Bro Pages](http://bropages.org/) - _bro pages are concise examples of using command line programs_
 - [HTTP Console](https://github.com/cloudhead/http-console) - _simple, intuitive HTTP REPL — Speak HTTP like a local_
 - [Prettier](https://github.com/jlongster/prettier) - _Prettier is an opinionated JavaScript formatter_
-- [Joe](https://github.com/karan/joe) - _A .gitignore magician in your command line_
 - [Jo](https://github.com/jpmens/jo) - _JSON output from a shell_
 - [fzf-vim](https://github.com/junegunn/fzf.vim)
 - [RipGrep](https://github.com/BurntSushi/ripgrep) - _ripgrep combines the usability of The Silver Searcher with the raw speed of grep_
@@ -16,9 +15,8 @@
 - [gone](https://github.com/guillaumebreton/gone) - _Mico pomodoro cli_
 - [scm breeze](https://github.com/scmbreeze/scm_breeze) - _Adds numbered shortcuts to the output git status, and much more_
 - [Ranger](http://ranger.nongnu.org/) - _console file manager with VI key bindings_
-- [Fastd](https://github.com/clvv/fasd) - _offers quick access to files
-  and directories_
-- [prettier](https://github.com/prettier/prettier) and [yapg](https://github.com/google/yapf)
+- [Fastd](https://github.com/clvv/fasd) - _offers quick access to files and directories_
+- [prettier](https://github.com/prettier/prettier) and [yapf](https://github.com/google/yapf)
 - [Watson](http://tailordev.github.io/Watson/) - _help you monitoring your time_
 - [The Fuck](https://github.com/nvbn/thefuck) - _Magnificent app which corrects your previous console command_
 - [jid](https://github.com/simeji/jid) - _json incremental digger_
@@ -47,8 +45,7 @@
 - [svg-term-cli](https://github.com/marionebl/svg-term-cli)
 - [fff](https://github.com/dylanaraps/fff) - _🚀 fucking fast file-manager_
 - [fx](https://github.com/antonmedv/fx) - _Command-line tool and terminal JSON viewer 🔥_
-- [Emojis picker](https://matthewpalmer.net/rocket/) - _Mac tool to integrate emojis
-  in applications_
+- [Emojis picker](https://matthewpalmer.net/rocket/) - _Mac tool to integrate emojis in applications_
 - [vim-polyglot](https://github.com/sheerun/vim-polyglot) - _A solid language pack for Vim._
 - [lsd](https://github.com/Peltoche/lsd) - _The next gen ls command_
 - [Tyke](http://tyke.app/) - _A little bit of scratch paper 📝 that lives on your Mac menu bar._
@@ -57,7 +54,7 @@
 - [Broot](https://dystroy.org/broot/) - _A new way to see and navigate directory trees_
 - [Github cli](https://cli.github.com/) - _Take GitHub to the command line_
 - [Bit](https://github.com/chriswalz/bit) - _Bit is a modern Git CLI_
-- [rnvimr](https://github.com/kevinhwang91/rnvimr) - _Make Ranger running in a floating window to communicate with Neovim via RPC _
-- [vim-floaterm](https://github.com/voldikss/vim-floaterm) - _🌟 Use nvim/vim's builtin terminal in the floating/popup window _
+- [rnvimr](https://github.com/kevinhwang91/rnvimr) - _Make Ranger running in a floating window to communicate with Neovim via RPC_
+- [vim-floaterm](https://github.com/voldikss/vim-floaterm) - _🌟 Use nvim/vim's builtin terminal in the floating/popup window_
 - [git-split-diff](https://github.com/banga/git-split-diffs) - _GitHub style split diffs in your terminal_
 - [gdu](https://github.com/dundee/gdu) - _Disk usage analyzer with console interface written in Go_

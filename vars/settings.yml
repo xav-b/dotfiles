@@ -13,16 +13,22 @@ prompt_theme: robbyrussell
 # antigen theme agnoster
 # others i like: kennethreitz mrtazz sorin theunraveler
 
-# TODO install_brew_casks: true
+# some environments exercise tight control over what 3rd party apps can be installed
+homebrew_cask_enabled: false
 
 dev:
-  ruby_version: 2.2.3
+  path: "{{ ansible_env.HOME }}/Hack"
+  tpm_version: 693e5a2a0f6acfd2666882655d5dfd32e8c6c50b
+
+  ruby_version: 3.0.2
+
   python_versions:
-    - 3.7.2
+    - 3.9.6
     - 2.7.10
   node_version: stable
   # FIXME we need go to build go > 1.5+ : https://github.com/moovweb/gvm/issues/161
   go_version: 1.4
+  go_path: "{{ ansible_env.HOME }}/Hack/go"
   # support virtualenv, pyenv and miniconda
   python_pm: pyenv
   python_pm_home: "{{ ansible_env.HOME }}/.virtualenvs"

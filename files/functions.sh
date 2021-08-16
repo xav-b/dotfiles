@@ -78,30 +78,26 @@ remote_sync() {
       ${source_path} ${dest_path}
 }
 
-scala () {
-  local entrypoint=${1:-"amm"}
-  local name=${2:-"scala"}
-  local image="local/scala:latest"
-  local workdir=/app
-
-	docker run --name ${name} \
-	  -it --rm -v $(PWD):${workdir} -w ${workdir} \
-	  ${image} ${entrypoint}
-}
-
 # https://github.com/chubin/wttr.in
 weather() {
-  local city=${1:-Paris}
+  local city=${1:-Singapore}
 
   curl wttr.in/${city}
 }
 
 # cypher the given string. The beauty is that if you give it the resulting
 # string, it will decypher it back to the original one
-crypt-that () {
+cypher() {
   SEED="N-ZA-Mn-za-m"
   local msg_="$@"
   echo "${msg_}" | tr 'A-Za-z' "${SEED}"
+}
+
+function cronguru() {
+  # TODO convert spaces to "-" or "_"
+  # supported expressions: https://crontab.guru/examples.html
+  local expression="$@"
+  open "https://crontab.guru/${expression}"
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
@@ -150,32 +146,22 @@ function note() {
 
 goto() {
   if [ "$1" = "heroku" ]; then
-    open "https://dashboard.heroku.com/teams/kpler/apps"
+    open "https://dashboard.heroku.com/"
   elif [ "$1" = "datadog" ]; then
     open "https://app.datadoghq.com/apm/home"
   elif [ "$1" = "gh" ]; then
     local repo=${2:-""}
-    open "https://github.com/Kpler/${repo}"
-  elif [ "$1" = "sentry" ]; then
-    open "https://sentry.io/kpler"
-  elif [ "$1" = "es" ]; then
-    open "https://cloud.elastic.co/#clusters/eu-west-1/e3cb79689a0073a3cca03fc9a5e35e56/overview/"
+    open "https://github.com/${repo}"
   elif [ "$1" = "jira" ]; then
     local ticket="$2"
     if [[ -n "${ticket}" ]]; then
-      open "https://kpler1.atlassian.net/browse/${ticket}"
+      open "https://acme.atlassian.net/browse/${ticket}"
     else
-      open "https://kpler1.atlassian.net/secure/Dashboard.jspa"
+      open "https://acme.atlassian.net/secure/Dashboard.jspa"
     fi
   elif [ "$1" = "aws" ]; then
     local region=${2:-"eu-west-1"}
     open "https://${region}.console.aws.amazon.com/console/home?region=${region}"
-  elif [ "$1" = "ops" ]; then
-    open "https://app.opsgenie.com/alert/V2#/alert-genie"
-  elif [ "$1" = "ci" ]; then
-    local project="$2"
-    # TODO change Kpler
-    open "https://circleci.com/gh/Kpler/${project}"
   else:
     echo "unknown service: ${1}"
   fi
@@ -187,12 +173,12 @@ add_pyth() {
   export PYTHONPATH="${1}:$PYTHONPATH"
 }
 
-rt () {
+rt() {
   local project=${1:-"nose"}
   nosetests -v --with-timer --with-doctest --with-xunit --xunit-file=/tmp/${prpject}-tests.xml "$@"
 }
 
-remote () {
+remote() {
   command_="$1"
   hosts_="$2"
   limit_="$3"
@@ -256,8 +242,6 @@ cani() {
   fi
 }
 
-alias vip='vim +PluginInstall +qall'
-
 gm() {
   git commit -m ${1}
 }
@@ -274,3 +258,31 @@ qr_wifi() {
 }
 
 alias scripts='cat package.json | jq "./scripts"'
+
+explain () {
+  about 'explain any bash command via mankier.com manpage API'
+  param '1: Name of the command to explain'
+  example '$ explain                # interactive mode. Type commands to explain in REPL'
+  example '$ explain 'cmd -o | ...' # one quoted command to explain it.'
+  group 'explain'
+
+  if [ "$#" -eq 0 ]; then
+    while read  -p "Command: " cmd; do
+      curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$cmd"
+    done
+    echo "Bye!"
+  elif [ "$#" -eq 1 ]; then
+    curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$1"
+  else
+    echo "Usage"
+    echo "explain                  interactive mode."
+    echo "explain 'cmd -o | ...'   one quoted command to explain it."
+  fi
+}
+
+compare_master() {
+  local master_url="https://github.$(git config remote.origin.url | cut -f2 -d. | tr ':' /)"
+  local branch="$(git symbolic-ref --short HEAD)"
+
+  open "${master_url}/compare/${branch}"
+}

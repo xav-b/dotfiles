@@ -1,7 +1,8 @@
 ---
 
-# FIXME docker for Mac and docker CE screwed everything...
-# TODO pull cool docker images ?
+# NOTE: DEPRECATED - docker for Mac and docker CE screwed everything.
+
+# TODO: pull cool docker images ?
 
 - name: install docker client
   get_url:

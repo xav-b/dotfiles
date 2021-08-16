@@ -38,11 +38,9 @@ curl https://raw.githubusercontent.com/xav-b/dotfiles/${DOTFILES_VCS_BRANCH}/boo
 ```
 
 You should now have [Ansible][ansible] installed and the repository
-downloaded in `/tmp/dotfiles`.
+downloaded in `./dotfiles`.
 
-Go there and edit to your taste `./vars/packages.yml` (third parties
-packages to be installed) and `./vars/properties.yml` where live the
-settings.
+Go there and edit to your taste `./vars/*.yml`.
 
 Then, suit-up your machine :
 
@@ -55,10 +53,11 @@ TAGS="shell,tools" make
 - Python
 
 ```Sh
+# tested under pyenv 1.2.9
+
 CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.5.6
 
 pyenv virtualenv 3.5.6 dotfiles
-# tested under pyenv 1.2.9
 pyenv activate dotfiles
 
 python --version
@@ -84,13 +83,11 @@ Just run `make` to install them.
 
 ### Manual things to automate
 
-- Compile go1.4 before installing qny superior versions
-- Copy `neovim-init` to `˜/.config/mvim/init.vim`
+- Unable python 3 support for neovim: `pip3 install --user pynvim` (to run after `pyenv global 3.*`)
+- Install: tmuxp plugins: `Press prefix + I (capital i, as in Install) to fetch the plugin`
 
 ### Fixme
 
-- GVM installation on MacOSX
-- fzf install the search helper only for bash
 - tmux looks ugly
 - `thefuck` is not installed nor configured (`eval $(thefuck --alias)`)
 - global pip package missing: neovim, thefuck

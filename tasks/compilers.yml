@@ -1,10 +1,10 @@
 ---
 - name: download tj/n
-  git: repo=https://github.com/tj/n dest={{ tmp_path }}/n
+  git: repo=https://github.com/tj/n dest={{ dna_lib_path }}/n
 - name: install Node version management
   shell: PREFIX={{ dna_home }} make install
   args:
-    chdir: "{{ tmp_path }}/n"
+    chdir: "{{ dna_lib_path }}/n"
 
 # ---
 # --- Python virtualenv
@@ -12,15 +12,15 @@
 #
 # NOTE should we use `pip --user` ?
 
+# https://github.com/yyuu/pyenv
+- name: install pyenv and essential plugins
+  shell: curl https://pyenv.run | PYENV_ROOT="{{ dna_lib_path }}/pyenv" bash
+  when: dev.python_pm == "pyenv"
+
 # http://virtualenvwrapper.readthedocs.io/en/latest/
 - name: install virtualenvwrapper
   pip: name=virtualenvwrapper version=4.7.2
   when: dev.python_pm == "virtualenv"
-
-# https://github.com/yyuu/pyenv
-#- name: install pyenv and essential plugins
-#  shell: curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | PYENV_ROOT="{{ dna_lib_path }}/pyenv" bash
-#  when: dev.python_pm == "pyenv"
 
 # TODO template minconda platform/version ?
 - name: download miniconda
@@ -32,27 +32,3 @@
 - name: install miniconda
   shell: bash /tmp/bootstrap-miniconda.sh -b -f p {{ dev.python_pm_home }}
   when: dev.python_pm == "miniconda"
-
-# TODO if I want to
-# FIXME if it doesn' exist
-# https://github.com/sstephenson/rbenv
-#- name: install rbenv ruby version manager
-#  git: >
-#    repo=https://github.com/sstephenson/rbenv
-#    dest={{ dna_lib_path }}/rbenv
-#    version=9e664b5d27cd7b2bdb94a9ec8ce55c32ebe1ad7a
-
-# https://github.com/sstephenson/ruby-build
-#- name: install ruby-build
-#  git: >
-#    repo=https://github.com/sstephenson/ruby-build
-#    dest={{ dna_lib_path }}/rbenv/plugins/ruby-build
-#    version=8d6ff298006994334ac04b1efed098851c63cf4c
-
-# https://github.com/moovweb/gvm
-# FIXME cannot install v1.5+ since it needs Go to compile
-- stat: path={{ ansible_env.HOME }}/.gvm
-  register: gvm_path
-- name: install go version manager
-  shell: curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | bash
-  when: not (gvm_path.stat.isdir is defined and gvm_path.stat.isdir)

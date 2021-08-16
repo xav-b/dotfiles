@@ -3,24 +3,20 @@
 - name: create dotfiles head quarters
   file: path={{ dna_home }} state=directory
 - file: path={{ dna_home }}/bin state=directory
+- file: path={{ dna_home }}/lib state=directory
+- file: path={{ dev.path }}/.psql_history state=directory recursive=true
 
 # ---
 # --- Configure zsh
 # ---
 
 - name: Set zsh as default shell
-  command: chsh -s /bin/zsh {{ ansible_ssh_user }}
+  command: chsh -s /bin/zsh {{ lookup('env', 'USER') }}
 
-# NOTE lightweight alternative : https://github.com/tarjoilija/zgen
 - name: install antigen framework
   get_url:
     url=https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh
     dest={{ dna_home }}/antigen.zsh
-
-- name: enable Fish-like autosuggestions for zsh
-  git:
-    repo=https://github.com/zsh-users/zsh-autosuggestions
-    dest="{{ dna_lib_path }}/zsh-autosuggestions"
 
 # ---
 # --- Customize shell experience
@@ -33,6 +29,7 @@
 - template: src=./templates/plugins.j2 dest={{ dna_home }}/plugins.zsh
 - template: src=./templates/shellrc.j2 dest={{ dna_home }}/shellrc
 - template: src=./templates/gitconfig.j2 dest={{ ansible_env.HOME }}/.gitconfig
+- template: src=./templates/npmrc.j2 dest={{ ansible_env.HOME }}/.npmrc
 - copy: src=./files/aliases.sh dest={{ dna_lib_path }}/aliases
 - copy: src=./files/functions.sh dest={{ dna_lib_path }}/functions
 
@@ -40,11 +37,6 @@
   copy: src={{ item }} dest={{ dna_bin_path }}
   with_fileglob:
     - ../files/scripts/*
-# NOTE to test : will it copy the directory as-is ?
-- name: copy library helpers
-  copy: src={{ item }} dest={{ dna_lib_path }}
-  with_fileglob:
-    - ../files/etc/*
 
 # ---
 # --- Configure tmux
@@ -57,7 +49,7 @@
   git:
     repo=https://github.com/tmux-plugins/tpm
     dest="{{ ansible_env.HOME }}/.tmux/plugins/tpm"
-    version=f75ba16d5f8276b6f8d08b73f0e2e35a40719251
+    version="{{ dev.tpm_version }}"
 
 - name: copy custom psqlrc
   copy: src=./files/psqlrc dest={{ ansible_env.HOME }}/.psqlrc
@@ -71,28 +63,3 @@
   copy: src={{ item }} dest={{ ansible_env.HOME }}/.cheat/
   with_fileglob:
     - ../files/cheatsheets/*
-
-# TODO check if gem is installed (better : use after rbenv installation)
-#- name: install tmuxinator
-#  gem: name=tmuxinator state=latest
-
-- name: install spot, tiny search utilitygem
-  get_url:
-    url=https://raw.github.com/rauchg/spot/master/spot.sh
-    dest={{ dna_bin_path }}/spot
-
-- name: install shml, style for terminal
-  get_url:
-    url=https://raw.githubusercontent.com/MaxCDN/shml/master/shml.sh
-    dest={{ dna_lib_path }}/shml.sh
-
-# FIXME only work with bash 4+ (won't be available on Mac)
-# http://apple.stackexchange.com/questions/24632/is-it-safe-to-upgrade-bash-via-homebrew/24635#24635
-#- name: install marker, bookmark your terminal commands
-#  git:
-#    repo=https://github.com/pindexis/marker
-#    dest="{{ dna_lib_path }}/marker"
-#    version=1a2d9137cd9152043fdad1e11532e12373093b64
-#- command: ./install.py
-#  args:
-#    chdir: "{{ dna_lib_path }}/marker"

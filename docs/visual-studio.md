@@ -11,3 +11,4 @@ _Non-exhaustive list_
 - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
 - [IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 - [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+- Various Intellisense extensions
