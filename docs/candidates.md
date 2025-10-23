@@ -1,5 +1,7 @@
 # Candidates for suit-up
 
+- [Macos setup guide](https://sourabhbajaj.com/mac-setup/)
+
 ## Shell / Tools
 
 - [TLDR pages](http://tldr-pages.github.io/) - _Simplified and community-driven man pages_

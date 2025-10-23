@@ -71,3 +71,6 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 # For compilers to find libpq you may need to set:
 # export LDFLAGS="-L/usr/local/opt/libpq/lib"
 # export CPPFLAGS="-I/usr/local/opt/libpq/include"
+
+export GOPATH={{ dev.go_path }}
+export PATH=$PATH:$(go ven GOPATH)/bin

@@ -52,6 +52,9 @@ homebrew_pkgs:
   - nnn   # https://github.com/jarun/nnn
   # https://stackoverflow.com/questions/44654216/correct-way-to-install-psql-without-full-postgres-on-macos
   - libpq
+  - openssl
+  - croc  # easily and securely send things from one computer to another
+  - tree  # recursive directory listing command
 
 linux_pkgs:
   - zsh

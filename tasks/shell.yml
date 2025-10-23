@@ -32,6 +32,7 @@
 - template: src=./templates/npmrc.j2 dest={{ ansible_env.HOME }}/.npmrc
 - copy: src=./files/aliases.sh dest={{ dna_lib_path }}/aliases
 - copy: src=./files/functions.sh dest={{ dna_lib_path }}/functions
+- copy: src=./files/gitignore dest={{ ansible_env.HOME }}/.gitignore
 
 - name: copy scripts
   copy: src={{ item }} dest={{ dna_bin_path }}
